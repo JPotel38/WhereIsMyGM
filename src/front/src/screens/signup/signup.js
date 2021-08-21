@@ -7,7 +7,7 @@ import Nav from '../Nav';
 const {Content, Footer} = Layout;
 const {Title} = Typography;
 
-function Inscription() {
+function Signup() {
 
     const [loadingAvatar, setLoadingAvatar] = useState(false);
     const [firstName, setFirstname] = useState('');
@@ -108,7 +108,7 @@ function Inscription() {
         <Layout>
             <Nav/>
             <Content style={{padding: '0 50px'}}>
-                <Title>Sign In</Title>
+                <Title>Sign Up</Title>
                 <Row>
                     <Col span={4} offset={10}>
                         <Avatar src={imageUrl} size={{
@@ -260,4 +260,4 @@ function Inscription() {
     )
 }
 
-export default Inscription
+export default Signup
