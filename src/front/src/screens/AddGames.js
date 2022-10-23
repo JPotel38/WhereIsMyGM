@@ -13,15 +13,6 @@ function addGames() {
         wrapperCol: {offset: 8, span: 16},
     };
 
-    const onFinish = values => {
-        console.log('Success:', values);
-    };
-
-    const onFinishFailed = errorInfo => {
-        console.log('Failed:', errorInfo);
-    };
-
-
     return (
         <Form
             {...layout}

@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="Modif sign up title">
-      <change afterPath="$PROJECT_DIR$/.idea/RPG.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/package.json" afterDir="false" />
+    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="Add dotenv and nodemailer">
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/AddGames.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/AddGames.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Games.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+        <entry key="$PROJECT_DIR$" value="master" />
         <entry key="$PROJECT_DIR$/src" value="refacto" />
       </map>
     </option>
@@ -65,6 +59,8 @@
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
+    "javascript.nodejs.core.library.configured.version": "16.13.0",
+    "javascript.nodejs.core.library.typings.version": "16.11.68",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -165,6 +161,7 @@
       <workItem from="1645895971084" duration="569000" />
       <workItem from="1645982213944" duration="46000" />
       <workItem from="1666455897552" duration="1136000" />
+      <workItem from="1666525219096" duration="290000" />
     </task>
     <task id="LOCAL-00001" summary="Games.js&#10;&#10;Search by title&#10;Search by genre&#10;Random game&#10;Details on click">
       <created>1620511370455</created>
@@ -250,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629544100598</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add dotenv and nodemailer">
+      <created>1666525364771</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666525364771</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +286,7 @@
     <MESSAGE value="Add README&#10;&#10;Minor Change" />
     <MESSAGE value="Minor changes" />
     <MESSAGE value="Modif sign up title" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modif sign up title" />
+    <MESSAGE value="Add dotenv and nodemailer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add dotenv and nodemailer" />
   </component>
 </project>

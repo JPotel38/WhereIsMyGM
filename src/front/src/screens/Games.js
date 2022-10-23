@@ -114,7 +114,7 @@ function Games(props) {
                 {
                     random.length === 1 ? <Button onClick={clearButton}> Clear</Button>
                         : gameIsSelected ? <Button onClick={clearButton}> Clear</Button>
-                        : null
+                            : null
                 }
                 <div className="site-card-wrapper">
                     <List
