@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="Modif sign up title">
+      <change afterPath="$PROJECT_DIR$/.idea/RPG.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="refacto" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/src" value="refacto" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="2aa81e81-f67d-423d-8cb4-954fd96bba3b" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="1nOLLGJMnhSN6cMqi0av1DmCF79" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jerem\IdeaProjects\RPG\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jerem\IdeaProjects\RPG\src" />
+      <recent name="C:\Users\Jerem\IdeaProjects\RPG\src\front\src\screens\inscription" />
+      <recent name="C:\Users\Jerem\IdeaProjects\RPG\src\public" />
+      <recent name="C:\Users\Jerem\IdeaProjects\RPG" />
+      <recent name="C:\Users\Jerem\IdeaProjects\RPG\src\front" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="" />
+      <created>1611256134131</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611256134131</updated>
+      <workItem from="1611256135800" duration="465000" />
+      <workItem from="1611256618910" duration="258000" />
+      <workItem from="1611256890317" duration="633000" />
+      <workItem from="1614362444728" duration="105000" />
+      <workItem from="1614362565321" duration="318000" />
+      <workItem from="1614369851984" duration="10000" />
+      <workItem from="1614514280796" duration="594000" />
+      <workItem from="1614533811867" duration="9000" />
+      <workItem from="1617642130125" duration="456000" />
+      <workItem from="1617643077872" duration="1074000" />
+      <workItem from="1617646418447" duration="94000" />
+      <workItem from="1617646842370" duration="391000" />
+      <workItem from="1619889217189" duration="83000" />
+      <workItem from="1619889351642" duration="38000" />
+      <workItem from="1619889498426" duration="351000" />
+      <workItem from="1620325642241" duration="4426000" />
+      <workItem from="1620412704348" duration="7726000" />
+      <workItem from="1620508359052" duration="4663000" />
+      <workItem from="1620664538240" duration="6400000" />
+      <workItem from="1620675246008" duration="982000" />
+      <workItem from="1620676259514" duration="3168000" />
+      <workItem from="1620922619828" duration="361000" />
+      <workItem from="1620927635780" duration="5207000" />
+      <workItem from="1620932955304" duration="2647000" />
+      <workItem from="1620993747787" duration="8657000" />
+      <workItem from="1621082170976" duration="5120000" />
+      <workItem from="1621102319218" duration="3809000" />
+      <workItem from="1621121565961" duration="205000" />
+      <workItem from="1621170639158" duration="3680000" />
+      <workItem from="1621333423629" duration="662000" />
+      <workItem from="1621340843117" duration="1151000" />
+      <workItem from="1621360381436" duration="1278000" />
+      <workItem from="1621365033358" duration="1695000" />
+      <workItem from="1621367090356" duration="1999000" />
+      <workItem from="1621415451447" duration="11949000" />
+      <workItem from="1621520319002" duration="2229000" />
+      <workItem from="1621617391402" duration="5663000" />
+      <workItem from="1621634148601" duration="79000" />
+      <workItem from="1621685243181" duration="3913000" />
+      <workItem from="1621708173815" duration="6220000" />
+      <workItem from="1621773247277" duration="5180000" />
+      <workItem from="1621862873557" duration="2148000" />
+      <workItem from="1621867431903" duration="7229000" />
+      <workItem from="1622302004987" duration="187000" />
+      <workItem from="1622313619325" duration="604000" />
+      <workItem from="1622457853422" duration="8000" />
+      <workItem from="1622457887182" duration="28000" />
+      <workItem from="1622484613473" duration="595000" />
+      <workItem from="1623180905274" duration="191000" />
+      <workItem from="1623181229745" duration="567000" />
+      <workItem from="1624043639146" duration="6000" />
+      <workItem from="1624216723946" duration="1047000" />
+      <workItem from="1624298421487" duration="2506000" />
+      <workItem from="1625306426332" duration="43000" />
+      <workItem from="1625306593228" duration="1163000" />
+      <workItem from="1625388175910" duration="9422000" />
+      <workItem from="1625420885143" duration="8729000" />
+      <workItem from="1625503490104" duration="742000" />
+      <workItem from="1625506093465" duration="920000" />
+      <workItem from="1625507393816" duration="16000" />
+      <workItem from="1626030389697" duration="1040000" />
+      <workItem from="1626031525329" duration="258000" />
+      <workItem from="1627040899528" duration="253000" />
+      <workItem from="1629543730448" duration="423000" />
+      <workItem from="1629646647181" duration="21000" />
+      <workItem from="1634652926332" duration="110000" />
+      <workItem from="1635172563102" duration="21000" />
+      <workItem from="1645809150334" duration="57000" />
+      <workItem from="1645811344734" duration="146000" />
+      <workItem from="1645813178431" duration="41000" />
+      <workItem from="1645813949880" duration="721000" />
+      <workItem from="1645895168139" duration="347000" />
+      <workItem from="1645895533184" duration="177000" />
+      <workItem from="1645895971084" duration="569000" />
+      <workItem from="1645982213944" duration="46000" />
+      <workItem from="1666455897552" duration="1136000" />
+    </task>
+    <task id="LOCAL-00001" summary="Games.js&#10;&#10;Search by title&#10;Search by genre&#10;Random game&#10;Details on click">
+      <created>1620511370455</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620511370455</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Games.js&#10;&#10;Add Avatar&#10;Upload avatar on Cloudinary&#10;&#10;TODO : Avatar and body must be on same request">
+      <created>1621714633966</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621714633966</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Games.js&#10;&#10;Inscription with picture and infos on Submit button click&#10;&#10;TODO &#10;&#10;Matching password/ Password strength">
+      <created>1621778299342</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621778299342</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Log-in done &#10;&#10;TODO :&#10;&#10;Add align style">
+      <created>1625398638779</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1625398638779</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Log-in done &#10;&#10;TODO :&#10;&#10;Add align style">
+      <created>1625399696230</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1625399696230</updated>
+    </task>
+    <task id="LOCAL-00006" summary="WIP Refacto">
+      <created>1625402334326</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1625402334326</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refacto done">
+      <created>1625430760201</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1625430760201</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add README&#10;&#10;Merged refacto into master">
+      <created>1625431008345</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1625431008345</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add README&#10;&#10;Merged refacto into master">
+      <created>1625431140839</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1625431140839</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add README&#10;&#10;Minor Change">
+      <created>1625431601622</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1625431601622</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Minor changes">
+      <created>1625506284870</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1625506284870</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Modif sign up title">
+      <created>1629544100598</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1629544100598</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src" />
+    </ignored-roots>
+    <MESSAGE value="Games.js&#10;&#10;Search by title&#10;Search by genre&#10;Random game&#10;Details on click" />
+    <MESSAGE value="Games.js&#10;&#10;Add Avatar&#10;Upload avatar on Cloudinary&#10;&#10;TODO : Avatar and body must be on same request" />
+    <MESSAGE value="Games.js&#10;&#10;Inscription with picture and infos on Submit button click&#10;&#10;TODO &#10;&#10;Matching password/ Password strength" />
+    <MESSAGE value="Log-in done &#10;&#10;TODO :&#10;&#10;Add align style" />
+    <MESSAGE value="WIP Refacto" />
+    <MESSAGE value="Refacto done" />
+    <MESSAGE value="Add README&#10;&#10;Merged refacto into master" />
+    <MESSAGE value="Add README&#10;&#10;Minor Change" />
+    <MESSAGE value="Minor changes" />
+    <MESSAGE value="Modif sign up title" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modif sign up title" />
+  </component>
+</project>
