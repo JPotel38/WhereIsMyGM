@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Button, Checkbox, Form, Input, Layout, Modal, Typography} from 'antd';
 import '../App.css';
-import Nav from './Nav';
 
-const {Content, Footer} = Layout;
+const {Content} = Layout;
 const {Title} = Typography;
 
 function Login() {
@@ -56,59 +55,55 @@ function Login() {
     };
 
     return (
-        <Layout className="layout">
-            <Nav/>
-            <Content style={{padding: '0 50px'}}>
-                <Title>Connexion</Title>
-                <Form
-                    {...layout}
-                    name="basic"
-                    initialValues={{
-                        remember: true,
-                    }}
+        <Content style={{padding: '0 50px'}}>
+            <Title>Connexion</Title>
+            <Form
+                {...layout}
+                name="basic"
+                initialValues={{
+                    remember: true,
+                }}
+            >
+                <Form.Item
+                    label="email"
+                    name="email"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your email!',
+                        },
+                    ]}
                 >
-                    <Form.Item
-                        label="email"
-                        name="email"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your email!',
-                            },
-                        ]}
-                    >
-                        <Input onChange={(e) => setEmail(e.target.value)}
-                               value={email}/>
-                    </Form.Item>
+                    <Input onChange={(e) => setEmail(e.target.value)}
+                           value={email}/>
+                </Form.Item>
 
-                    <Form.Item
-                        label="Password"
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                        ]}
-                    >
-                        <Input.Password onChange={(e) => setPassword(e.target.value)}
-                                        value={password}/>
-                    </Form.Item>
+                <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your password!',
+                        },
+                    ]}
+                >
+                    <Input.Password onChange={(e) => setPassword(e.target.value)}
+                                    value={password}/>
+                </Form.Item>
 
-                    <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                        <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
+                <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+                    <Checkbox>Remember me</Checkbox>
+                </Form.Item>
 
-                    <Form.Item {...tailLayout}>
+                <Form.Item {...tailLayout}>
 
-                        <Button type="primary" htmlType="submit" onClick={() => validInfos()}>
-                            Submit
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Content>
-            <Footer style={{textAlign: 'center'}}>MJ ici ©2020 Created by Jérémy Potel</Footer>
-        </Layout>
+                    <Button type="primary" htmlType="submit" onClick={() => validInfos()}>
+                        Submit
+                    </Button>
+                </Form.Item>
+            </Form>
+        </Content>
     )
 }
 

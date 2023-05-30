@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Layout, Space, Typography} from 'antd';
+import {Layout, Space, Typography} from 'antd';
 import '../App.css';
-import {Link} from "react-router-dom";
-import Nav from './Nav';
 
-const {Content, Footer} = Layout;
+const {Content} = Layout;
 const {Title, Text} = Typography;
 
 function Details(props) {
@@ -27,22 +25,15 @@ function Details(props) {
     }, []);
 
     return (
-        <Layout className="layout">
-            <Nav/>
-            <Content style={{padding: '0 50px'}}>
-                <Title>{gameTitle}</Title>
-                <Space direction="vertical">
-                    <Text strong>Genre:</Text><Text>{gameEdition}</Text>
-                    <Text strong>Edition:</Text><Text> {gameGenre}</Text>
-                    <Text strong>Author:</Text><Text> {gameAuthor}</Text>
-                </Space>
-                <Title level={3}>Why is it fun ?</Title>
-
-            </Content>
-            <Footer style={{textAlign: 'center'}}>
-                <Button> <Link to={"/games"}>Return</Link></Button>
-                MJ ici ©2020 Created by Jérémy Potel</Footer>
-        </Layout>
+        <Content style={{padding: '0 50px'}}>
+            <Title>{gameTitle}</Title>
+            <Space direction="vertical">
+                <Text strong>Genre:</Text><Text>{gameEdition}</Text>
+                <Text strong>Edition:</Text><Text> {gameGenre}</Text>
+                <Text strong>Author:</Text><Text> {gameAuthor}</Text>
+            </Space>
+            <Title level={3}>Why is it fun ?</Title>
+        </Content>
     )
 }
 

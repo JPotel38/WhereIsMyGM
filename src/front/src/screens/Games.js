@@ -3,9 +3,8 @@ import {Button, Card, Layout, List, Select, Typography} from 'antd';
 import {FaDiceD20, FaInfoCircle} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import '../App.css';
-import Nav from './Nav';
 
-const {Content, Footer} = Layout;
+const {Content} = Layout;
 const {Title} = Typography;
 const {Option} = Select;
 
@@ -76,77 +75,73 @@ function Games(props) {
     }
 
     return (
-        <Layout className="layout">
-            <Nav/>
-            <Content style={{padding: '0 50px'}}>
-                <Title>Games</Title>
-                <Select
-                    showSearch
-                    style={{width: 400}}
-                    placeholder="Select a game"
-                    optionFilterProp="children"
-                    onChange={onChangeJeu}
-                    filterOption={(input, option) =>
-                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                    }
-                >
-                    {listGamesTitles.map(items =>
-                        <Option value={items}>{items}</Option>)}
-                </Select>
-                <Select
-                    showSearch
-                    style={{width: 200}}
-                    placeholder="Select a type"
-                    optionFilterProp="children"
-                    onChange={onChangeGenre}
-                    filterOption={(input, option) =>
-                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                    }
-                >
-                    <Option value="Fantasy">Fantasy</Option>
-                    <Option value="Fantastique">Fantastic</Option>
-                    <Option value="Historique">Historical</Option>
-                    <Option value="Horreur">Horror</Option>
-                    <Option value="Science-Fiction">Science-Fiction</Option>
-                    <Option value="Space-Opera">Space-Opera</Option>
-                </Select>
-                <Button onClick={randomGame}><FaDiceD20/> Random game</Button>
-                {
-                    random.length === 1 ? <Button onClick={clearButton}> Clear</Button>
-                        : gameIsSelected ? <Button onClick={clearButton}> Clear</Button>
-                            : null
+        <Content style={{padding: '0 50px'}}>
+            <Title>Games</Title>
+            <Select
+                showSearch
+                style={{width: 400}}
+                placeholder="Select a game"
+                optionFilterProp="children"
+                onChange={onChangeJeu}
+                filterOption={(input, option) =>
+                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                 }
-                <div className="site-card-wrapper">
-                    <List
-                        grid={{
-                            gutter: 16, xs: 1, sm: 1, md: 3, lg: 3, xl: 3, xxl: 4
-                        }}
-                        itemLayout="vertical"
-                        size="large"
-                        onChange={onChangePaginationSize}
-                        loading={listGames.length === 0}
-                        pagination={{
-                            pageSize: 15,
-                            pageSizeOptions: random.length ? false :
-                                listGames.length < 11 ? false : [10, 20, 50, 100]
-                        }}
-                        dataSource={isRandom ? random : listGames}
-                        renderItem={item => (
-                            <List.Item key={item.title}>
-                                <Card title={item.title}>
-                                    <Link to={`/details/${item._id}`}>
-                                        <FaInfoCircle/>
-                                    </Link>
-                                    <p>Edition : {item.edition}</p>
-                                    <p>Genre : {item.genre}</p>
-                                </Card>
-                            </List.Item>
-                        )}
-                    />
-                </div>
-            </Content>
-            <Footer style={{textAlign: 'center'}}>MJ ici ©2020 Created by Jérémy Potel</Footer>
-        </Layout>
+            >
+                {listGamesTitles.map(items =>
+                    <Option value={items}>{items}</Option>)}
+            </Select>
+            <Select
+                showSearch
+                style={{width: 200}}
+                placeholder="Select a type"
+                optionFilterProp="children"
+                onChange={onChangeGenre}
+                filterOption={(input, option) =>
+                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
+            >
+                <Option value="Fantasy">Fantasy</Option>
+                <Option value="Fantastique">Fantastic</Option>
+                <Option value="Historique">Historical</Option>
+                <Option value="Horreur">Horror</Option>
+                <Option value="Science-Fiction">Science-Fiction</Option>
+                <Option value="Space-Opera">Space-Opera</Option>
+            </Select>
+            <Button onClick={randomGame}><FaDiceD20/> Random game</Button>
+            {
+                random.length === 1 ? <Button onClick={clearButton}> Clear</Button>
+                    : gameIsSelected ? <Button onClick={clearButton}> Clear</Button>
+                        : null
+            }
+            <div className="site-card-wrapper">
+                <List
+                    grid={{
+                        gutter: 16, xs: 1, sm: 1, md: 3, lg: 3, xl: 3, xxl: 4
+                    }}
+                    itemLayout="vertical"
+                    size="large"
+                    onChange={onChangePaginationSize}
+                    loading={listGames.length === 0}
+                    pagination={{
+                        pageSize: 15,
+                        pageSizeOptions: random.length ? false :
+                            listGames.length < 11 ? false : [10, 20, 50, 100]
+                    }}
+                    dataSource={isRandom ? random : listGames}
+                    renderItem={item => (
+                        <List.Item key={item.title}>
+                            <Card title={item.title}>
+                                <Link to={`/details/${item._id}`}>
+                                    <FaInfoCircle/>
+                                </Link>
+                                <p>Edition : {item.edition}</p>
+                                <p>Genre : {item.genre}</p>
+                            </Card>
+                        </List.Item>
+                    )}
+                />
+            </div>
+        </Content>
     )
 }
 
