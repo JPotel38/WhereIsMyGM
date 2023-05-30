@@ -1,7 +1,6 @@
 @import '~antd/dist/antd.css';
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -24,6 +23,11 @@ a {
 .ant-menu {
   background: none;
 }
+
+.site-card-wrapper {
+  min-height: 925px;
+}
+
 #components-layout-demo-top .logo {
   width: 120px;
   height: 31px;
