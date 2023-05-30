@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="Add dotenv and nodemailer">
-      <change beforePath="$PROJECT_DIR$/src/front/src/screens/AddGames.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/AddGames.js" afterDir="false" />
+    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="Indent compos">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Details.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/front/src/screens/Games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Games.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/signup/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/signup/Signup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +62,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "javascript.nodejs.core.library.configured.version": "16.13.0",
-    "javascript.nodejs.core.library.typings.version": "16.11.68",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jerem\IdeaProjects\RPG\src" />
@@ -162,6 +165,9 @@
       <workItem from="1645982213944" duration="46000" />
       <workItem from="1666455897552" duration="1136000" />
       <workItem from="1666525219096" duration="290000" />
+      <workItem from="1666545638222" duration="85000" />
+      <workItem from="1685441124681" duration="1456000" />
+      <workItem from="1685447493251" duration="2666000" />
     </task>
     <task id="LOCAL-00001" summary="Games.js&#10;&#10;Search by title&#10;Search by genre&#10;Random game&#10;Details on click">
       <created>1620511370455</created>
@@ -254,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666525364771</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Indent compos">
+      <created>1666545717515</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1666545717515</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +300,7 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="Modif sign up title" />
     <MESSAGE value="Add dotenv and nodemailer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dotenv and nodemailer" />
+    <MESSAGE value="Indent compos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Indent compos" />
   </component>
 </project>
