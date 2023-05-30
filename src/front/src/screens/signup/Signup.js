@@ -9,7 +9,7 @@ const {Title} = Typography;
 
 function Signup() {
 
-    const [loadingAvatar, setLoadingAvatar] = useState(false);
+    const [setLoadingAvatar] = useState(false);
     const [firstName, setFirstname] = useState('');
     const [lastName, setLastname] = useState('');
     const [userPseudo, setUserPseudo] = useState('');
