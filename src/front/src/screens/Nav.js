@@ -42,7 +42,6 @@ function Nav() {
         <Header>
             <Menu mode="horizontal" style={{width: "100%"}}>
                 <Menu.Item key="1"><Title><Link to="/">WhereIsMyGM?</Link></Title></Menu.Item>
-                <Menu.Item key="2">Who are we ?</Menu.Item>
                 <Menu.Item key="10"><Link to='/gm'>Game Masters</Link></Menu.Item>
                 <Menu.Item key="11"><Link to='/games'>Games</Link></Menu.Item>
                 {items}
