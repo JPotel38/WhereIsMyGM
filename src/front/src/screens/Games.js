@@ -87,8 +87,8 @@ function Games(props) {
                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                 }
             >
-                {listGamesTitles.map(items =>
-                    <Option value={items}>{items}</Option>)}
+                {listGamesTitles.map((items, k) =>
+                    <Option key={k} value={items}>{items}</Option>)}
             </Select>
             <Select
                 showSearch
