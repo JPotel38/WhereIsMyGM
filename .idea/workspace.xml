@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="Indent compos">
+    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="refactor : rename SignUpComponent">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Games.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/src/screens/signup/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/signup/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/GameMasters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/GameMasters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/screens/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/screens/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/games.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +45,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="2aa81e81-f67d-423d-8cb4-954fd96bba3b" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -66,6 +60,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -168,6 +163,8 @@
       <workItem from="1666545638222" duration="85000" />
       <workItem from="1685441124681" duration="1456000" />
       <workItem from="1685447493251" duration="2666000" />
+      <workItem from="1685454775549" duration="917000" />
+      <workItem from="1685517468478" duration="1727000" />
     </task>
     <task id="LOCAL-00001" summary="Games.js&#10;&#10;Search by title&#10;Search by genre&#10;Random game&#10;Details on click">
       <created>1620511370455</created>
@@ -267,7 +264,35 @@
       <option name="project" value="LOCAL" />
       <updated>1666545717515</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="style : sticky footer">
+      <created>1685454872800</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685454872800</updated>
+    </task>
+    <task id="LOCAL-00016" summary="refactor : move NavComponent to App">
+      <created>1685454944910</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685454944910</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor : rework workspac.xml and delete useless package-lock">
+      <created>1685454981499</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685454981499</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactor : rename SignUpComponent">
+      <created>1685455021937</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685455021937</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +326,10 @@
     <MESSAGE value="Modif sign up title" />
     <MESSAGE value="Add dotenv and nodemailer" />
     <MESSAGE value="Indent compos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Indent compos" />
+    <MESSAGE value="style : sticky footer" />
+    <MESSAGE value="refactor : move NavComponent to App" />
+    <MESSAGE value="refactor : rework workspac.xml and delete useless package-lock" />
+    <MESSAGE value="refactor : rename SignUpComponent" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : rename SignUpComponent" />
   </component>
 </project>
