@@ -7,6 +7,8 @@ const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
 const salt = uid2(32);
 const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken')
+
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 router.post('/inscription', async function (req) {
@@ -77,21 +79,27 @@ router.post('/inscription', async function (req) {
 router.post('/connexion', async function (req, res) {
     let result = false;
     let error = [];
-
+    let infos = [];
     let user = await UserModel.findOne({email: req.body.email});
 
     if (user) {
         let hash = SHA256(req.body.password + user.salt).toString(encBase64);
-        if (hash === user.password)
+        if (hash === user.password) {
             result = true;
-    else {
-            error.push("Invalid password")
+            let jwtSecretKey = process.env.JWT_SECRET_KEY;
+            let data = {
+                time: Date()
+            }
+            const token = jwt.sign(data, jwtSecretKey);
+            infos.push(token)
+        } else {
+            error.push("Invalid password.")
             user = null;
         }
     } else if (!user && req.body.email !== '') {
-        error.push("This email doesn'\t exist");
+        error.push("This email doesn'\t exist.");
     }
-    res.json({result, error, user});
+    res.json({result, error, infos, user});
 });
 
 router.post('/viewpicture', async function (req, res) {
