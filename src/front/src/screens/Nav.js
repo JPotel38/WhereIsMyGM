@@ -1,42 +1,49 @@
 import React from 'react';
 import {Button, Layout, Menu, Typography} from 'antd';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import '../App.css';
 
 const {Header} = Layout;
 const {Title} = Typography;
 
 function Nav() {
-    let user = JSON.parse(localStorage.getItem('user'))
-    let items;
+    const history = useHistory();
+    const user = JSON.parse(localStorage.getItem('user'))
+    const items = [];
+
+    const logout = () => {
+        localStorage.clear();
+        }
 
     if (user != null) {
 
-        let itemCompte =
-            <Menu.Item key="7" style={{float: 'right'}}>
-                <Link to='/account'>{user.username}</Link>
+        let itemAccount =
+            <Menu.Item key="account" style={{float: 'right'}}>
+                <Link to='/account'>{user.userPseudo}</Link>
             </Menu.Item>
 
         let itemLogout =
-            <Menu.Item key="12" style={{float: 'right'}}>
+            <Menu.Item key="logout" style={{float: 'right'}}>
                 <Button
-                    onClick={() => localStorage.clear()}
+                    onClick={logout}
                 > Logout
                 </Button>
             </Menu.Item>
-        items = [itemLogout, itemCompte];
+
+        items.push(itemAccount, itemLogout);
     } else {
         let itemConnexion =
-            <Menu.Item key="5" style={{float: 'right'}}>
+            <Menu.Item key="login" style={{float: 'right'}}>
                 <Link to='/login'>Log in</Link>
             </Menu.Item>
         let itemInscription =
-            <Menu.Item key="6" style={{float: 'right'}}>
+            <Menu.Item key="signup" style={{float: 'right'}}>
                 <Link to='/signup'>Sign up</Link>
             </Menu.Item>
 
-        items = [itemConnexion, itemInscription]
+        items.push(itemConnexion, itemInscription);
     }
+
 
     return (
         <Header>
