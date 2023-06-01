@@ -12,19 +12,18 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 router.post('/inscription', async function (req) {
     let uploadResponse;
     let newUser;
-    try {
-        uploadResponse = await cloudinary.uploader.upload(req.body.profilePicture,
-            {folder: "whereismygm/users"});
-    } catch (e) {
-        console.log('Cloudinary error:', e)
-    }
+    // try {
+    //     uploadResponse = await cloudinary.uploader.upload(req.body.profilePicture,
+    //         {folder: "whereismygm/users"});
+    // } catch (e) {
+    //     console.log('Cloudinary error:', e)
+    // }
 
     try {
         newUser = await new UserModel({
             lastName: req.body.lastname,
             firstName: req.body.firstname,
             userPseudo: req.body.userpseudo,
-            profilePicture: uploadResponse.url,
             dateInscription: Date.now(),
             email: req.body.email,
             emailStatus: 'Pending',
@@ -32,38 +31,38 @@ router.post('/inscription', async function (req) {
             salt: salt,
             token: uid2(32)
         });
-        // await newUser.save();
+        await newUser.save();
     } catch (e) {
         console.log('Saved new user error:', e)
     }
 
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.USER,
-            pass: process.env.PASSWORD
-        }
-    });
-
-    const mailOptions = {
-        from: 'whereismygm@gmail.com',
-        to: req.body.email,
-        subject: 'Test super app',
-        text: 'Sent from My RPG APP!'
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-            newUser.emailStatus = 'Rejected'
-        } else {
-            if (info.accepted.length > 0) {
-                console.log(info);
-                newUser.emailStatus = 'Valid'
-            }
-        }
-
-    });
+    // const transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //         user: process.env.USER,
+    //         pass: process.env.PASSWORD
+    //     }
+    // });
+    //
+    // const mailOptions = {
+    //     from: 'whereismygm@gmail.com',
+    //     to: req.body.email,
+    //     subject: 'Test super app',
+    //     text: 'Sent from My RPG APP!'
+    // };
+    //
+    // transporter.sendMail(mailOptions, (error, info) => {
+    //     if (error) {
+    //         console.log(error);
+    //         newUser.emailStatus = 'Rejected'
+    //     } else {
+    //         if (info.accepted.length > 0) {
+    //             console.log(info);
+    //             newUser.emailStatus = 'Valid'
+    //         }
+    //     }
+    //
+    // });
 
     // if (user.token) {
     //     console.log("Token ok")
@@ -80,11 +79,12 @@ router.post('/connexion', async function (req, res) {
     let error = [];
 
     let user = await UserModel.findOne({email: req.body.email});
+
     if (user) {
         let hash = SHA256(req.body.password + user.salt).toString(encBase64);
         if (hash === user.password)
             result = true;
-        else {
+    else {
             error.push("Invalid password")
             user = null;
         }
