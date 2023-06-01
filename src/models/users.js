@@ -22,8 +22,7 @@ const userSchema = new mongoose.Schema({
     listGames: [{type: mongoose.Schema.Types.ObjectId, ref: 'games'}],
     dateInscription: Date,
     dateLastCo: Date,
-    salt: String,
-    token: String
+    salt: String
 });
 
 
