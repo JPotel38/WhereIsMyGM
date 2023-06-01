@@ -109,9 +109,7 @@ function Games(props) {
             </Select>
             <Button onClick={randomGame}><FaDiceD20/> Random game</Button>
             {
-                random.length === 1 ? <Button onClick={clearButton}> Clear</Button>
-                    : gameIsSelected ? <Button onClick={clearButton}> Clear</Button>
-                        : null
+                random.length === 1 || gameIsSelected ? <Button onClick={clearButton}>Clear</Button> : null
             }
             <div className="site-card-wrapper">
                 <List
@@ -123,20 +121,20 @@ function Games(props) {
                     onChange={onChangePaginationSize}
                     loading={listGames.length === 0}
                     pagination={{
-                        pageSize: 15,
-                        pageSizeOptions: random.length ? false :
-                            listGames.length < 11 ? false : [10, 20, 50, 100]
+                        pageSize: 9
                     }}
                     dataSource={isRandom ? random : listGames}
                     renderItem={item => (
                         <List.Item key={item.title}>
-                            <Card title={item.title}>
-                                <Link to={`/details/${item._id}`}>
+                            <Link to={`/details/${item._id}`}>
+                                <Card title={item.title}
+                                      hoverable
+                                >
                                     <FaInfoCircle/>
-                                </Link>
-                                <p>Edition : {item.edition}</p>
-                                <p>Genre : {item.genre}</p>
-                            </Card>
+                                    <p>Edition : {item.edition}</p>
+                                    <p>Genre : {item.genre}</p>
+                                </Card>
+                            </Link>
                         </List.Item>
                     )}
                 />
