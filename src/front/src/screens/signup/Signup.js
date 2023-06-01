@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import {Avatar, Button, Col, Form, Input, Layout, message, Row, Typography, Upload} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
 import '../../App.css';
-import Nav from '../Nav';
 
-const {Content, Footer} = Layout;
+const {Content} = Layout;
 const {Title} = Typography;
 
 function Signup() {
@@ -105,158 +104,154 @@ function Signup() {
     };
 
     return (
-        <Layout>
-            <Nav/>
-            <Content style={{padding: '0 50px'}}>
-                <Title>Sign Up</Title>
+        <Content style={{padding: '0 50px'}}>
+            <Title>Sign Up</Title>
+            <Row>
+                <Col span={4} offset={10}>
+                    <Avatar src={imageUrl} size={{
+                        xs: 24,
+                        sm: 32,
+                        md: 40,
+                        lg: 64,
+                        xl: 80,
+                        xxl: 100,
+                    }}
+                            icon={<AntDesignOutlined/>}/>
+                </Col>
+            </Row>
+            <Form {...formItemLayout} >
                 <Row>
                     <Col span={4} offset={10}>
-                        <Avatar src={imageUrl} size={{
-                            xs: 24,
-                            sm: 32,
-                            md: 40,
-                            lg: 64,
-                            xl: 80,
-                            xxl: 100,
-                        }}
-                                icon={<AntDesignOutlined/>}/>
+                        <Upload
+                            {...formItemLayout}
+                            name="imageUrl"
+                            className="avatar-uploader"
+                            showUploadList={false}
+                            action="/access/viewpicture"
+                            beforeUpload={beforeUpload}
+                            onChange={handleChange}
+                        >
+                            <Button style={{marginTop: 8, marginBottom: 8}}>Upload</Button>
+                        </Upload>
                     </Col>
                 </Row>
-                <Form {...formItemLayout} >
-                    <Row>
-                        <Col span={4} offset={10}>
-                            <Upload
-                                {...formItemLayout}
-                                name="imageUrl"
-                                className="avatar-uploader"
-                                showUploadList={false}
-                                action="/access/viewpicture"
-                                beforeUpload={beforeUpload}
-                                onChange={handleChange}
-                            >
-                                <Button style={{marginTop: 8, marginBottom: 8}}>Upload</Button>
-                            </Upload>
-                        </Col>
-                    </Row>
-                    <Form.Item
-                        label="Pseudo"
-                        labelCol={4}
-                        name="username"
-                        rules={[
-                            {
-                                required: true, message: 'Please enter a pseudo',
+                <Form.Item
+                    label="Pseudo"
+                    labelCol={4}
+                    name="username"
+                    rules={[
+                        {
+                            required: true, message: 'Please enter a pseudo',
+                        },
+                        {
+                            whitespace: true
+                        }
+                    ]}
+                >
+                    <Input onChange={(e) => setUserPseudo(e.target.value)}
+                           value={userPseudo}/>
+                </Form.Item>
+                <Form.Item
+                    label="Firstname"
+                    labelCol={4}
+                    name="firstname"
+                    rules={[
+                        {
+                            required: true, message: 'Please enter a firstname',
+                        },
+                        {
+                            whitespace: true
+                        }
+                    ]}
+                >
+                    <Input
+                        onChange={(e) => setFirstname(e.target.value)}
+                        value={firstName}
+                    />
+                </Form.Item>
+                <Form.Item
+                    label="Lastname"
+                    labelCol={4}
+                    name="lastname"
+                    rules={[
+                        {
+                            required: true, message: 'Please enter a last name',
+                        },
+                        {
+                            whitespace: true
+                        }
+                    ]}
+                >
+                    <Input onChange={(e) => setLastname(e.target.value)}
+                           value={lastName}/>
+                </Form.Item>
+                <Form.Item
+                    label="Email"
+                    labelCol={4}
+                    name="email"
+                    rules={[
+                        {
+                            required: true, message: 'Please enter a last name',
+                        },
+                        {
+                            whitespace: true
+                        }
+                    ]}
+                >
+                    <Input onChange={(e) => setEmail(e.target.value)}
+                           value={email}/>
+                </Form.Item>
+                <Form.Item
+                    label="Password"
+                    labelCol={4}
+                    name="password"
+                    rules={[
+                        {
+                            required: true, message: 'Please enter a last name',
+                        },
+                        {
+                            whitespace: true
+                        }
+                    ]}
+                >
+                    <Input.Password onChange={(e) => setPassword(e.target.value)}
+                                    value={password}/>
+                </Form.Item>
+                <Form.Item
+                    label="PasswordConfirm"
+                    labelCol={4}
+                    name="passwordConfirm"
+                    dependencies={['password']}
+                    rules={[
+                        {
+                            required: true, message: 'Please enter your password',
+                        },
+                        ({getFieldValue}) => ({
+                            validator(_, value) {
+                                if (!value || getFieldValue('password') === value) {
+                                    setPasswordConfirm(true);
+                                    setIsPasswordsMatch(true);
+                                    return Promise.resolve();
+                                }
+                                return Promise.reject(new Error('Passord don\'t match'));
                             },
-                            {
-                                whitespace: true
-                            }
-                        ]}
-                    >
-                        <Input onChange={(e) => setUserPseudo(e.target.value)}
-                               value={userPseudo}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Firstname"
-                        labelCol={4}
-                        name="firstname"
-                        rules={[
-                            {
-                                required: true, message: 'Please enter a firstname',
-                            },
-                            {
-                                whitespace: true
-                            }
-                        ]}
-                    >
-                        <Input
-                            onChange={(e) => setFirstname(e.target.value)}
-                            value={firstName}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        label="Lastname"
-                        labelCol={4}
-                        name="lastname"
-                        rules={[
-                            {
-                                required: true, message: 'Please enter a last name',
-                            },
-                            {
-                                whitespace: true
-                            }
-                        ]}
-                    >
-                        <Input onChange={(e) => setLastname(e.target.value)}
-                               value={lastName}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Email"
-                        labelCol={4}
-                        name="email"
-                        rules={[
-                            {
-                                required: true, message: 'Please enter a last name',
-                            },
-                            {
-                                whitespace: true
-                            }
-                        ]}
-                    >
-                        <Input onChange={(e) => setEmail(e.target.value)}
-                               value={email}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Password"
-                        labelCol={4}
-                        name="password"
-                        rules={[
-                            {
-                                required: true, message: 'Please enter a last name',
-                            },
-                            {
-                                whitespace: true
-                            }
-                        ]}
-                    >
-                        <Input.Password onChange={(e) => setPassword(e.target.value)}
-                                        value={password}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="PasswordConfirm"
-                        labelCol={4}
-                        name="passwordConfirm"
-                        dependencies={['password']}
-                        rules={[
-                            {
-                                required: true, message: 'Please enter your password',
-                            },
-                            ({getFieldValue}) => ({
-                                validator(_, value) {
-                                    if (!value || getFieldValue('password') === value) {
-                                        setPasswordConfirm(true);
-                                        setIsPasswordsMatch(true);
-                                        return Promise.resolve();
-                                    }
-                                    return Promise.reject(new Error('Passord don\'t match'));
-                                },
-                            }),
-                            {
-                                whitespace: true
-                            }
-                        ]}
-                    >
-                        <Input.Password onChange={(e) => setPasswordConfirm(e.target.value)}
-                                        value={passwordConfirm}/>
-                    </Form.Item>
-                    <Form.Item {...tailLayout} >
-                        <Button type="primary" htmlType="submit" onClick={() => validInfos()}
-                                disabled={!isPasswordsMatch}>
-                            Submit
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Content>
-            <Footer style={{textAlign: 'center'}}>MJ ici ©2020 Created by Jérémy Potel</Footer>
-        </Layout>
+                        }),
+                        {
+                            whitespace: true
+                        }
+                    ]}
+                >
+                    <Input.Password onChange={(e) => setPasswordConfirm(e.target.value)}
+                                    value={passwordConfirm}/>
+                </Form.Item>
+                <Form.Item {...tailLayout} >
+                    <Button type="primary" htmlType="submit" onClick={() => validInfos()}
+                            disabled={!isPasswordsMatch}>
+                        Submit
+                    </Button>
+                </Form.Item>
+            </Form>
+        </Content>
     )
 }
 
