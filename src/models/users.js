@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
-const AddressSchema = mongoose.Schema({
+const AddressSchema = new mongoose.Schema({
     address: String,
     postalCode: String,
     city: String,
     country: String
 });
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     lastName: String,
     firstName: String,
     userPseudo: String,
