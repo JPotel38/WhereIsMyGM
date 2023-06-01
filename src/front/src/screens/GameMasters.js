@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Card, Col, Layout, Row, Select, Typography} from 'antd';
+import {Avatar, Card, Col, Layout, Row, Select, Typography} from 'antd';
 import '../App.css';
 
 const {Content} = Layout;
 const {Title} = Typography;
 const {Option} = Select;
+const { Meta } = Card;
 
 function GameMasters() {
 
@@ -95,11 +96,12 @@ function GameMasters() {
                 {usersList.map((item, k) =>
                     <Row key={k} gutter={[16, 24]}>
                         <Col span={20}>
-                            <Card title={item.userPseudo}>
-                                {/*<p>Games I propose :</p>*/}
-                                {/*{item.games.map((game) =>*/}
-                                {/*    <p>{game.title}</p>*/}
-                                {/*)}*/}
+                            <Card>
+                                <Meta
+                                    avatar={<Avatar src={item.profilePicture} />}
+                                    title={item.userPseudo}
+                                    description={item.smallDescription}
+                                />
                             </Card>
                         </Col>
                     </Row>
