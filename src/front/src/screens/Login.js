@@ -10,7 +10,6 @@ function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    let response;
 
     const history = useHistory()
 
@@ -22,19 +21,19 @@ function Login() {
         }
     }
 
-    let validInfos = async () => {
-        let data = await fetch('/users/connexion', {
+    async function validInfos() {
+        const response = await fetch('/access/connexion', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: `email=${email}&password=${password}`
         });
-        response = await data.json();
-        let error = response.error
+        const res = await response.json();
+        let error = res.error
         if (error) {
             errorTab(error)
         }
-        if (response) {
-            localStorage.setItem("user", JSON.stringify(response.user));
+        if (res.user) {
+            localStorage.setItem("user", JSON.stringify(res.user));
             history.goBack()
         }
     }
