@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card, Layout, List, Select, Typography} from 'antd';
-import {FaDiceD20, FaInfoCircle} from "react-icons/fa";
+import {FaDiceD20} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import '../App.css';
 
@@ -130,7 +130,6 @@ function Games(props) {
                                 <Card title={item.title}
                                       hoverable
                                 >
-                                    <FaInfoCircle/>
                                     <p>Edition : {item.edition}</p>
                                     <p>Genre : {item.genre}</p>
                                 </Card>

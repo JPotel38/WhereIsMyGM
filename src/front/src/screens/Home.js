@@ -6,7 +6,6 @@ import '../App.css';
 const {Content} = Layout;
 const {Title, Text} = Typography;
 
-
 function Home() {
 
     return (

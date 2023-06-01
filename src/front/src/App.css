@@ -1,5 +1,9 @@
 @import '~antd/dist/antd.css';
 
+#root, .ant-layout {
+  height: 100%;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -11,9 +15,14 @@ a {
 .App {
   text-align: center;
 }
+
 .site-layout-content {
   padding: 24px;
   min-height: 280px;
+}
+
+.ant-pagination-options {
+  display: none;
 }
 
 .ant-layout .ant-layout-header{
@@ -22,10 +31,6 @@ a {
 
 .ant-menu {
   background: none;
-}
-
-.site-card-wrapper {
-  min-height: 925px;
 }
 
 #components-layout-demo-top .logo {
