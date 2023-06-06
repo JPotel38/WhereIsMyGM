@@ -1,25 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Button, Layout, Menu, Typography} from 'antd';
-import {Link, useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import '../App.css';
+import {authContext} from "../AuthContext";
 
 const {Header} = Layout;
 const {Title} = Typography;
 
 function Nav() {
-    const history = useHistory();
-    const user = JSON.parse(localStorage.getItem('user'))
     const items = [];
+    const {auth, setAuthData} = useContext(authContext);
 
     const logout = () => {
-        localStorage.clear();
-        }
+        setAuthData(null);
+    }
 
-    if (user != null) {
-
+    if (auth.data) {
         let itemAccount =
             <Menu.Item key="account" style={{float: 'right'}}>
-                <Link to='/account'>{user.userPseudo}</Link>
+                <Link to='/account'>Hello</Link>
             </Menu.Item>
 
         let itemLogout =
@@ -29,7 +28,6 @@ function Nav() {
                 > Logout
                 </Button>
             </Menu.Item>
-
         items.push(itemAccount, itemLogout);
     } else {
         let itemConnexion =
@@ -43,7 +41,6 @@ function Nav() {
 
         items.push(itemConnexion, itemInscription);
     }
-
 
     return (
         <Header>

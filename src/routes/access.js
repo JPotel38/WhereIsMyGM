@@ -79,7 +79,7 @@ router.post('/inscription', async function (req) {
 router.post('/connexion', async function (req, res) {
     let result = false;
     let error = [];
-    let infos = [];
+    let token = [];
     let user = await UserModel.findOne({email: req.body.email});
 
     if (user) {
@@ -90,8 +90,7 @@ router.post('/connexion', async function (req, res) {
             let data = {
                 time: Date()
             }
-            const token = jwt.sign(data, jwtSecretKey);
-            infos.push(token)
+            token.push(jwt.sign(data, jwtSecretKey))
         } else {
             error.push("Invalid password.")
             user = null;
@@ -99,7 +98,7 @@ router.post('/connexion', async function (req, res) {
     } else if (!user && req.body.email !== '') {
         error.push("This email doesn'\t exist.");
     }
-    res.json({result, error, infos, user});
+    res.json({result, error, token, user});
 });
 
 router.post('/viewpicture', async function (req, res) {

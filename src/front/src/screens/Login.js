@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Button, Checkbox, Form, Input, Layout, Modal, Typography} from 'antd';
 import '../App.css';
+import {authContext} from "../AuthContext";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -12,6 +13,7 @@ function Login() {
     const [password, setPassword] = useState('');
 
     const history = useHistory()
+    const {setAuthData} = useContext(authContext)
 
     function errorTab(error) {
         for (let i = 0; i < error.length; i++) {
@@ -28,13 +30,14 @@ function Login() {
             body: `email=${email}&password=${password}`
         });
         const res = await response.json();
+        console.log(res)
         let error = res.error
         if (error) {
             errorTab(error)
         }
-        if (res.user) {
-            localStorage.setItem("user", JSON.stringify(res.user));
-            history.goBack()
+        if (res.token[0]) {
+            setAuthData(res.token[0]);
+            history.replace('/');
         }
     }
 
@@ -64,7 +67,7 @@ function Login() {
                 }}
             >
                 <Form.Item
-                    label="email"
+                    label="Email"
                     name="email"
                     rules={[
                         {

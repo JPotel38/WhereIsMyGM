@@ -8,7 +8,7 @@ const {Title} = Typography;
 
 function Signup() {
 
-    const [setLoadingAvatar] = useState(false);
+    const [loadingAvatar, setLoadingAvatar] = useState(false);
     const [firstName, setFirstname] = useState('');
     const [lastName, setLastname] = useState('');
     const [userPseudo, setUserPseudo] = useState('');
@@ -137,7 +137,7 @@ function Signup() {
                 </Row>
                 <Form.Item
                     label="Pseudo"
-                    labelCol={4}
+                    labelCol={{span: 4}}
                     name="username"
                     rules={[
                         {
@@ -153,7 +153,7 @@ function Signup() {
                 </Form.Item>
                 <Form.Item
                     label="Firstname"
-                    labelCol={4}
+                    labelCol={{span: 4}}
                     name="firstname"
                     rules={[
                         {
@@ -171,7 +171,7 @@ function Signup() {
                 </Form.Item>
                 <Form.Item
                     label="Lastname"
-                    labelCol={4}
+                    labelCol={{span: 4}}
                     name="lastname"
                     rules={[
                         {
@@ -187,7 +187,7 @@ function Signup() {
                 </Form.Item>
                 <Form.Item
                     label="Email"
-                    labelCol={4}
+                    labelCol={{span: 4}}
                     name="email"
                     rules={[
                         {
@@ -203,7 +203,7 @@ function Signup() {
                 </Form.Item>
                 <Form.Item
                     label="Password"
-                    labelCol={4}
+                    labelCol={{span: 4}}
                     name="password"
                     rules={[
                         {
@@ -219,7 +219,7 @@ function Signup() {
                 </Form.Item>
                 <Form.Item
                     label="PasswordConfirm"
-                    labelCol={4}
+                    labelCol={{span: 4}}
                     name="passwordConfirm"
                     dependencies={['password']}
                     rules={[

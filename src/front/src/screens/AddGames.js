@@ -3,7 +3,7 @@ import {Button, Form, Typography} from 'antd';
 
 const {Title} = Typography;
 
-function addGames() {
+function AddGames() {
 
     const layout = {
         labelCol: {span: 8},
@@ -12,6 +12,14 @@ function addGames() {
     const tailLayout = {
         wrapperCol: {offset: 8, span: 16},
     };
+
+    function onFinishFailed() {
+
+    }
+
+    function onFinish() {
+
+    }
 
     return (
         <Form
@@ -33,4 +41,4 @@ function addGames() {
     )
 }
 
-export default addGames
+export default AddGames
