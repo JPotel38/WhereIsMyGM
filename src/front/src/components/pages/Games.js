@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Card, Layout, List, Select, Typography} from 'antd';
 import {FaDiceD20} from "react-icons/fa";
 import {Link} from "react-router-dom";
-import '../../App.css';
+import '../../App.scss';
 
 const {Content} = Layout;
 const {Title} = Typography;

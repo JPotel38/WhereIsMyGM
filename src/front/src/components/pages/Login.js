@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Button, Checkbox, Form, Input, Layout, Modal, Typography} from 'antd';
-import '../../App.css';
+import '../../App.scss';
 import {authContext} from "../../AuthContext";
 
 const {Content} = Layout;

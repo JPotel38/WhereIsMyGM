@@ -25,16 +25,16 @@ a {
     display: none;
 }
 
-.ant-layout .ant-layout-header {
-    background: white;
+.ant-layout, .ant-layout-header, .ant-layout-footer {
+    background: #ffffff;
+}
+
+.ant-layout-header {
+    padding: 0;
 }
 
 .ant-menu {
     background: none;
-}
-
-.ant-image-preview-mask, .ant-image-preview-img, .ant-image-preview-operations, .ant-image-mask {
-    display: none;
 }
 
 #components-layout-demo-top .logo {

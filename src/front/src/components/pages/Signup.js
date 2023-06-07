@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Avatar, Button, Col, Form, Input, Layout, message, Row, Typography, Upload} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
-import '../../App.css';
+import '../../App.scss';
 
 const {Content} = Layout;
 const {Title} = Typography;

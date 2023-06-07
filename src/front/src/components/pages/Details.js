@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Layout, Space, Typography} from 'antd';
-import '../../App.css';
+import '../../App.scss';
 
 const {Content} = Layout;
 const {Title, Text} = Typography;

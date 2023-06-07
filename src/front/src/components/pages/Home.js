@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Card, Col, Layout, Rate, Row, Typography} from 'antd';
 import {Link} from 'react-router-dom';
-import '../../App.css';
+import '../../App.scss';
 
 const {Content} = Layout;
 const {Title, Text} = Typography;
