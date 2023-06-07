@@ -191,7 +191,7 @@ function Signup() {
                     name="email"
                     rules={[
                         {
-                            required: true, message: 'Please enter a last name',
+                            required: true, message: 'Please enter an email',
                         },
                         {
                             whitespace: true
@@ -207,7 +207,7 @@ function Signup() {
                     name="password"
                     rules={[
                         {
-                            required: true, message: 'Please enter a last name',
+                            required: true, message: 'Please enter a password',
                         },
                         {
                             whitespace: true
@@ -224,7 +224,7 @@ function Signup() {
                     dependencies={['password']}
                     rules={[
                         {
-                            required: true, message: 'Please enter your password',
+                            required: true, message: 'Please confirm your password',
                         },
                         ({getFieldValue}) => ({
                             validator(_, value) {

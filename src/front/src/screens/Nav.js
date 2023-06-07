@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Button, Layout, Menu, Typography} from 'antd';
+import {Button, Dropdown, Image, Layout, Menu, Typography} from 'antd';
 import {Link} from 'react-router-dom';
 import '../App.css';
 import {authContext} from "../AuthContext";
@@ -15,23 +15,34 @@ function Nav() {
         setAuthData(null);
     }
 
-    if (auth.data) {
-        let itemAccount =
-            <Menu.Item key="account" style={{float: 'right'}}>
-                <Link to='/account'>Hello</Link>
-            </Menu.Item>
+    if (auth.data.user) {
 
-        let itemLogout =
-            <Menu.Item key="logout" style={{float: 'right'}}>
-                <Button
-                    onClick={logout}
-                > Logout
-                </Button>
-            </Menu.Item>
-        items.push(itemAccount, itemLogout);
+        const accountMenu = (
+            <Menu>
+                <Menu.Item key='0'>
+                    <Link to='/account'>Account</Link>
+                </Menu.Item>
+                <Menu.Item key='1'>
+                    <Button onClick={logout}>Logout</Button>
+                </Menu.Item>
+            </Menu>
+        );
+
+        let itemAccount =
+            <Dropdown overlay={accountMenu}
+                      trigger={['click']}
+            >
+                <a onClick={(e) => e.preventDefault()}>
+                    <Image className='accountProfilePicture'
+                           width={35}
+                           src={auth.data.user.profilePicture}
+                    />
+                </a>
+            </Dropdown>
+        items.push(itemAccount);
     } else {
         let itemConnexion =
-            <Menu.Item key="login" style={{float: 'right'}}>
+            <Menu.Item key="login">
                 <Link to='/login'>Log in</Link>
             </Menu.Item>
         let itemInscription =
@@ -45,9 +56,17 @@ function Nav() {
     return (
         <Header>
             <Menu mode="horizontal" style={{width: "100%"}}>
-                <Menu.Item key="1"><Title><Link to="/">WhereIsMyGM?</Link></Title></Menu.Item>
-                <Menu.Item key="10"><Link to='/gm'>Game Masters</Link></Menu.Item>
-                <Menu.Item key="11"><Link to='/games'>Games</Link></Menu.Item>
+                <Menu.Item key="1">
+                    <Title>
+                        <Link to="/">WhereIsMyGM?</Link>
+                    </Title>
+                </Menu.Item>
+                <Menu.Item key="10">
+                    <Link to='/gm'>Game Masters</Link>
+                </Menu.Item>
+                <Menu.Item key="11">
+                    <Link to='/games'>Games</Link>
+                </Menu.Item>
                 {items}
             </Menu>
         </Header>

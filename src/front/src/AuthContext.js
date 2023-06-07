@@ -3,7 +3,7 @@ import React, {createContext, useEffect, useState} from 'react';
 export const authContext = createContext({});
 
 const AuthProvider = ({children}) => {
-    const [auth, setAuth] = useState({loading: true, data: null});
+    const [auth, setAuth] = useState({loading: true, data: {token: null, user: null}});
 
     const setAuthData = (data) => {
         setAuth({loading: false, data: data});

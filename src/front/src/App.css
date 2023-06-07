@@ -41,3 +41,7 @@ a {
   float: left;
 }
 
+.accountProfilePicture{
+  border-radius: 50%;
+}
+

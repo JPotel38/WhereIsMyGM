@@ -36,7 +36,7 @@ function Login() {
             errorTab(error)
         }
         if (res.token[0]) {
-            setAuthData(res.token[0]);
+            setAuthData({token: res.token[0], user: res.user});
             history.replace('/');
         }
     }
