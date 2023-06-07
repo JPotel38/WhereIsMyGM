@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import {Button, Dropdown, Image, Layout, Menu, Typography} from 'antd';
 import {Link} from 'react-router-dom';
-import '../App.css';
-import {authContext} from "../AuthContext";
+import '../../App.css';
+import './Nav.scss';
+import {authContext} from "../../AuthContext";
 
 const {Header} = Layout;
 const {Title} = Typography;

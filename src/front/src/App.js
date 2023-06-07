@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import Home from './screens/Home'
-import GameMasters from './screens/GameMasters'
-import Signup from './screens/signup/Signup'
-import Login from './screens/Login'
-import AddGames from './screens/AddGames'
-import Details from './screens/Details'
-import Games from './screens/Games'
-import Nav from "./screens/Nav";
+import Home from './components/pages/Home'
+import GameMasters from './components/pages/GameMasters'
+import Signup from './components/pages/Signup'
+import Login from './components/pages/Login'
+import AddGames from './components/pages/AddGames'
+import Details from './components/pages/Details'
+import Games from './components/pages/Games'
+import Nav from "./components/layout/Nav";
 import {Layout} from "antd";
 
 const {Footer} = Layout;
