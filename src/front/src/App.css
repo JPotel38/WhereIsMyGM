@@ -1,43 +1,47 @@
 @import '~antd/dist/antd.css';
 
 #root, .ant-layout {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .site-layout-content {
-  padding: 24px;
-  min-height: 280px;
+    padding: 24px;
+    min-height: 280px;
 }
 
 .ant-pagination-options {
-  display: none;
+    display: none;
 }
 
-.ant-layout .ant-layout-header{
-  background: white;
+.ant-layout .ant-layout-header {
+    background: white;
 }
 
 .ant-menu {
-  background: none;
+    background: none;
+}
+
+.ant-image-preview-mask, .ant-image-preview-img, .ant-image-preview-operations, .ant-image-mask {
+    display: none;
 }
 
 #components-layout-demo-top .logo {
-  width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 24px 16px 0;
-  float: left;
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
 }
 
