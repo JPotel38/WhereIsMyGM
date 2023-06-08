@@ -8,6 +8,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "axios": "^1.4.0",
     "cloudinary": "^1.25.1",
     "cookie-parser": "~1.4.5",
     "crypto-js": "^4.0.0",
@@ -25,6 +26,7 @@
     "nodemon": "^2.0.7",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
+    "request": "^2.88.2",
     "uid2": "0.0.3"
   }
 }

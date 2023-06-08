@@ -5,11 +5,12 @@ import '../../App.scss';
 const {Content} = Layout;
 const {Title} = Typography;
 const {Option} = Select;
-const { Meta } = Card;
+const {Meta} = Card;
 
 function GameMasters() {
 
     const [usersList, setUsersList] = useState([])
+    const [regionsList, setRegionsList] = useState([])
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -17,9 +18,17 @@ function GameMasters() {
             const bodyUsers = await response.json();
             setUsersList(bodyUsers.filter(user => user.isGameMaster === true));
         }
-        fetchUsers()
-    }, [])
+        fetchUsers();
+    }, []);
 
+    useEffect(() => {
+        const fetchRegions = async () => {
+            const response = await fetch('/geolocalisation/regions');
+            const bodyRegions = await response.json();
+            setRegionsList(bodyRegions.map(regions => regions.nom));
+        }
+        fetchRegions();
+    }, []);
 
     function onChangeJeu(value) {
         console.log(`selected ${value}`);
@@ -78,7 +87,7 @@ function GameMasters() {
             <Select
                 showSearch
                 style={{width: 200}}
-                placeholder="Select a city"
+                placeholder="Select a region"
                 optionFilterProp="children"
                 onChange={onChangeVille}
                 onFocus={onFocusVille}
@@ -88,9 +97,8 @@ function GameMasters() {
                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                 }
             >
-                <Option value="Paris">Paris</Option>
-                <Option value="Lyon">Lyon</Option>
-                <Option value="Lille">Lille</Option>
+                {regionsList.map((item, k) => ( <Option key={k} value={item}>{item}</Option>
+                    ))}
             </Select>
             <div className="site-card-wrapper">
                 {usersList.map((item, k) =>
@@ -98,7 +106,7 @@ function GameMasters() {
                         <Col span={20}>
                             <Card>
                                 <Meta
-                                    avatar={<Avatar src={item.profilePicture} />}
+                                    avatar={<Avatar src={item.profilePicture}/>}
                                     title={item.userPseudo}
                                     description={item.smallDescription}
                                 />

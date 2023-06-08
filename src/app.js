@@ -8,6 +8,7 @@ const fileUpload = require('express-fileupload');
 const indexRouter = require('./routes/index');
 const accessRouter = require('./routes/access');
 const usersRouter = require('./routes/users');
+const regionsRouter = require('./routes/geolocalisation');
 
 require('./models/connection')
 
@@ -27,6 +28,7 @@ app.use(fileUpload());
 app.use('/', indexRouter);
 app.use('/access', accessRouter);
 app.use('/users', usersRouter);
+app.use('/geolocalisation', regionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
