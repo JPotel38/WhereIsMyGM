@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Card, Col, Layout, Row, Select, Typography } from 'antd';
 import '../../App.scss';
-import { fetchDepartements } from '../../utils/fetchLocalisation.js';
+import { getDeptAndRegions } from '../../utils/fetchLocalisation.js';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -10,7 +10,7 @@ const { Meta } = Card;
 
 function GameMasters() {
     const [usersList, setUsersList] = useState([]);
-    const [departementsList, setDepartementsList] = useState([]);
+    const [localisationList, setLocalisationList] = useState([]);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -19,8 +19,8 @@ function GameMasters() {
             setUsersList(bodyUsers.filter(user => user.isGameMaster === true));
         };
 
-        fetchDepartements().then(d => {
-            setDepartementsList(d);
+        getDeptAndRegions().then(d => {
+            setLocalisationList(d);
         });
 
         fetchUsers();
@@ -87,7 +87,7 @@ function GameMasters() {
                 onBlur={onBlurVille}
                 onSearch={onSearchVille}
             >
-                {departementsList.map((item, index) => {
+                {localisationList.map((item, index) => {
                     if (typeof item === 'string') {
                         return (
                             <Option key={index} value={item}>
