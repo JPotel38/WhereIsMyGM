@@ -10,8 +10,9 @@ import AddGames from './components/pages/AddGames'
 import Details from './components/pages/Details'
 import Games from './components/pages/Games'
 import Nav from "./components/layout/Nav";
-import {Layout} from "antd";
+import GameMasterAccount from "./components/pages/GameMasterAccount";
 
+import {Layout} from "antd";
 const {Footer} = Layout;
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
                     <Route path="/signup" exact component={Signup}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/addgames" exact component={AddGames}/>
+                    <Route path="/gmaccount" exact component={GameMasterAccount}/>
                 </Switch>
                 <Footer style={{textAlign: 'center'}}>
                     MJ ici ©2023 Created by Jérémy Potel</Footer>
