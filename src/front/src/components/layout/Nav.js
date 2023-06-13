@@ -35,6 +35,15 @@ function Nav() {
             <Menu.Item key="2">
                 <Link to="/games">Games</Link>
             </Menu.Item>
+            {auth.data?.user?.isGameMaster ? <>
+                <Menu.Item key="4" className="nav-link">
+                    <Button><Link to="/gmaccount">GM account</Link></Button>
+                </Menu.Item>
+            </> : (<>
+                <Menu.Item key="4" className="nav-link">
+                    <Button><Link to="/signupGM">Becoming a GM</Link></Button>
+                </Menu.Item>
+            </>)}
             {auth.data ? (<Menu.Item key="3" className="account-dropdown" style={{float: 'right'}} >
                 <Dropdown overlay={renderDropdownMenu()} trigger={['click']}>
               <span>
