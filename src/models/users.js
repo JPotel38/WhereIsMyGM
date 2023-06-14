@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
-const AddressSchema = new mongoose.Schema({
-    address: String,
-    postalCode: String,
+const addressSchema = new mongoose.Schema({
     city: String,
+    departement: String,
+    postalCode: String,
+    region: String,
     country: String
 });
 
@@ -16,7 +17,7 @@ const userSchema = new mongoose.Schema({
     bannerPicture: String,
     email: String,
     emailStatus: String,
-    address: AddressSchema,
+    address: addressSchema,
     isGameMaster: Boolean,
     smallDescription: String,
     listGames: [{type: mongoose.Schema.Types.ObjectId, ref: 'games'}],
