@@ -30,7 +30,6 @@ function Login() {
             body: `email=${email}&password=${password}`
         });
         const res = await response.json();
-        console.log(res)
         let error = res.error
         if (error) {
             errorTab(error)
