@@ -8,14 +8,15 @@ router.get('/listusers', async function (req, res) {
     res.send(users)
 });
 
-// router.get(`/gamesbyuser`, async function (req, res, next) {
-//
-//
-//
-//     console.log(games);
-//
-//     res.send(games)
-// });
+router.get('/gamesbyuser/:id', async function (req, res) {
+    try {
+        const user = await UserModel.findById(req.params.id).populate('listGames');
+        res.json(user);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
 //
 // router.get(`/cardsgamesbygenre`, async function (req, res, next) {
 //
