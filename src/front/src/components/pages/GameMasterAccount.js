@@ -17,10 +17,7 @@ function GameMasterAccount() {
             const response = await fetch(`/geolocalisation/communes?param=${search}`);
             const bodyCommune = await response.json();
             setCommunesList(bodyCommune);
-            console.log(communesList)
         };
-
-console.log(search)
         fetchCommune();
     }, [search]);
 
@@ -32,26 +29,15 @@ console.log(search)
             setRegion(selectedCommune.region.nom);
         }
         setDeptAndRegInForm()
-    }, [commune]);
+    }, [commune, communesList]);
 
     function setDeptAndRegInForm() {
         form.setFieldsValue({departement: departement});
         form.setFieldsValue({region: region});
     }
 
-    const layout = {
-        labelCol: {
-            span: 8,
-        },
-        wrapperCol: {
-            span: 16,
-        },
-    };
-
     function handleSearchCommune(value) {
-        if (value) {
             setSearch(value);
-        }
     }
 
     function handleSelectCommune(selectedCommune) {
@@ -62,7 +48,6 @@ console.log(search)
         <Content style={{padding: '0 50px'}}>
             <Title>Game Master account</Title>
             <Form
-                {...layout}
                 form={form}
                 name="basic"
                 initialValues={{
@@ -81,11 +66,11 @@ console.log(search)
                         onSearch={(e) => handleSearchCommune(e)}
                         onChange={(e) => handleSelectCommune(e)}
                     >
-                        {communesList.map((item, index) =>
+                        {communesList.map((item, index) => (
                             <Select.Option key={index} value={item.nom}>
-                                <span>{item.nom}</span>
+                                {item.nom}
                             </Select.Option>
-                        )}
+                            ))}
                     </Select>
                 </Form.Item>
                 <Form.Item
