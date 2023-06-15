@@ -1,8 +1,12 @@
-import {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import '../../App.scss';
-import {Button, Form, Input, Select} from "antd";
+import {Button, Form, Input, List, Popconfirm, Select, Typography} from "antd";
 import {Content} from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
+import {authContext} from "../../AuthContext";
+import {DeleteOutlined} from "@ant-design/icons";
+
+const {Text} = Typography;
 
 function UpdateGameMasterAccount() {
     const [search, setSearch] = useState('');
@@ -10,7 +14,18 @@ function UpdateGameMasterAccount() {
     const [commune, setCommune] = useState(null);
     const [departement, setDepartement] = useState('');
     const [region, setRegion] = useState('');
+    const [listGames, setListGames] = useState([])
+    const {auth, setAuthData} = useContext(authContext);
     const [form] = Form.useForm();
+
+    useEffect(() => {
+        const fetchGames = async () => {
+            const response = await fetch('/users/gamesbyuser/' + auth.data.user._id);
+            const bodyGames = await response.json();
+            setListGames(bodyGames.listGames)
+        };
+        fetchGames();
+    }, []);
 
     useEffect(() => {
         const fetchCommune = async () => {
@@ -21,9 +36,8 @@ function UpdateGameMasterAccount() {
         fetchCommune();
     }, [search]);
 
-
     useEffect(() => {
-        const selectedCommune: any = communesList.find((c: any) => c.nom === commune);
+        const selectedCommune = communesList.find((c) => c.nom === commune);
         setDepartement(selectedCommune?.departement.nom);
         setRegion(selectedCommune?.region.nom);
     }, [commune]);
@@ -33,17 +47,21 @@ function UpdateGameMasterAccount() {
         form.setFieldsValue({region: region});
     }, [departement, region]);
 
-    function handleSearchCommune(value: any) {
+    function handleSearchCommune(value) {
         setSearch(value);
     }
 
-    function handleSelectCommune(selectedCommune: any) {
+    function handleSelectCommune(selectedCommune) {
         setCommune(selectedCommune);
     }
 
     function validInfos() {
 
     }
+
+    const confirm = () => {
+        console.log(value)
+    };
 
     return (
         <Content style={{padding: '0 50px'}}>
@@ -67,7 +85,7 @@ function UpdateGameMasterAccount() {
                         onSearch={(e) => handleSearchCommune(e)}
                         onChange={(e) => handleSelectCommune(e)}
                     >
-                        {communesList.map((item: any, index) => (
+                        {communesList.map((item, index) => (
                             <Select.Option key={index} value={item.nom}>
                                 {item.nom}
                             </Select.Option>
@@ -87,8 +105,34 @@ function UpdateGameMasterAccount() {
                     <Input disabled value={region}/>
                 </Form.Item>
 
-                <Form.Item>
 
+                <Form.Item
+                    label="Games management"
+                    name="games"
+                >
+                    <List
+                        bordered
+                        dataSource={listGames}
+                        renderItem={(item) => (
+                            <List.Item>
+                                <Text strong>{item.title}</Text> {item.edition}
+                                <Popconfirm
+                                    placement="right"
+                                    title={'Do you want to delete this game ?'}
+                                    onConfirm={confirm}
+                                    okText="Yes"
+                                    cancelText="No"
+                                >
+                                    <Button> <DeleteOutlined/>
+                                    </Button>
+                                </Popconfirm>
+                            </List.Item>
+                        )}
+                    />
+                </Form.Item>
+
+
+                <Form.Item>
                     <Button type="primary" htmlType="submit" onClick={() => validInfos()}>
                         Submit
                     </Button>
