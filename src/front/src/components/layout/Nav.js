@@ -15,12 +15,10 @@ function Nav() {
         setAuthData(null);
     };
 
-    const renderDropdownMenu = () => {
-        return (<Menu>
-            <Menu.Item key="1"><Link to="/account">Account</Link></Menu.Item>
-            <Menu.Item key="2"> <Button onClick={logout}>Logout</Button></Menu.Item>
-        </Menu>);
-    };
+    const menu = (<Menu>
+        <Menu.Item key="1"><Link to="/account">Account</Link></Menu.Item>
+        <Menu.Item key="2"> <Button onClick={logout}>Logout</Button></Menu.Item>
+    </Menu>);
 
     return (<Header>
         <Menu mode="horizontal" style={{width: '100%'}}>
@@ -44,17 +42,17 @@ function Nav() {
                     <Button><Link to="/signupGM">Becoming a GM</Link></Button>
                 </Menu.Item>
             </>)}
-            {auth.data ? (<Menu.Item key="3" className="account-dropdown" style={{float: 'right'}} >
-                <Dropdown overlay={renderDropdownMenu()} trigger={['click']}>
+            {auth.data.user ? (<Menu.Item key="3" className="account-dropdown" style={{float: 'right'}}>
+                <Dropdown overlay={menu} trigger={['click']}>
               <span>
                 <UserOutlined/>
               </span>
                 </Dropdown>
             </Menu.Item>) : (<>
-                <Menu.Item key="4" className="nav-link" style={{float: 'right'}}>
+                <Menu.Item key="5" className="nav-link" style={{float: 'right'}}>
                     <Link to="/login">Log in</Link>
                 </Menu.Item>
-                <Menu.Item key="5" className="nav-link" style={{float: 'right'}}>
+                <Menu.Item key="6" className="nav-link" style={{float: 'right'}}>
                     <Link to="/signup">Sign up</Link>
                 </Menu.Item>
             </>)}
