@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../../App.scss';
-import {Form, Input, Select} from "antd";
+import {Button, Form, Input, Select} from "antd";
 import {Content} from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 
@@ -24,27 +24,24 @@ function GameMasterAccount() {
 
     useEffect(() => {
         const selectedCommune = communesList.find((c) => c.nom === commune);
-        if (selectedCommune) {
-            setDepartement(selectedCommune.departement.nom);
-            setRegion(selectedCommune.region.nom);
-        }
-        setDeptAndRegInForm()
-    }, [commune, communesList]);
+        setDepartement(selectedCommune?.departement.nom);
+        setRegion(selectedCommune?.region.nom);
+    }, [commune]);
 
-    function setDeptAndRegInForm() {
+    useEffect(() => {
         form.setFieldsValue({departement: departement});
         form.setFieldsValue({region: region});
-    }
+    }, [departement, region]);
 
     function handleSearchCommune(value) {
-            setSearch(value);
+        setSearch(value);
     }
 
     function handleSelectCommune(selectedCommune) {
         setCommune(selectedCommune);
     }
 
-    return (
+ return (
         <Content style={{padding: '0 50px'}}>
             <Title>Game Master account</Title>
             <Form
@@ -70,7 +67,7 @@ function GameMasterAccount() {
                             <Select.Option key={index} value={item.nom}>
                                 {item.nom}
                             </Select.Option>
-                            ))}
+                        ))}
                     </Select>
                 </Form.Item>
                 <Form.Item
@@ -84,6 +81,13 @@ function GameMasterAccount() {
                     name="region"
                 >
                     <Input disabled value={region}/>
+                </Form.Item>
+
+                <Form.Item>
+
+                    <Button type="primary" htmlType="submit" onClick={() => validInfos()}>
+                        Submit
+                    </Button>
                 </Form.Item>
             </Form>
         </Content>)
