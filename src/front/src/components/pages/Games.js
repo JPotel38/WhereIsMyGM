@@ -17,7 +17,7 @@ function Games(props) {
 
     useEffect(() => {
         const findGames = async () => {
-            const uri = '/listgames';
+            const uri = '/games/listgames';
             await fetchGameList(uri);
         }
         findGames();
@@ -47,12 +47,12 @@ function Games(props) {
 
     const onChangeJeu = async value => {
         setGameIsSelected(true);
-        const uri = `/cardsgamesbytitle?title=${value}`;
+        const uri = `/games/cardsgamesbytitle?title=${value}`;
         await fetchGameList(uri);
     }
 
     const onChangeGenre = async value => {
-        const uri = `/cardsgamesbygenre?genre=${value}`;
+        const uri = `/games/cardsgamesbygenre?genre=${value}`;
         await fetchGameList(uri);
     }
 
@@ -66,7 +66,7 @@ function Games(props) {
         setRandom([]);
         setIsRandom(false);
         setGameIsSelected(false);
-        const uri = '/listgames';
+        const uri = '/games/listgames';
         await fetchGameList(uri);
     }
 
@@ -126,7 +126,7 @@ function Games(props) {
                     dataSource={isRandom ? random : listGames}
                     renderItem={item => (
                         <List.Item key={item.title}>
-                            <Link to={`/details/${item._id}`}>
+                            <Link to={`/games/details/${item._id}`}>
                                 <Card title={item.title}
                                       hoverable
                                 >

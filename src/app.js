@@ -9,6 +9,7 @@ const indexRouter = require('./routes/index');
 const accessRouter = require('./routes/access');
 const usersRouter = require('./routes/users');
 const regionsRouter = require('./routes/geolocalisation');
+const gamesRouter = require('./routes/games');
 
 require('./models/connection')
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/access', accessRouter);
 app.use('/users', usersRouter);
 app.use('/geolocalisation', regionsRouter);
+app.use('/games', gamesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
