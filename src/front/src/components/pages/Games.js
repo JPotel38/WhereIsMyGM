@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Button, Card, Layout, List, Select, Typography} from 'antd';
 import {FaDiceD20} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import '../../App.scss';
+import {PlusOutlined, SearchOutlined} from "@ant-design/icons";
+import {authContext} from "../../AuthContext";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -13,6 +15,7 @@ function Games(props) {
     const [random, setRandom] = useState([]);
     const [gameIsSelected, setGameIsSelected] = useState(false);
     const [isRandom, setIsRandom] = useState(false);
+    const {auth, setAuthData} = useContext(authContext);
     let listGamesTitles = [];
 
     useEffect(() => {
@@ -74,6 +77,9 @@ function Games(props) {
         props.pageSizeOptions = null;
     }
 
+    function testId(value) {
+    }
+
     return (
         <Content style={{padding: '0 50px'}}>
             <Title>Games</Title>
@@ -126,14 +132,15 @@ function Games(props) {
                     dataSource={isRandom ? random : listGames}
                     renderItem={item => (
                         <List.Item key={item.title}>
-                            <Link to={`/games/details/${item._id}`}>
-                                <Card title={item.title}
-                                      hoverable
-                                >
-                                    <p>Edition : {item.edition}</p>
-                                    <p>Genre : {item.genre}</p>
-                                </Card>
-                            </Link>
+                            <Card title={item.title}>
+                                <p>Edition : {item.edition}</p>
+                                <p>Genre : {item.genre}</p>
+                                <Button> <Link to={`/games/details/${item._id}`}>
+                                    <SearchOutlined/>Details</Link></Button>
+                                {auth?.data?.user?.isGameMaster ?
+                                    <Button onClick={() => testId(item._id)}><Link><PlusOutlined/></Link></Button>
+                                    : null}
+                            </Card>
                         </List.Item>
                     )}
                 />
