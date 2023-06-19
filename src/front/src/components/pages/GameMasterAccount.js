@@ -12,11 +12,12 @@ function GameMasterAccount() {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const response = await fetch('/users/gamesbyuser/' + auth.data.user._id);
-            const bodyGames = await response.json();
-            setListGames(bodyGames.listGames)
+            if (auth.data.user) {
+                const response = await fetch('/users/gamesbyuser/' + auth.data.user._id);
+                const bodyGames = await response.json();
+                setListGames(bodyGames.listGames)
+            }
         };
-
         fetchGames();
     }, []);
 

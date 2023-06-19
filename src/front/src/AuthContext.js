@@ -1,16 +1,19 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 export const authContext = createContext({});
 
-const AuthProvider = ({children}) => {
-    const [auth, setAuth] = useState({loading: true, data: {token: null, user: null}});
+const AuthProvider = ({ children }) => {
+    const storedAuthData = JSON.parse(window.localStorage.getItem('authData'));
+    const [auth, setAuth] = useState({ loading: true, data: storedAuthData });
 
     const setAuthData = (data) => {
-        setAuth({loading: false, data: data});
-    }
+        setAuth({ loading: false, data: data });
+    };
 
     useEffect(() => {
-        setAuth({loading: false, data: JSON.parse(window.localStorage.getItem('authData'))});
+        if (storedAuthData && !auth.data.token) {
+            setAuthData(storedAuthData);
+        }
     }, []);
 
 
@@ -18,9 +21,7 @@ const AuthProvider = ({children}) => {
         window.localStorage.setItem('authData', JSON.stringify(auth.data));
     }, [auth.data]);
 
-    return (
-        <authContext.Provider value={{auth, setAuthData}}>{children}</authContext.Provider>
-    )
-}
+    return <authContext.Provider value={{ auth, setAuthData }}>{children}</authContext.Provider>;
+};
 
 export default AuthProvider;
