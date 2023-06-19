@@ -28,12 +28,14 @@ function UpdateGameMasterAccount() {
     }, []);
 
     useEffect(() => {
-        const fetchCommune = async () => {
-            const response = await fetch(`/geolocalisation/communes?param=${search}`);
-            const bodyCommune = await response.json();
-            setCommunesList(bodyCommune);
-        };
-        fetchCommune();
+        if (!!search) {
+            const fetchCommune = async () => {
+                const response = await fetch(`/geolocalisation/communes?param=${search}`);
+                const bodyCommune = await response.json();
+                setCommunesList(bodyCommune);
+            };
+            fetchCommune();
+        }
     }, [search]);
 
     useEffect(() => {
@@ -59,8 +61,11 @@ function UpdateGameMasterAccount() {
 
     }
 
-    const confirm = () => {
-        console.log(value)
+    const confirm = async (value) => {
+        const response = await fetch('/users/deletegame/' + auth.data.user._id + '/' + value._id,
+            {method: 'DELETE'});
+        const bodyGames = await response.json();
+        setListGames(bodyGames);
     };
 
     return (
@@ -119,7 +124,7 @@ function UpdateGameMasterAccount() {
                                 <Popconfirm
                                     placement="right"
                                     title={'Do you want to delete this game ?'}
-                                    onConfirm={confirm}
+                                    onConfirm={() => confirm(item)}
                                     okText="Yes"
                                     cancelText="No"
                                 >
