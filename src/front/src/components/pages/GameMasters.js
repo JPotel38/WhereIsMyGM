@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import {Avatar, Card, Col, Layout, Row, Select, Typography} from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Avatar, Card, Col, Layout, Row, Select, Typography } from 'antd';
 import '../../App.scss';
-import {getDepartementsAndRegions} from '../../utils/fetchLocalisation.js';
+import useLocalisationHook from '../../hooks/useLocalisationHook.js';
 
-const {Content} = Layout;
-const {Title} = Typography;
-const {Option} = Select;
-const {Meta} = Card;
+const { Content } = Layout;
+const { Title } = Typography;
+const { Option } = Select;
+const { Meta } = Card;
 
 function GameMasters() {
     const [gamemastersList, setGamemastersList] = useState([]);
-    const [localisationList, setLocalisationList] = useState([]);
     const [localisation, setLocalisation] = useState('');
+    const localisationList = useLocalisationHook();
 
     useEffect(() => {
         const fetchGameMasters = async () => {
@@ -19,10 +19,6 @@ function GameMasters() {
             const bodyUsers = await response.json();
             setGamemastersList(bodyUsers.filter(user => user.isGameMaster === true));
         };
-
-        getDepartementsAndRegions().then(departementsAndRegionsArray => {
-            setLocalisationList(departementsAndRegionsArray);
-        });
 
         fetchGameMasters();
     }, []);
@@ -34,10 +30,14 @@ function GameMasters() {
 
             const filteredGamemasters = bodyUsers.filter(user => {
                 const { region, departement } = user.address;
-                return (
-                    user.isGameMaster === true &&
-                    (region === localisation || departement === localisation)
-                );
+                if (localisation) {
+                    return (
+                        user.isGameMaster === true &&
+                        (region === localisation || departement === localisation)
+                    );
+                } else {
+                    return user.isGameMaster;
+                }
             });
 
             setGamemastersList(filteredGamemasters);
@@ -63,23 +63,25 @@ function GameMasters() {
     }
 
     function onChangeCity(localisation) {
-        setLocalisation(localisation)
+        setLocalisation(localisation);
     }
 
     return (
-        <Content style={{padding: '0 50px'}}>
+        <Content style={{ padding: '0 50px' }}>
             <Title>Game Masters</Title>
 
             <Select
                 showSearch
-                style={{width: 200}}
+                style={{ width: 200 }}
                 placeholder="Select a game"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
                 onFocus={onFocusJeu}
                 onBlur={onBlurJeu}
                 onSearch={onSearchJeu}
-                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                filterOption={(input, option) =>
+                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
             >
                 <Option value="Star Wars">Star Wars</Option>
                 <Option value="Pathfinder">Pathfinder</Option>
@@ -88,7 +90,7 @@ function GameMasters() {
 
             <Select
                 showSearch
-                style={{width: 250}}
+                style={{ width: 250 }}
                 placeholder="Select a region"
                 onChange={onChangeCity}
             >
@@ -96,10 +98,13 @@ function GameMasters() {
                     if (typeof item === 'string') {
                         return (
                             <Option key={index} value={item}>
-                                <span style={{fontWeight: 'bold'}}>{item}</span>
+                                <span style={{ fontWeight: 'bold' }}>{item}</span>
                             </Option>
                         );
-                    } else if (typeof item === 'object' && item.hasOwnProperty('nom')) {
+                    } else if (
+                        typeof item === 'object' &&
+                        item.hasOwnProperty('nom')
+                    ) {
                         return (
                             <Option key={index} value={item.nom}>
                                 <span>{item.nom}</span>
@@ -111,14 +116,13 @@ function GameMasters() {
                 })}
             </Select>
 
-
             <div className="site-card-wrapper">
                 {gamemastersList.map((item, k) => (
                     <Row key={k} gutter={[16, 24]}>
                         <Col span={20}>
                             <Card>
                                 <Meta
-                                    avatar={<Avatar src={item.profilePicture}/>}
+                                    avatar={<Avatar src={item.profilePicture} />}
                                     title={item.userPseudo}
                                     description={item.smallDescription}
                                 />
