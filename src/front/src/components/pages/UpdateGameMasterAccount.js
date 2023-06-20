@@ -10,10 +10,12 @@ const {Text} = Typography;
 
 function UpdateGameMasterAccount() {
     const [search, setSearch] = useState('');
-    const [communesList, setCommunesList] = useState([]);
-    const [commune, setCommune] = useState(null);
+    const [citiesList, setCitiesList] = useState([]);
+    const [city, setCity] = useState(null);
     const [departement, setDepartement] = useState('');
+    const [postalCode, setPostalCode] = useState('');
     const [region, setRegion] = useState('');
+    const [country, setCountry] = useState('France');
     const [listGames, setListGames] = useState([])
     const {auth, setAuthData} = useContext(authContext);
     const [form] = Form.useForm();
@@ -29,36 +31,47 @@ function UpdateGameMasterAccount() {
 
     useEffect(() => {
         if (!!search) {
-            const fetchCommune = async () => {
+            const fetchCity = async () => {
                 const response = await fetch(`/geolocalisation/communes?param=${search}`);
-                const bodyCommune = await response.json();
-                setCommunesList(bodyCommune);
+                const bodyCity = await response.json();
+                setCitiesList(bodyCity);
             };
-            fetchCommune();
+            fetchCity();
         }
     }, [search]);
 
     useEffect(() => {
-        const selectedCommune = communesList.find((c) => c.nom === commune);
-        setDepartement(selectedCommune?.departement.nom);
-        setRegion(selectedCommune?.region.nom);
-    }, [commune]);
+        const selectedCity = citiesList.find((c) => c.nom === city);
+        setDepartement(selectedCity?.departement.nom);
+        setRegion(selectedCity?.region.nom);
+        setPostalCode(selectedCity?.code);
+    }, [city]);
 
     useEffect(() => {
         form.setFieldsValue({departement: departement});
         form.setFieldsValue({region: region});
     }, [departement, region]);
 
-    function handleSearchCommune(value) {
+    function handleSearchCity(value) {
         setSearch(value);
     }
 
-    function handleSelectCommune(selectedCommune) {
-        setCommune(selectedCommune);
+    function handleSelectCity(selectedCity) {
+        setCity(selectedCity);
     }
 
-    function validInfos() {
+    async function validInfos() {
+        const params = {city, departement, postalCode, region, country}
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(params)
+        }
 
+        const response = await fetch('/users/adress/' + auth.data.user._id, options);
+        const adressResp = await response.json();
     }
 
     const confirm = async (value) => {
@@ -80,17 +93,17 @@ function UpdateGameMasterAccount() {
             >
                 <Form.Item
                     label="Commune"
-                    name="commune"
+                    name="city"
                 >
                     <Select
                         showSearch
                         placeholder="Select a city"
                         optionFilterProp="children"
-                        value={commune}
-                        onSearch={(e) => handleSearchCommune(e)}
-                        onChange={(e) => handleSelectCommune(e)}
+                        value={city}
+                        onSearch={(e) => handleSearchCity(e)}
+                        onChange={(e) => handleSelectCity(e)}
                     >
-                        {communesList.map((item, index) => (
+                        {citiesList.map((item, index) => (
                             <Select.Option key={index} value={item.nom}>
                                 {item.nom}
                             </Select.Option>
