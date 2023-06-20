@@ -10,7 +10,7 @@ async function fetchDepartements() {
     return await response.json();
 }
 
-export async function getDeptAndRegions() {
+export async function getDepartementsAndRegions() {
     const regions = await fetchRegions();
     const departements = await fetchDepartements();
 

@@ -70,8 +70,7 @@ function UpdateGameMasterAccount() {
             body: JSON.stringify(params)
         }
 
-        const response = await fetch('/users/adress/' + auth.data.user._id, options);
-        const adressResp = await response.json();
+        await fetch('/users/adress/' + auth.data.user._id, options);
     }
 
     const confirm = async (value) => {
@@ -123,39 +122,31 @@ function UpdateGameMasterAccount() {
                     <Input disabled value={region}/>
                 </Form.Item>
 
-
-                <Form.Item
-                    label="Games management"
-                    name="games"
-                >
-                    <List
-                        bordered
-                        dataSource={listGames}
-                        renderItem={(item) => (
-                            <List.Item>
-                                <Text strong>{item.title}</Text> {item.edition}
-                                <Popconfirm
-                                    placement="right"
-                                    title={'Do you want to delete this game ?'}
-                                    onConfirm={() => confirm(item)}
-                                    okText="Yes"
-                                    cancelText="No"
-                                >
-                                    <Button> <DeleteOutlined/>
-                                    </Button>
-                                </Popconfirm>
-                            </List.Item>
-                        )}
-                    />
-                </Form.Item>
-
-
                 <Form.Item>
                     <Button type="primary" htmlType="submit" onClick={() => validInfos()}>
                         Submit
                     </Button>
                 </Form.Item>
             </Form>
+            <List
+                bordered
+                dataSource={listGames}
+                renderItem={(item) => (
+                    <List.Item>
+                        <Text strong>{item.title}</Text> {item.edition}
+                        <Popconfirm
+                            placement="right"
+                            title={'Do you want to delete this game ?'}
+                            onConfirm={() => confirm(item)}
+                            okText="Yes"
+                            cancelText="No"
+                        >
+                            <Button> <DeleteOutlined/>
+                            </Button>
+                        </Popconfirm>
+                    </List.Item>
+                )}
+            />
         </Content>)
 }
 
