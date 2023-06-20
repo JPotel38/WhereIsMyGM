@@ -77,11 +77,13 @@ function Games(props) {
         props.pageSizeOptions = null;
     }
 
-    function testId(value) {
+    async function addGame(gameId) {
+        await fetch(`/users/addgame/${auth.data.user._id}/${gameId}`, {
+            method: 'POST',
+        });
     }
 
-    return (
-        <Content style={{padding: '0 50px'}}>
+    return (<Content style={{padding: '0 50px'}}>
             <Title>Games</Title>
             <Select
                 showSearch
@@ -89,12 +91,9 @@ function Games(props) {
                 placeholder="Select a game"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
-                filterOption={(input, option) =>
-                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                }
+                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
             >
-                {listGamesTitles.map((items, k) =>
-                    <Option key={k} value={items}>{items}</Option>)}
+                {listGamesTitles.map((items, k) => <Option key={k} value={items}>{items}</Option>)}
             </Select>
             <Select
                 showSearch
@@ -102,9 +101,7 @@ function Games(props) {
                 placeholder="Select a type"
                 optionFilterProp="children"
                 onChange={onChangeGenre}
-                filterOption={(input, option) =>
-                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                }
+                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
             >
                 <Option value="Fantasy">Fantasy</Option>
                 <Option value="Fantastique">Fantastic</Option>
@@ -114,9 +111,7 @@ function Games(props) {
                 <Option value="Space-Opera">Space-Opera</Option>
             </Select>
             <Button onClick={randomGame}><FaDiceD20/> Random game</Button>
-            {
-                random.length === 1 || gameIsSelected ? <Button onClick={clearButton}>Clear</Button> : null
-            }
+            {random.length === 1 || gameIsSelected ? <Button onClick={clearButton}>Clear</Button> : null}
             <div className="site-card-wrapper">
                 <List
                     grid={{
@@ -130,23 +125,19 @@ function Games(props) {
                         pageSize: 9
                     }}
                     dataSource={isRandom ? random : listGames}
-                    renderItem={item => (
-                        <List.Item key={item.title}>
+                    renderItem={item => (<List.Item key={item.title}>
                             <Card title={item.title}>
                                 <p>Edition : {item.edition}</p>
                                 <p>Genre : {item.genre}</p>
                                 <Button> <Link to={`/games/details/${item._id}`}>
                                     <SearchOutlined/>Details</Link></Button>
-                                {auth?.data?.user?.isGameMaster ?
-                                    <Button onClick={() => testId(item._id)}><Link><PlusOutlined/></Link></Button>
-                                    : null}
+                                {auth?.data?.user?.isGameMaster ? <Button
+                                    onClick={() => addGame(item._id)}><Link><PlusOutlined/></Link></Button> : null}
                             </Card>
-                        </List.Item>
-                    )}
+                        </List.Item>)}
                 />
             </div>
-        </Content>
-    )
+        </Content>)
 }
 
 export default Games;

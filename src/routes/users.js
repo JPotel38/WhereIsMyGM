@@ -20,12 +20,30 @@ router.get('/gamesbyuser/:id', async function (req, res) {
 
 router.delete('/deletegame/:userId/:gameId', async function (req, res) {
     try {
-        const user = await UserModel.findById(req.params.userId);
-        const gameIndex = user.listGames.indexOf(req.params.gameId);
-        if (gameIndex !== -1) {
-            user.listGames.splice(gameIndex, 1);
-            await user.save();
-        }
+        const user = await UserModel.findByIdAndUpdate(
+            req.params.userId,
+            { $pull: { listGames: req.params.gameId } },
+            { new: true }
+        ).exec();
+
+        res.json(user.listGames);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+router.post('/addgame/:userId/:gameId', async function (req, res) {
+    try {
+        const userId = req.params.userId;
+        const gameId = req.params.gameId;
+
+        const user = await UserModel.findByIdAndUpdate(
+            userId,
+            { $addToSet: { listGames: gameId } },
+            { new: true }
+        ).exec();
+
         res.json(user.listGames);
     } catch (err) {
         console.error(err);
