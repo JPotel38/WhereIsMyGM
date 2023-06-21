@@ -31,7 +31,6 @@ function Games(props) {
         }
     })
 
-
     const onChangeJeu = (value) => {
         setGameIsSelected(true);
         setUrl(`/games/cardsgamesbytitle?title=${value}`);

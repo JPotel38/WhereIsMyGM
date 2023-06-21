@@ -7,7 +7,6 @@ function useGamesList(url) {
             try {
                 const response = await fetch(url);
                 const data = await response.json();
-                console.log(data)
                 setListGames(data.sort((a, b) => {
                     const x = a.title.toLowerCase();
                     const y = b.title.toLowerCase();

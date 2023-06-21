@@ -1,17 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Avatar, Card, Col, Layout, Row, Select, Typography } from 'antd';
+import React, {useEffect, useState} from 'react';
+import {Avatar, Card, Col, Layout, Row, Select, Typography} from 'antd';
 import '../../App.scss';
 import useLocalisationHook from '../../hooks/useLocalisationHook.js';
+import useGamesList from "../../hooks/useGamesHook";
 
-const { Content } = Layout;
-const { Title } = Typography;
-const { Option } = Select;
-const { Meta } = Card;
+const {Content} = Layout;
+const {Title} = Typography;
+const {Option} = Select;
+const {Meta} = Card;
 
 function GameMasters() {
     const [gamemastersList, setGamemastersList] = useState([]);
     const [localisation, setLocalisation] = useState('');
+    const [gameId, setGameId] = useState('');
     const localisationList = useLocalisationHook();
+    const listGames = useGamesList('/games/listgames');
+    const listGamesTitles = [];
+
+    listGames.map(game => {
+        if (listGamesTitles.indexOf(game) === -1) {
+            listGamesTitles.push(game);
+        }
+    })
 
     useEffect(() => {
         const fetchGameMasters = async () => {
@@ -24,12 +34,24 @@ function GameMasters() {
     }, []);
 
     useEffect(() => {
+        const fetchUserByGame = async () => {
+            if (gameId) {
+                const response = await fetch('/users/listusersbygame/' + gameId);
+                const bodyUsers = await response.json();
+                setGamemastersList(bodyUsers.filter(user => user.isGameMaster === true));
+            }
+        };
+
+        fetchUserByGame();
+    }, [gameId]);
+
+    useEffect(() => {
         const fetchGameMasters = async () => {
             const response = await fetch('/users/listusers');
-            const bodyUsers = await response.json();
+            const bodyGameMasters = await response.json();
 
-            const filteredGamemasters = bodyUsers.filter(user => {
-                const { region, departement } = user.address;
+            const filteredGamemasters = bodyGameMasters.filter(user => {
+                const {region, departement} = user.address;
                 if (localisation) {
                     return (
                         user.isGameMaster === true &&
@@ -46,8 +68,8 @@ function GameMasters() {
         fetchGameMasters();
     }, [localisation]);
 
-    function onChangeJeu(value) {
-        console.log(`selected ${value}`);
+    const onChangeJeu = (gameId) => {
+        setGameId(gameId)
     }
 
     function onBlurJeu() {
@@ -67,30 +89,30 @@ function GameMasters() {
     }
 
     return (
-        <Content style={{ padding: '0 50px' }}>
+        <Content style={{padding: '0 50px'}}>
             <Title>Game Masters</Title>
 
             <Select
                 showSearch
-                style={{ width: 200 }}
+                style={{width: 200}}
                 placeholder="Select a game"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
                 onFocus={onFocusJeu}
                 onBlur={onBlurJeu}
                 onSearch={onSearchJeu}
-                filterOption={(input, option) =>
-                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                }
+                filterOption={(input, option) => {
+                    option.children.filter(op => op.toLowerCase() === input.toLowerCase())
+                }}
             >
-                <Option value="Star Wars">Star Wars</Option>
-                <Option value="Pathfinder">Pathfinder</Option>
-                <Option value="Chroniques Oubliées">Chroniques Oubliées</Option>
+                {listGamesTitles.map((items, k) => <Option key={k}
+                                                           value={items._id}><b>{items.title}</b> {items.edition}
+                </Option>)}
             </Select>
 
             <Select
                 showSearch
-                style={{ width: 250 }}
+                style={{width: 250}}
                 placeholder="Select a region"
                 onChange={onChangeCity}
             >
@@ -98,7 +120,7 @@ function GameMasters() {
                     if (typeof item === 'string') {
                         return (
                             <Option key={index} value={item}>
-                                <span style={{ fontWeight: 'bold' }}>{item}</span>
+                                <span style={{fontWeight: 'bold'}}>{item}</span>
                             </Option>
                         );
                     } else if (
@@ -122,7 +144,7 @@ function GameMasters() {
                         <Col span={20}>
                             <Card>
                                 <Meta
-                                    avatar={<Avatar src={item.profilePicture} />}
+                                    avatar={<Avatar src={item.profilePicture}/>}
                                     title={item.userPseudo}
                                     description={item.smallDescription}
                                 />
