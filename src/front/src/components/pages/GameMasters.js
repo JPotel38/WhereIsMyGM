@@ -51,8 +51,8 @@ function GameMasters() {
             const bodyGameMasters = await response.json();
 
             const filteredGamemasters = bodyGameMasters.filter(user => {
-                const {region, departement} = user.address;
-                if (localisation) {
+                if (localisation && user.address) {
+                    const {region, departement} = user.address;
                     return (
                         user.isGameMaster === true &&
                         (region === localisation || departement === localisation)
