@@ -13,6 +13,7 @@ function Nav() {
 
     const logout = () => {
         setAuthData(null);
+        window.location.reload();
     };
 
     const menu = (<Menu>
@@ -42,7 +43,7 @@ function Nav() {
                     <Button><Link to="/signupGM">Becoming a GM</Link></Button>
                 </Menu.Item>
             </>)}
-            {auth.data.user ? (<Menu.Item key="3" className="account-dropdown" style={{float: 'right'}}>
+            {auth.data?.user? (<Menu.Item key="3" className="account-dropdown" style={{float: 'right'}}>
                 <Dropdown overlay={menu} trigger={['click']}>
               <span>
                 <UserOutlined/>
