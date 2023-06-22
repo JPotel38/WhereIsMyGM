@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Avatar, Button, Col, Form, Input, Layout, message, Row, Typography, Upload} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
 import '../../App.scss';
+import {Redirect} from "react-router-dom";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -19,7 +20,7 @@ function Signup() {
     const [isPasswordsMatch, setIsPasswordsMatch] = useState(false);
 
     let validInfos = async () => {
-        await fetch('/access/inscription', {
+        await fetch('/access/signup', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -32,6 +33,7 @@ function Signup() {
                 passwordConfirm: passwordConfirm
             })
         });
+        return <Redirect to="/" />;
     }
 
     function getBase64(img) {
@@ -233,7 +235,7 @@ function Signup() {
                                     setIsPasswordsMatch(true);
                                     return Promise.resolve();
                                 }
-                                return Promise.reject(new Error('Passord don\'t match'));
+                                return Promise.reject(new Error('Passwords don\'t match'));
                             },
                         }),
                         {
