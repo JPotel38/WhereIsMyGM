@@ -24,7 +24,7 @@ function Login() {
     }
 
     async function validInfos() {
-        const response = await fetch('/access/connexion', {
+        const response = await fetch('/access/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: `email=${email}&password=${password}`
@@ -57,7 +57,7 @@ function Login() {
 
     return (
         <Content style={{padding: '0 50px'}}>
-            <Title>Connexion</Title>
+            <Title>Login</Title>
             <Form
                 {...layout}
                 name="basic"
