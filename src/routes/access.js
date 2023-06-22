@@ -11,15 +11,15 @@ const jwt = require('jsonwebtoken')
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
-router.post('/inscription', async function (req) {
-    let uploadResponse;
+router.post('/signup', async function (req, res) {
     let newUser;
-    // try {
-    //     uploadResponse = await cloudinary.uploader.upload(req.body.profilePicture,
-    //         {folder: "whereismygm/users"});
-    // } catch (e) {
-    //     console.log('Cloudinary error:', e)
-    // }
+    let uploadResponse
+    try {
+        uploadResponse = await cloudinary.uploader.upload(req.body.profilePicture,
+            {folder: "whereismygm/users"});
+    } catch (e) {
+        console.log('Cloudinary error:', e)
+    }
 
     try {
         newUser = await new UserModel({
@@ -31,9 +31,11 @@ router.post('/inscription', async function (req) {
             emailStatus: 'Pending',
             password: SHA256(req.body.password + salt).toString(encBase64),
             salt: salt,
+            profilePicture: uploadResponse ? uploadResponse.url : '',
             token: uid2(32)
         });
         await newUser.save();
+        await res.json();
     } catch (e) {
         console.log('Saved new user error:', e)
     }
@@ -76,7 +78,7 @@ router.post('/inscription', async function (req) {
     // }
 });
 
-router.post('/connexion', async function (req, res) {
+router.post('/login', async function (req, res) {
     let result = false;
     let error = [];
     let token = [];

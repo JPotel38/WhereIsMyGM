@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {Avatar, Button, Col, Form, Input, Layout, message, Row, Typography, Upload} from 'antd';
+import {Avatar, Button, Col, Form, Input, Layout, message, notification, Row, Typography, Upload} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
 import '../../App.scss';
-import {Redirect} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -19,8 +19,11 @@ function Signup() {
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [isPasswordsMatch, setIsPasswordsMatch] = useState(false);
 
+    const history = useHistory()
+    const [api, contextHolder] = notification.useNotification();
+
     let validInfos = async () => {
-        await fetch('/access/signup', {
+        const response = await fetch('/access/signup', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -33,8 +36,18 @@ function Signup() {
                 passwordConfirm: passwordConfirm
             })
         });
-        return <Redirect to="/" />;
+        const res = await response;
+        if (res.status === 200) {
+            successSignUpHandler('success')
+        }
     }
+
+    const successSignUpHandler = (type) => {
+        api[type]({
+            message: 'User successfully created',
+        });
+        setTimeout(() => history.replace('/'), 2000);
+    };
 
     function getBase64(img) {
         const reader = new FileReader();
@@ -108,6 +121,7 @@ function Signup() {
     return (
         <Content style={{padding: '0 50px'}}>
             <Title>Sign Up</Title>
+            {contextHolder}
             <Row>
                 <Col span={4} offset={10}>
                     <Avatar src={imageUrl} size={{
