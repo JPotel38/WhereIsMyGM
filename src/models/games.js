@@ -16,6 +16,6 @@ const gameSchema = new mongoose.Schema({
     price: Number
 });
 
-const GameModel = new mongoose.model('games', gameSchema);
+const GameModel = mongoose.model('games', gameSchema);
 
 module.exports = GameModel;

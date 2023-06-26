@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-let GameModel = require('../models/games');
+const GameModel = require('../models/games');
 
 router.get('/listgames', async function (req, res) {
 
@@ -18,16 +18,16 @@ router.get(`/cardsgamesbytitle`, async function (req, res) {
 
 router.get(`/cardsgamesbygenre`, async function (req, res) {
 
-    let gamesCardsByStyle = await GameModel.find(req.query);
+    let gamesCardsGenre = await GameModel.find(req.query);
 
-    res.send(gamesCardsByStyle)
+    res.send(gamesCardsGenre)
 });
 
-router.get(`/cardsgamesbyid`, async function (req, res) {
+router.get(`/cardsgamesbyid/:gameId`, async function (req, res) {
 
-    let gamesCardsByStyle = await GameModel.find(req.query);
+    const gameById = await GameModel.findById(req.params.gameId);
 
-    res.send(gamesCardsByStyle)
+    res.send(gameById)
 });
 
 module.exports = router;

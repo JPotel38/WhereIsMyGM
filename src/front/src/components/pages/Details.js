@@ -14,12 +14,12 @@ function Details(props) {
 
     useEffect(() => {
         const findGame = async () => {
-            const data = await fetch(`/cardsgamesbyid?_id=${props.match.params.id}`)
+            const data = await fetch('/games/cardsgamesbyid/' + props.match.params.id)
             let body = await data.json();
-            setGameTitle(body[0].title);
-            setGameEdition(body[0].edition);
-            setGameGenre(body[0].genre);
-            setGameAuthor(body[0].author);
+            setGameTitle(body.title);
+            setGameEdition(body.edition);
+            setGameGenre(body.genre);
+            setGameAuthor(body.author);
         }
         findGame();
     }, []);

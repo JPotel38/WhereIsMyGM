@@ -110,7 +110,7 @@ function Games(props) {
                     <Card title={item.title}>
                         <p>Edition : {item.edition}</p>
                         <p>Genre : {item.genre}</p>
-                        <Button> <Link to={`/games/details/${item._id}`}>
+                        <Button> <Link to={`/details/${item._id}`}>
                             <SearchOutlined/>Details</Link></Button>
                         {auth?.data?.user?.isGameMaster ? <Button
                             onClick={() => addGame(item._id)}><Link><PlusOutlined/></Link></Button> : null}
