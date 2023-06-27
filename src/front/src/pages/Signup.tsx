@@ -1,11 +1,27 @@
 import React, {useState} from 'react';
-import {Avatar, Button, Col, Form, Input, Layout, message, notification, Row, Typography, Upload} from 'antd';
+import {
+    Avatar,
+    Button,
+    Col,
+    Form,
+    Input,
+    Layout,
+    message,
+    notification,
+    Row,
+    Typography,
+    Upload, UploadFile,
+    UploadProps
+} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
-import '../../App.scss';
+import '../App.scss';
 import {useHistory} from "react-router-dom";
+import {RcFile, UploadChangeParam} from "antd/es/upload";
 
 const {Content} = Layout;
 const {Title} = Typography;
+
+type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 function Signup() {
 
@@ -42,22 +58,21 @@ function Signup() {
         }
     }
 
-    const successSignUpHandler = (type) => {
+    const successSignUpHandler = (type: NotificationType) => {
         api[type]({
             message: 'User successfully created',
         });
         setTimeout(() => history.replace('/'), 2000);
     };
 
-    function getBase64(img) {
+    const getBase64 = (img: RcFile, callback: (url: string) => void) => {
         const reader = new FileReader();
-        reader.readAsDataURL(img);
-        reader.onloadend = () => {
-            setImageUrl(reader.result);
-        }
-    }
+        const blob = new Blob([img]);
+        reader.addEventListener('load', () => callback(reader.result as string));
+        reader.readAsDataURL(blob);
+    };
 
-    function beforeUpload(file) {
+    function beforeUpload(file: RcFile) {
         const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
         if (!isJpgOrPng) {
             message.error('You can only upload JPG/PNG file!');
@@ -69,14 +84,16 @@ function Signup() {
         return isJpgOrPng && isLt2M;
     }
 
-    const handleChange = info => {
+    const handleChange: UploadProps['onChange'] = (info: UploadChangeParam<UploadFile>) => {
         if (info.file.status === 'uploading') {
             setLoadingAvatar(true);
             return;
         }
         if (info.file.status === 'done') {
-            setLoadingAvatar(false);
-            getBase64(info.file.originFileObj);
+            getBase64(info.file.originFileObj as RcFile, (url) => {
+                setLoadingAvatar(false);
+                setImageUrl(url);
+            });
         }
     };
 
@@ -245,7 +262,7 @@ function Signup() {
                         ({getFieldValue}) => ({
                             validator(_, value) {
                                 if (!value || getFieldValue('password') === value) {
-                                    setPasswordConfirm(true);
+                                    setPasswordConfirm(value);
                                     setIsPasswordsMatch(true);
                                     return Promise.resolve();
                                 }

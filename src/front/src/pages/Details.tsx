@@ -1,11 +1,38 @@
 import React, {useEffect, useState} from 'react';
 import {Layout, Space, Typography} from 'antd';
-import '../../App.scss';
+import '../App.scss';
 
 const {Content} = Layout;
 const {Title, Text} = Typography;
 
-function Details(props) {
+interface DetailsProps {
+    history: {
+        length: number;
+        action: string;
+        location: {
+            pathname: string;
+            search: string;
+            hash: string;
+            key: string;
+        }
+    };
+    location: {
+        pathname: string;
+        search: string;
+        hash: string;
+        key: string;
+    };
+    match: {
+        path: string;
+        url: string;
+        isExact: boolean;
+        params: {
+            id: string;
+        }
+    }
+}
+
+function Details(props: DetailsProps) {
 
     const [gameTitle, setGameTitle] = useState('');
     const [gameEdition, setGameEdition] = useState('');
@@ -13,7 +40,7 @@ function Details(props) {
     const [gameAuthor, setGameAuthor] = useState('');
 
     useEffect(() => {
-        const findGame = async () => {
+      const findGame = async () => {
             const data = await fetch('/games/cardsgamesbyid/' + props.match.params.id)
             let body = await data.json();
             setGameTitle(body.title);

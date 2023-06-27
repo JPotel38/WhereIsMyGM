@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Avatar, Card, Col, Layout, Row, Select, Typography} from 'antd';
-import '../../App.scss';
-import useLocalisationHook from '../../hooks/useLocalisationHook.js';
-import useGamesList from "../../hooks/useGamesHook";
+import '../App.scss';
+import useLocalisationHook from '../hooks/useLocalisationHook.js';
+import useGamesList from "../hooks/useGamesListHook";
+import {IUser} from "../interfaces/UserInterface";
+import {IGame} from "../interfaces/GameInterface";
 
 const {Content} = Layout;
 const {Title} = Typography;
-const {Option} = Select;
 const {Meta} = Card;
+const { Option } = Select;
 
 function GameMasters() {
     const [gamemastersList, setGamemastersList] = useState([]);
@@ -15,7 +17,7 @@ function GameMasters() {
     const [gameId, setGameId] = useState('');
     const localisationList = useLocalisationHook();
     const listGames = useGamesList('/games/listgames');
-    const listGamesTitles = [];
+    const listGamesTitles: IGame[] = [];
 
     listGames.map(game => {
         if (listGamesTitles.indexOf(game) === -1) {
@@ -27,9 +29,8 @@ function GameMasters() {
         const fetchGameMasters = async () => {
             const response = await fetch('/users/listusers');
             const bodyUsers = await response.json();
-            setGamemastersList(bodyUsers.filter(user => user.isGameMaster === true));
+            setGamemastersList(bodyUsers.filter((user: IUser) => user.isGameMaster));
         };
-
         fetchGameMasters();
     }, []);
 
@@ -38,7 +39,7 @@ function GameMasters() {
             if (gameId) {
                 const response = await fetch('/users/listusersbygame/' + gameId);
                 const bodyUsers = await response.json();
-                setGamemastersList(bodyUsers.filter(user => user.isGameMaster === true));
+                setGamemastersList(bodyUsers.filter((user: IUser) => user.isGameMaster));
             }
         };
 
@@ -50,13 +51,10 @@ function GameMasters() {
             const response = await fetch('/users/listusers');
             const bodyGameMasters = await response.json();
 
-            const filteredGamemasters = bodyGameMasters.filter(user => {
+            const filteredGamemasters = bodyGameMasters.filter((user: IUser) => {
                 if (localisation && user.address) {
                     const {region, departement} = user.address;
-                    return (
-                        user.isGameMaster === true &&
-                        (region === localisation || departement === localisation)
-                    );
+                    return (user.isGameMaster && (region === localisation || departement === localisation));
                 } else {
                     return user.isGameMaster;
                 }
@@ -68,23 +66,11 @@ function GameMasters() {
         fetchGameMasters();
     }, [localisation]);
 
-    const onChangeJeu = (gameId) => {
+    const onChangeJeu = (gameId: string) => {
         setGameId(gameId)
     }
 
-    function onBlurJeu() {
-        console.log('blur');
-    }
-
-    function onFocusJeu() {
-        console.log('focus');
-    }
-
-    function onSearchJeu(val) {
-        console.log('search:', val);
-    }
-
-    function onChangeCity(localisation) {
+    function onChangeCity(localisation: string) {
         setLocalisation(localisation);
     }
 
@@ -98,14 +84,12 @@ function GameMasters() {
                 placeholder="Select a game"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
-                onFocus={onFocusJeu}
-                onBlur={onBlurJeu}
-                onSearch={onSearchJeu}
-                filterOption={(input, option) => {
-                    option.children.filter(op => op.toLowerCase() === input.toLowerCase())
-                }}
+                filterOption={(input: string, option: any) =>
+                    option?.children?.filter((op: any) => op.toLowerCase() === input.toLowerCase())
+                }
+
             >
-                {listGamesTitles.map((items, k) => <Option key={k}
+                {listGamesTitles.map((items: IGame, k: number) => <Option key={k}
                                                            value={items._id}><b>{items.title}</b> {items.edition}
                 </Option>)}
             </Select>
@@ -139,7 +123,7 @@ function GameMasters() {
             </Select>
 
             <div className="site-card-wrapper">
-                {gamemastersList.map((item, k) => (
+                {gamemastersList.map((item: IUser, k) => (
                     <Row key={k} gutter={[16, 24]}>
                         <Col span={20}>
                             <Card>

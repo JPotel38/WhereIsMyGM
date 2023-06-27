@@ -1,17 +1,19 @@
 import React, {useContext, useEffect, useState} from 'react';
-import '../../App.scss';
+import '../App.scss';
 import {Button, Form, Input, List, Popconfirm, Select, Typography} from "antd";
 import {Content} from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
-import {authContext} from "../../AuthContext";
+import {authContext} from "../AuthContext";
 import {DeleteOutlined} from "@ant-design/icons";
+import {ICity} from "../interfaces/CityInterface";
+import {IGame} from "../interfaces/GameInterface";
 
 const {Text} = Typography;
 
 function UpdateGameMasterAccount() {
     const [search, setSearch] = useState('');
-    const [citiesList, setCitiesList] = useState([]);
-    const [city, setCity] = useState(null);
+    const [citiesList, setCitiesList] = useState<ICity[]>([]);
+    const [city, setCity] = useState('');
     const [departement, setDepartement] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [region, setRegion] = useState('');
@@ -41,10 +43,13 @@ function UpdateGameMasterAccount() {
     }, [search]);
 
     useEffect(() => {
-        const selectedCity = citiesList.find((c) => c.nom === city);
-        setDepartement(selectedCity?.departement.nom);
-        setRegion(selectedCity?.region.nom);
-        setPostalCode(selectedCity?.code);
+        const selectedCity = citiesList.find((c: ICity) => c.nom === city) as ICity;
+
+        if (selectedCity) {
+            setDepartement(selectedCity.departement.nom);
+            setRegion(selectedCity.region.nom);
+            setPostalCode(selectedCity.code);
+        }
     }, [city]);
 
     useEffect(() => {
@@ -52,11 +57,11 @@ function UpdateGameMasterAccount() {
         form.setFieldsValue({region: region});
     }, [departement, region]);
 
-    function handleSearchCity(value) {
-        setSearch(value);
+    function handleSearchCity(searchedCity: string) {
+        setSearch(searchedCity);
     }
 
-    function handleSelectCity(selectedCity) {
+    function handleSelectCity(selectedCity: string) {
         setCity(selectedCity);
     }
 
@@ -73,7 +78,7 @@ function UpdateGameMasterAccount() {
         await fetch('/users/adress/' + auth.data.user._id, options);
     }
 
-    const confirm = async (value) => {
+    const confirm = async (value: IGame) => {
         const response = await fetch('/users/deletegame/' + auth.data.user._id + '/' + value._id,
             {method: 'DELETE'});
         const bodyGames = await response.json();
@@ -98,11 +103,10 @@ function UpdateGameMasterAccount() {
                         showSearch
                         placeholder="Select a city"
                         optionFilterProp="children"
-                        value={city}
                         onSearch={(e) => handleSearchCity(e)}
                         onChange={(e) => handleSelectCity(e)}
                     >
-                        {citiesList.map((item, index) => (
+                        {citiesList.map((item: ICity, index) => (
                             <Select.Option key={index} value={item.nom}>
                                 {item.nom}
                             </Select.Option>
@@ -131,7 +135,7 @@ function UpdateGameMasterAccount() {
             <List
                 bordered
                 dataSource={listGames}
-                renderItem={(item) => (
+                renderItem={(item: IGame) => (
                     <List.Item>
                         <Text strong>{item.title}</Text> {item.edition}
                         <Popconfirm

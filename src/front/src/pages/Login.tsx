@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Button, Checkbox, Form, Input, Layout, Modal, Typography} from 'antd';
-import '../../App.scss';
-import {authContext} from "../../AuthContext";
+import '../App.scss';
+import {authContext} from "../AuthContext";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -15,7 +15,7 @@ function Login() {
     const history = useHistory()
     const {setAuthData} = useContext(authContext)
 
-    function errorTab(error) {
+    function errorTab(error: any[]) {
         for (let i = 0; i < error.length; i++) {
             Modal.error({
                 content: error[i]

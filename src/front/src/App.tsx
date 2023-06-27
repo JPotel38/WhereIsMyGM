@@ -2,16 +2,16 @@ import React from 'react';
 import './App.scss';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import Home from './components/pages/Home'
-import GameMasters from './components/pages/GameMasters'
-import Signup from './components/pages/Signup'
-import Login from './components/pages/Login'
-import AddGames from './components/pages/AddGames'
-import Details from './components/pages/Details'
-import Games from './components/pages/Games'
-import Nav from "./components/layout/Nav";
-import GameMasterAccount from "./components/pages/GameMasterAccount";
-import UpdateGameMasterAccount from "./components/pages/UpdateGameMasterAccount";
+import Home from './pages/Home'
+import GameMasters from './pages/GameMasters'
+import Signup from './pages/Signup'
+import Login from './pages/Login'
+import AddGames from './pages/AddGames'
+import Details from './pages/Details'
+import Games from './pages/Games'
+import Nav from "./components/Nav/Nav";
+import GameMasterAccount from "./pages/GameMasterAccount";
+import UpdateGameMasterAccount from "./pages/UpdateGameMasterAccount";
 
 import {Layout} from "antd";
 const {Footer} = Layout;

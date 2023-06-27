@@ -13,7 +13,6 @@ export const authContext = createContext<AuthContextType>({
 const AuthProvider = ({ children }: { children: ReactNode }) => {
     const storedAuthData = window.localStorage.getItem('authData');
     const parsedAuthData = storedAuthData ? JSON.parse(storedAuthData) : null;
-    console.log(parsedAuthData)
     const [auth, setAuth] = useState({ loading: true, data: parsedAuthData });
 
     const setAuthData = (data: any ) => {

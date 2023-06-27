@@ -1,5 +1,5 @@
 export interface IGame {
-    _id: number;
+    _id: string;
     title: string;
     genre: string;
     description: string;

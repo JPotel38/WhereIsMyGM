@@ -1,10 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react';
-import '../../App.scss';
+import '../App.scss';
 import {Button, List} from "antd";
 import {Content} from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 import {Link} from "react-router-dom";
-import {authContext} from "../../AuthContext";
+import {authContext} from "../AuthContext";
+import {IGame} from "../interfaces/GameInterface";
 
 function GameMasterAccount() {
     const {auth, setAuthData} = useContext(authContext);
@@ -27,7 +28,7 @@ function GameMasterAccount() {
             header={<div>Your Games</div>}
             bordered
             dataSource={listGames}
-            renderItem={(item) => (
+            renderItem={(item: IGame) => (
                 <List.Item>
                     {item.title} {item.edition}
                 </List.Item>

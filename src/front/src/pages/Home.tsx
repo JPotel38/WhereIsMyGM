@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Card, Col, Layout, Rate, Row, Typography} from 'antd';
 import {Link} from 'react-router-dom';
-import '../../App.scss';
+import '../App.scss';
 
 const {Content} = Layout;
 const {Title, Text} = Typography;
@@ -32,7 +32,7 @@ function Home() {
 
                 <Row>
                     <Col span={18}>
-                        <Title lvl={2}>Role Playing Game news :</Title>
+                        <Title level={2}>Role Playing Game news :</Title>
                         <Card title="Default size card" extra={<a href="#">More</a>} style={{width: 300}}>
                             <p>Content</p>
                         </Card>
