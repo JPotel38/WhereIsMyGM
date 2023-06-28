@@ -5,6 +5,7 @@ import useLocalisationHook from '../hooks/useLocalisationHook.js';
 import useGamesList from "../hooks/useGamesListHook";
 import {IUser} from "../interfaces/UserInterface";
 import {IGame} from "../interfaces/GameInterface";
+import useGameMastersListHook from "../hooks/useGameMastersListHook.";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -16,6 +17,7 @@ function GameMasters() {
     const [localisation, setLocalisation] = useState('');
     const [gameId, setGameId] = useState('');
     const localisationList = useLocalisationHook();
+    const gmList = useGameMastersListHook('/users/listusers');
     const listGames = useGamesList('/games/listgames');
     const listGamesTitles: IGame[] = [];
 
@@ -27,9 +29,7 @@ function GameMasters() {
 
     useEffect(() => {
         const fetchGameMasters = async () => {
-            const response = await fetch('/users/listusers');
-            const bodyUsers = await response.json();
-            setGamemastersList(bodyUsers.filter((user: IUser) => user.isGameMaster));
+            setGamemastersList(await gmList);
         };
         fetchGameMasters();
     }, []);
