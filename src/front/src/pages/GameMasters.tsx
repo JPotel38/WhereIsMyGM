@@ -9,7 +9,7 @@ import {IGame} from "../interfaces/GameInterface";
 const {Content} = Layout;
 const {Title} = Typography;
 const {Meta} = Card;
-const { Option } = Select;
+const {Option} = Select;
 
 function GameMasters() {
     const [gamemastersList, setGamemastersList] = useState([]);
@@ -90,14 +90,14 @@ function GameMasters() {
 
             >
                 {listGamesTitles.map((items: IGame, k: number) => <Option key={k}
-                                                           value={items._id}><b>{items.title}</b> {items.edition}
+                                                                          value={items._id}><b>{items.title}</b> {items.edition}
                 </Option>)}
             </Select>
 
             <Select
                 showSearch
                 style={{width: 250}}
-                placeholder="Select a region"
+                placeholder="Select a localisation"
                 onChange={onChangeCity}
             >
                 {localisationList.map((item, index) => {
@@ -123,19 +123,19 @@ function GameMasters() {
             </Select>
 
             <div className="site-card-wrapper">
-                {gamemastersList.map((item: IUser, k) => (
-                    <Row key={k} gutter={[16, 24]}>
-                        <Col span={20}>
+                <Row gutter={16}>
+                    {gamemastersList.map((item: IUser) => (
+                        <Col span={7}>
                             <Card>
                                 <Meta
                                     avatar={<Avatar src={item.profilePicture}/>}
-                                    title={item.userPseudo}
+                                    title={item.userPseudo + " de " + item.address.city + " en " + item.address.departement + " (" + item.address.region + ")"}
                                     description={item.smallDescription}
                                 />
                             </Card>
                         </Col>
-                    </Row>
-                ))}
+                    ))}
+                </Row>
             </div>
         </Content>
     );

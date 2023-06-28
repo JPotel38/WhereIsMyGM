@@ -12,7 +12,7 @@ const {Content} = Layout;
 const {Title} = Typography;
 const {Option} = Select;
 
-function Games(props: any) {
+function Games() {
     const [random, setRandom] = useState([]);
     const [gameIsSelected, setGameIsSelected] = useState(false);
     const [isRandom, setIsRandom] = useState(false);
@@ -77,7 +77,7 @@ function Games(props: any) {
         <Select
             showSearch
             style={{width: 200}}
-            placeholder="Select a type"
+            placeholder="Select a genre"
             optionFilterProp="children"
             onChange={onChangeGenre}
             filterOption={(input: string, option: any) =>
