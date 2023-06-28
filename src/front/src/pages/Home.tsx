@@ -1,10 +1,9 @@
 import React from 'react';
-import {Button, Card, Col, Layout, Rate, Row, Typography} from 'antd';
-import {Link} from 'react-router-dom';
+import {Card, Col, Layout, Rate, Row, Typography} from 'antd';
 import '../App.scss';
 
 const {Content} = Layout;
-const {Title, Text} = Typography;
+const {Title} = Typography;
 
 function Home() {
 
@@ -12,13 +11,6 @@ function Home() {
         <Content style={{padding: '0 50px'}}>
             <div className="site-layout-content">
                 <Row>
-                    <Col span={18}>
-
-                        <Text>I'm looking for ... </Text>
-                        <Button shape="round">
-                            <Link to="/gm">An awesome Game Master !</Link></Button>
-                        <Button shape="round"><Link to="/games">An amazing game !</Link></Button>
-                    </Col>
                     <Col span={6}>
                         <Title level={2}>Latest Review</Title>
                         <Card size="small" title="BobGM" extra={<a href="#">More</a>} style={{width: 200}}>
@@ -33,13 +25,13 @@ function Home() {
                 <Row>
                     <Col span={18}>
                         <Title level={2}>Role Playing Game news :</Title>
-                        <Card title="Default size card" extra={<a href="#">More</a>} style={{width: 300}}>
+                        <Card title="Article 1" extra={<a href="#">More</a>} style={{width: 300}}>
                             <p>Content</p>
                         </Card>
-                        <Card title="Default size card" extra={<a href="#">More</a>} style={{width: 300}}>
+                        <Card title="Article 2" extra={<a href="#">More</a>} style={{width: 300}}>
                             <p>Content</p>
                         </Card>
-                        <Card title="Default size card" extra={<a href="#">More</a>} style={{width: 300}}>
+                        <Card title="Article 3" extra={<a href="#">More</a>} style={{width: 300}}>
                             <p>Content</p>
                         </Card>
                     </Col>
