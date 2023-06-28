@@ -9,8 +9,8 @@ export interface IUser {
     emailStatus: string;
     address: IAddress;
     isGameMaster: boolean;
-    smallDescription: string;
-    listGames: [{ type: string, ref: 'games' }],
+    smallDescription?: string;
+    listGames?: [{ type: string, ref: 'games' }],
     dateInscription: Date;
     dateLastCo: Date;
     salt: string;
