@@ -1,47 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import {Layout, Space, Typography} from 'antd';
 import '../App.scss';
+import {useParams} from "react-router-dom";
 
 const {Content} = Layout;
 const {Title, Text} = Typography;
 
-interface DetailsProps {
-    history: {
-        length: number;
-        action: string;
-        location: {
-            pathname: string;
-            search: string;
-            hash: string;
-            key: string;
-        }
-    };
-    location: {
-        pathname: string;
-        search: string;
-        hash: string;
-        key: string;
-    };
-    match: {
-        path: string;
-        url: string;
-        isExact: boolean;
-        params: {
-            id: string;
-        }
-    }
-}
+function Details() {
 
-function Details(props: DetailsProps) {
-
+    const {id} = useParams<{ id: string }>();
     const [gameTitle, setGameTitle] = useState('');
     const [gameEdition, setGameEdition] = useState('');
     const [gameGenre, setGameGenre] = useState('');
     const [gameAuthor, setGameAuthor] = useState('');
 
     useEffect(() => {
-      const findGame = async () => {
-            const data = await fetch('/games/cardsgamesbyid/' + props.match.params.id)
+        const findGame = async () => {
+            const data = await fetch('/games/cardsgamesbyid/' + id)
             let body = await data.json();
             setGameTitle(body.title);
             setGameEdition(body.edition);
@@ -49,7 +24,7 @@ function Details(props: DetailsProps) {
             setGameAuthor(body.author);
         }
         findGame();
-    }, []);
+    }, [id]);
 
     return (
         <Content style={{padding: '0 50px'}}>
