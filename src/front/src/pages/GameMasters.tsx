@@ -80,18 +80,17 @@ function GameMasters() {
 
             <Select
                 showSearch
-                style={{width: 200}}
-                placeholder="Select a game"
+                style={{ width: 600 }}
+                placeholder="Sélectionnez un jeu"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
-                filterOption={(input: string, option: any) =>
-                    option?.children?.filter((op: any) => op.toLowerCase() === input.toLowerCase())
-                }
-
+                filterOption={true}
             >
-                {listGamesTitles.map((items: IGame, k: number) => <Option key={k}
-                                                                          value={items._id}><b>{items.title}</b> {items.edition}
-                </Option>)}
+                {listGamesTitles.map((item: IGame) => (
+                    <Option key={item._id} value={item._id}>
+                        <b>{item.title}</b> {item.edition}
+                    </Option>
+                ))}
             </Select>
 
             <Select

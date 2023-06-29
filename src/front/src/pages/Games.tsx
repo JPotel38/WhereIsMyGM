@@ -100,7 +100,7 @@ function Games() {
                 size="large"
                 loading={filteredListGames.length === 0}
                 pagination={{
-                    pageSize: 9
+                    pageSize: 12
                 }}
                 dataSource={isRandom ? random : filteredListGames}
                 renderItem={(item: IGame) => (<List.Item key={item.title}>
