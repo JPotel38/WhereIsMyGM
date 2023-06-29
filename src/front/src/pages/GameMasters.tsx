@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Card, Col, Layout, Row, Select, Typography} from 'antd';
+import {Avatar, Button, Card, Col, Layout, Row, Select, Typography} from 'antd';
 import '../App.scss';
 import useLocalisationHook from '../hooks/useLocalisationHook.js';
-import useGamesList from "../hooks/useGamesListHook";
+import useGamesListHook from "../hooks/useGamesListHook";
 import {IUser} from "../interfaces/UserInterface";
 import {IGame} from "../interfaces/GameInterface";
 import useGameMastersListHook from "../hooks/useGameMastersListHook.";
+import useListUsersByGameHook from "../hooks/useListUsersByGameHook";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -14,11 +15,13 @@ const {Option} = Select;
 
 function GameMasters() {
     const [gamemastersList, setGamemastersList] = useState([]);
+    const [isGameSelected, setIsGameSelected] = useState(false);
     const [localisation, setLocalisation] = useState('');
     const [gameId, setGameId] = useState('');
     const localisationList = useLocalisationHook();
     const gmList = useGameMastersListHook('/users/listusers');
-    const listGames = useGamesList('/games/listgames');
+    const listGames = useGamesListHook('/games/listgames');
+    const listUsersByGame = useListUsersByGameHook(gameId);
     const listGamesTitles: IGame[] = [];
 
     listGames.map(game => {
@@ -37,12 +40,9 @@ function GameMasters() {
     useEffect(() => {
         const fetchUserByGame = async () => {
             if (gameId) {
-                const response = await fetch('/users/listusersbygame/' + gameId);
-                const bodyUsers = await response.json();
-                setGamemastersList(bodyUsers.filter((user: IUser) => user.isGameMaster));
+                setGamemastersList(await listUsersByGame);
             }
         };
-
         fetchUserByGame();
     }, [gameId]);
 
@@ -67,11 +67,20 @@ function GameMasters() {
     }, [localisation]);
 
     const onChangeJeu = (gameId: string) => {
-        setGameId(gameId)
+        setGameId(gameId);
+        if (gameId) {
+            setIsGameSelected(true)
+        }
     }
 
     function onChangeCity(localisation: string) {
         setLocalisation(localisation);
+    }
+
+    async function clearButton() {
+        setIsGameSelected(false);
+        setGamemastersList(await gmList);
+        setGameId('');
     }
 
     return (
@@ -80,14 +89,14 @@ function GameMasters() {
 
             <Select
                 showSearch
-                style={{ width: 600 }}
+                style={{width: 600}}
                 placeholder="Sélectionnez un jeu"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
                 filterOption={true}
             >
-                {listGamesTitles.map((item: IGame) => (
-                    <Option key={item._id} value={item._id}>
+                {listGamesTitles.map((item: IGame, index: number) => (
+                    <Option key={index} value={item._id}>
                         <b>{item.title}</b> {item.edition}
                     </Option>
                 ))}
@@ -120,6 +129,7 @@ function GameMasters() {
                     }
                 })}
             </Select>
+            {isGameSelected ? <Button onClick={clearButton}>Clear</Button> : null}
 
             <div className="site-card-wrapper">
                 <Row gutter={16}>

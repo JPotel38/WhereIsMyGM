@@ -5,7 +5,7 @@ import {Content} from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 import {Link} from "react-router-dom";
 import {IGame} from "../interfaces/GameInterface";
-import useGamesByUserHook from "../hooks/useGamesByUser";
+import useGamesByUserHook from "../hooks/useGamesByUserHook";
 
 function GameMasterAccount() {
     const [listGames, setListGames] = useState([])
@@ -13,7 +13,7 @@ function GameMasterAccount() {
 
     useEffect(() => {
         const fetchGames = async () => {
-            setListGames(await bodyGames)
+            setListGames(await bodyGames);
         };
         fetchGames();
     }, []);

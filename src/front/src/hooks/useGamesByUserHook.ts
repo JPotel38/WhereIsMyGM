@@ -6,7 +6,8 @@ async function useGamesByUserHook(url: string) {
 
     if (auth.data.user) {
         const response = await fetch(url + auth.data.user._id);
-        return await response.json();
+        const body = await response.json();
+        return body.listGames;
     }
 }
 
