@@ -67,10 +67,9 @@ function Games() {
             showSearch
             style={{width: 400}}
             placeholder="Select a game"
-            optionFilterProp="children"
             onChange={onChangeJeu}
             filterOption={(input: string, option: any) =>
-                option?.children?.filter((op: any) => op.toLowerCase() === input.toLowerCase())
+                option?.children?.includes(input.toLowerCase())
             }>
             {listGamesTitles.map((items, k) => <Option key={k} value={items}>{items}</Option>)}
         </Select>
