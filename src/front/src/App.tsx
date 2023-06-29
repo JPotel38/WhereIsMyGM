@@ -12,9 +12,9 @@ import Games from './pages/Games'
 import Nav from "./components/Nav/Nav";
 import GameMasterAccount from "./pages/GameMasterAccount";
 import UpdateGameMasterAccount from "./pages/UpdateGameMasterAccount";
+import FooterComp from "./components/Footer/Footer";
 
 import {Layout} from "antd";
-const {Footer} = Layout;
 
 export default function App() {
     return (
@@ -32,8 +32,7 @@ export default function App() {
                     <Route path="/gmaccount" exact component={GameMasterAccount}/>
                     <Route path="/updategmaccount" exact component={UpdateGameMasterAccount}/>
                 </Switch>
-                <Footer style={{textAlign: 'center'}}>
-                    MJ ici ©2023 Created by Jérémy Potel</Footer>
+                <FooterComp/>
             </Router>
         </Layout>
     );
