@@ -7,6 +7,8 @@ import {PlusOutlined, SearchOutlined} from "@ant-design/icons";
 import {authContext} from "../AuthContext";
 import useGamesList from "../hooks/useGamesListHook";
 import {IGame} from "../interfaces/GameInterface";
+import {IUser} from "../interfaces/UserInterface";
+import useAddGameByIdByUser from "../hooks/useAddGameByIdByUserHook";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -17,16 +19,31 @@ function Games() {
     const [gameIsSelected, setGameIsSelected] = useState(false);
     const [isRandom, setIsRandom] = useState(false);
     const {auth, setAuthData} = useContext(authContext);
-    const [url, setUrl] = useState('')
-    const listGames = useGamesList('/games/listgames');
+    const [url, setUrl] = useState('/games/listgames/');
+    const [user, setUser] = useState<IUser>({} as IUser);
+    const [gameId, setGameId] = useState('');
+    const [gameToAdd, setGameToAdd] = useState('')
     const filteredListGames = useGamesList(url);
+    useAddGameByIdByUser(gameToAdd);
     const listGamesTitles: any[] = [];
 
     useEffect(() => {
-        setUrl('/games/listgames')
+        if (auth.data) {
+            setUser(auth.data.user);
+        }
     }, []);
 
-    listGames.map((game: IGame) => {
+    useEffect(() => {
+        const fetchData = async () => {
+            if (gameId) {
+                setGameToAdd(`/users/addgame/${user._id}/${gameId}`)
+            }
+        };
+        fetchData();
+    }, [gameId]);
+
+
+    filteredListGames.map((game: IGame) => {
         if (listGamesTitles.indexOf(game.title) === -1) {
             listGamesTitles.push(game.title);
         }
@@ -43,8 +60,8 @@ function Games() {
     }
 
     const randomGame = () => {
-        let number = Math.floor(Math.random() * listGames.length);
-        setRandom([listGames[number]]);
+        let number = Math.floor(Math.random() * filteredListGames.length);
+        setRandom([filteredListGames[number]]);
         setIsRandom(true)
     }
 
@@ -56,9 +73,7 @@ function Games() {
     }
 
     async function addGame(gameId: string) {
-        await fetch(`/users/addgame/${auth.data.user._id}/${gameId}`, {
-            method: 'POST',
-        });
+        setGameId(gameId)
     }
 
     return (<Content style={{padding: '0 50px'}}>
