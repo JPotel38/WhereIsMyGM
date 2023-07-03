@@ -8,6 +8,7 @@ import {DeleteOutlined} from "@ant-design/icons";
 import {ICity} from "../interfaces/CityInterface";
 import {IGame} from "../interfaces/GameInterface";
 import useGamesByUserHook from "../hooks/useGamesByUserHook";
+import useDeleteGame from "../hooks/useDeleteGameHook";
 
 const {Text} = Typography;
 
@@ -22,7 +23,8 @@ function UpdateGameMasterAccount() {
     const [listGames, setListGames] = useState([])
     const {auth, setAuthData} = useContext(authContext);
     const [form] = Form.useForm();
-    const bodyGames = useGamesByUserHook('/users/gamesbyuser/')
+    const bodyGames = useGamesByUserHook('/users/gamesbyuser/');
+    const {deleteGame} = useDeleteGame();
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -78,13 +80,6 @@ function UpdateGameMasterAccount() {
         await fetch('/users/adress/' + auth.data.user._id, options);
     }
 
-    const confirm = async (value: IGame) => {
-        const response = await fetch('/users/deletegame/' + auth.data.user._id + '/' + value._id,
-            {method: 'DELETE'});
-        const bodyGames = await response.json();
-        setListGames(bodyGames);
-    };
-
     return (
         <Content style={{padding: '0 50px'}}>
             <Title>Game Master account</Title>
@@ -135,13 +130,13 @@ function UpdateGameMasterAccount() {
             <List
                 bordered
                 dataSource={listGames}
-                renderItem={(item: IGame) => (
+                renderItem={(game: IGame) => (
                     <List.Item>
-                        <Text strong>{item.title}</Text> {item.edition}
+                        <Text strong>{game.title}</Text> {game.edition}
                         <Popconfirm
                             placement="right"
                             title={'Do you want to delete this game ?'}
-                            onConfirm={() => confirm(item)}
+                            onConfirm={() => deleteGame('/users/deletegame/' + auth.data.user._id + '/' + game._id)}
                             okText="Yes"
                             cancelText="No"
                         >
