@@ -7,9 +7,9 @@ function useAccess() {
     const history = useHistory();
 
     const access = async (url: string, headers: {}, body: string) => {
-        const response = await fetch('/access/login', {
+        const response = await fetch(url, {
             method: `POST`,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            headers: headers,
             body: body
         });
         const res = await response.json();
