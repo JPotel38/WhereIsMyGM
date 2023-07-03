@@ -7,6 +7,7 @@ import {authContext} from "../AuthContext";
 import {DeleteOutlined} from "@ant-design/icons";
 import {ICity} from "../interfaces/CityInterface";
 import {IGame} from "../interfaces/GameInterface";
+import useGamesByUserHook from "../hooks/useGamesByUserHook";
 
 const {Text} = Typography;
 
@@ -21,12 +22,11 @@ function UpdateGameMasterAccount() {
     const [listGames, setListGames] = useState([])
     const {auth, setAuthData} = useContext(authContext);
     const [form] = Form.useForm();
+    const bodyGames = useGamesByUserHook('/users/gamesbyuser/')
 
     useEffect(() => {
         const fetchGames = async () => {
-            const response = await fetch('/users/gamesbyuser/' + auth.data.user._id);
-            const bodyGames = await response.json();
-            setListGames(bodyGames.listGames)
+            setListGames(await bodyGames)
         };
         fetchGames();
     }, []);

@@ -48,10 +48,8 @@ function GameMasters() {
 
     useEffect(() => {
         const fetchGameMasters = async () => {
-            const response = await fetch('/users/listusers');
-            const bodyGameMasters = await response.json();
-
-            const filteredGamemasters = bodyGameMasters.filter((user: IUser) => {
+            setGamemastersList(await listUsersByGame);
+            const filteredGamemasters = gamemastersList.filter((user: IUser) => {
                 if (localisation && user.address) {
                     const {region, departement} = user.address;
                     return (user.isGameMaster && (region === localisation || departement === localisation));
@@ -59,7 +57,6 @@ function GameMasters() {
                     return user.isGameMaster;
                 }
             });
-
             setGamemastersList(filteredGamemasters);
         };
 
