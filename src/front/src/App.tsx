@@ -9,10 +9,11 @@ import Login from './pages/Login'
 import AddGames from './pages/AddGames'
 import Details from './pages/Details'
 import Games from './pages/Games'
-import Nav from "./components/Nav/Nav";
+import Account from "./pages/Account";
 import GameMasterAccount from "./pages/GameMasterAccount";
 import UpdateGameMasterAccount from "./pages/UpdateGameMasterAccount";
-import FooterComp from "./components/Footer/Footer";
+import FooterComponent from "./components/Footer/Footer";
+import NavComponent from "./components/Nav/Nav";
 
 import {Layout} from "antd";
 
@@ -20,7 +21,7 @@ export default function App() {
     return (
         <Layout className="layout">
             <Router>
-                <Nav/>
+                <NavComponent/>
                 <Switch>
                     <Route path="/" exact component={Home}/>
                     <Route path="/gm" exact component={GameMasters}/>
@@ -29,10 +30,11 @@ export default function App() {
                     <Route path="/signup" exact component={Signup}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/addgames" exact component={AddGames}/>
+                    <Route path="/account" exact component={Account}/>
                     <Route path="/gmaccount" exact component={GameMasterAccount}/>
                     <Route path="/updategmaccount" exact component={UpdateGameMasterAccount}/>
                 </Switch>
-                <FooterComp/>
+                <FooterComponent/>
             </Router>
         </Layout>
     );
