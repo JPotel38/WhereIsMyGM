@@ -4,7 +4,7 @@ import {Layout} from "antd";
 
 const {Footer} = Layout;
 
-function FooterComp() {
+function FooterComponent() {
 
     return (
         <Footer style={{textAlign: 'center'}}>
@@ -13,4 +13,4 @@ function FooterComp() {
     )
 }
 
-export default FooterComp;
+export default FooterComponent;

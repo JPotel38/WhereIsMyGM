@@ -8,7 +8,7 @@ import './Nav.scss';
 const {Header} = Layout;
 const {Title} = Typography;
 
-function Nav() {
+function NavComponent() {
     const {auth, setAuthData} = useContext(authContext);
     const history = useHistory();
 
@@ -62,4 +62,4 @@ function Nav() {
     </Header>);
 }
 
-export default Nav;
+export default NavComponent;
