@@ -8,7 +8,6 @@ import {DeleteOutlined} from "@ant-design/icons";
 import {ICity} from "../interfaces/CityInterface";
 import {IGame} from "../interfaces/GameInterface";
 import useGamesByUserHook from "../hooks/useGamesByUserHook";
-import useDeleteGame from "../hooks/useDeleteGameHook";
 
 const {Text} = Typography;
 
@@ -24,7 +23,6 @@ function UpdateGameMasterAccount() {
     const {auth, setAuthData} = useContext(authContext);
     const [form] = Form.useForm();
     const bodyGames = useGamesByUserHook('/users/gamesbyuser/');
-    const {deleteGame} = useDeleteGame();
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -65,6 +63,15 @@ function UpdateGameMasterAccount() {
 
     function handleSelectCity(selectedCity: string) {
         setCity(selectedCity);
+    }
+
+    async function updatedGameList(userId: string, gameId: string) {
+        await fetch('/users/deletegame/' + userId + '/' + gameId,
+            {method: 'DELETE'}).then(response => {
+            if (response.ok) {
+                setListGames(listGames.filter((game: IGame) => game._id !== gameId));
+            }
+        })
     }
 
     async function validInfos() {
@@ -136,7 +143,10 @@ function UpdateGameMasterAccount() {
                         <Popconfirm
                             placement="right"
                             title={'Do you want to delete this game ?'}
-                            onConfirm={() => deleteGame('/users/deletegame/' + auth.data.user._id + '/' + game._id)}
+                            onConfirm={() => {
+                                updatedGameList(auth.data.user._id, game._id)
+                            }
+                            }
                             okText="Yes"
                             cancelText="No"
                         >
