@@ -1,23 +1,19 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../App.scss';
 import {Button, List} from "antd";
 import {Content} from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 import {Link} from "react-router-dom";
-import {authContext} from "../AuthContext";
 import {IGame} from "../interfaces/GameInterface";
+import useGamesByUserHook from "../hooks/useGamesByUserHook";
 
 function GameMasterAccount() {
-    const {auth, setAuthData} = useContext(authContext);
     const [listGames, setListGames] = useState([])
+    const bodyGames = useGamesByUserHook('/users/gamesbyuser/')
 
     useEffect(() => {
         const fetchGames = async () => {
-            if (auth.data.user) {
-                const response = await fetch('/users/gamesbyuser/' + auth.data.user._id);
-                const bodyGames = await response.json();
-                setListGames(bodyGames.listGames)
-            }
+            setListGames(await bodyGames);
         };
         fetchGames();
     }, []);

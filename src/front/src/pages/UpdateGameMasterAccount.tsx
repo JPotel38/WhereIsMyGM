@@ -7,6 +7,7 @@ import {authContext} from "../AuthContext";
 import {DeleteOutlined} from "@ant-design/icons";
 import {ICity} from "../interfaces/CityInterface";
 import {IGame} from "../interfaces/GameInterface";
+import useGamesByUserHook from "../hooks/useGamesByUserHook";
 
 const {Text} = Typography;
 
@@ -21,12 +22,11 @@ function UpdateGameMasterAccount() {
     const [listGames, setListGames] = useState([])
     const {auth, setAuthData} = useContext(authContext);
     const [form] = Form.useForm();
+    const bodyGames = useGamesByUserHook('/users/gamesbyuser/');
 
     useEffect(() => {
         const fetchGames = async () => {
-            const response = await fetch('/users/gamesbyuser/' + auth.data.user._id);
-            const bodyGames = await response.json();
-            setListGames(bodyGames.listGames)
+            setListGames(await bodyGames)
         };
         fetchGames();
     }, []);
@@ -65,6 +65,15 @@ function UpdateGameMasterAccount() {
         setCity(selectedCity);
     }
 
+    async function updatedGameList(userId: string, gameId: string) {
+        await fetch('/users/deletegame/' + userId + '/' + gameId,
+            {method: 'DELETE'}).then(response => {
+            if (response.ok) {
+                setListGames(listGames.filter((game: IGame) => game._id !== gameId));
+            }
+        })
+    }
+
     async function validInfos() {
         const params = {city, departement, postalCode, region, country}
         const options = {
@@ -77,13 +86,6 @@ function UpdateGameMasterAccount() {
 
         await fetch('/users/adress/' + auth.data.user._id, options);
     }
-
-    const confirm = async (value: IGame) => {
-        const response = await fetch('/users/deletegame/' + auth.data.user._id + '/' + value._id,
-            {method: 'DELETE'});
-        const bodyGames = await response.json();
-        setListGames(bodyGames);
-    };
 
     return (
         <Content style={{padding: '0 50px'}}>
@@ -135,13 +137,16 @@ function UpdateGameMasterAccount() {
             <List
                 bordered
                 dataSource={listGames}
-                renderItem={(item: IGame) => (
+                renderItem={(game: IGame) => (
                     <List.Item>
-                        <Text strong>{item.title}</Text> {item.edition}
+                        <Text strong>{game.title}</Text> {game.edition}
                         <Popconfirm
                             placement="right"
                             title={'Do you want to delete this game ?'}
-                            onConfirm={() => confirm(item)}
+                            onConfirm={() => {
+                                updatedGameList(auth.data.user._id, game._id)
+                            }
+                            }
                             okText="Yes"
                             cancelText="No"
                         >

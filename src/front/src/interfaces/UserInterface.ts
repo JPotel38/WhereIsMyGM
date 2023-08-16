@@ -1,19 +1,20 @@
 export interface IUser {
+    _id?: string;
     lastName: string;
     firstName: string;
     userPseudo: string;
     password: string;
     profilePicture: string;
-    bannerPicture: string;
+    bannerPicture?: string;
     email: string;
-    emailStatus: string;
+    emailStatus?: string;
     address: IAddress;
-    isGameMaster: boolean;
+    isGameMaster?: boolean;
     smallDescription?: string;
     listGames?: [{ type: string, ref: 'games' }],
-    dateInscription: Date;
-    dateLastCo: Date;
-    salt: string;
+    dateInscription?: Date;
+    dateLastCo?: Date;
+    salt?: string;
 }
 
 export interface IAddress {

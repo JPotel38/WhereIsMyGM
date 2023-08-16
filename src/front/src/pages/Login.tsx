@@ -1,8 +1,7 @@
-import React, {useContext, useState} from 'react';
-import {useHistory} from 'react-router-dom';
-import {Button, Checkbox, Form, Input, Layout, Modal, Typography} from 'antd';
+import React, {useState} from 'react';
+import {Button, Checkbox, Form, Input, Layout, Typography} from 'antd';
 import '../App.scss';
-import {authContext} from "../AuthContext";
+import useAccess from "../hooks/useAccessHook";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -11,34 +10,7 @@ function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const history = useHistory()
-    const {setAuthData} = useContext(authContext)
-
-    function errorTab(error: any[]) {
-        for (let i = 0; i < error.length; i++) {
-            Modal.error({
-                content: error[i]
-            });
-        }
-    }
-
-    async function validInfos() {
-        const response = await fetch('/access/login', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: `email=${email}&password=${password}`
-        });
-        const res = await response.json();
-        let error = res.error
-        if (error) {
-            errorTab(error)
-        }
-        if (res.token[0]) {
-            setAuthData({token: res.token[0], user: res.user});
-            history.replace('/');
-        }
-    }
+    const {access} = useAccess();
 
     const layout = {
         labelCol: {
@@ -99,7 +71,11 @@ function Login() {
 
                 <Form.Item {...tailLayout}>
 
-                    <Button type="primary" htmlType="submit" onClick={() => validInfos()}>
+                    <Button type="primary" htmlType="submit" onClick={() => access(
+                        '/access/login',
+                        {'Content-Type': 'application/x-www-form-urlencoded'},
+                        `email=${email}&password=${password}`
+                    )}>
                         Submit
                     </Button>
                 </Form.Item>

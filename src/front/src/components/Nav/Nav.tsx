@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Button, Dropdown, Layout, Menu, Typography} from 'antd';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {UserOutlined} from '@ant-design/icons';
 import {authContext} from '../../AuthContext';
 import './Nav.scss';
@@ -8,12 +8,13 @@ import './Nav.scss';
 const {Header} = Layout;
 const {Title} = Typography;
 
-function Nav() {
+function NavComponent() {
     const {auth, setAuthData} = useContext(authContext);
+    const history = useHistory();
 
     const logout = () => {
         setAuthData(null);
-        window.location.reload();
+        history.replace('/');
     };
 
     const menu = (<Menu>
@@ -61,4 +62,4 @@ function Nav() {
     </Header>);
 }
 
-export default Nav;
+export default NavComponent;

@@ -10,18 +10,17 @@ import {
     notification,
     Row,
     Typography,
-    Upload, UploadFile,
+    Upload,
+    UploadFile,
     UploadProps
 } from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
 import '../App.scss';
-import {useHistory} from "react-router-dom";
 import {RcFile, UploadChangeParam} from "antd/es/upload";
+import useAccess from "../hooks/useAccessHook";
 
 const {Content} = Layout;
 const {Title} = Typography;
-
-type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 function Signup() {
 
@@ -35,35 +34,8 @@ function Signup() {
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [isPasswordsMatch, setIsPasswordsMatch] = useState(false);
 
-    const history = useHistory()
+    const {access} = useAccess();
     const [api, contextHolder] = notification.useNotification();
-
-    let validInfos = async () => {
-        const response = await fetch('/access/signup', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                firstname: firstName,
-                lastname: lastName,
-                userpseudo: userPseudo,
-                profilePicture: imageUrl,
-                email: email,
-                password: password,
-                passwordConfirm: passwordConfirm
-            })
-        });
-        const res = await response;
-        if (res.status === 200) {
-            successSignUpHandler('success')
-        }
-    }
-
-    const successSignUpHandler = (type: NotificationType) => {
-        api[type]({
-            message: 'User successfully created',
-        });
-        setTimeout(() => history.replace('/'), 2000);
-    };
 
     const getBase64 = (img: RcFile, callback: (url: string) => void) => {
         const reader = new FileReader();
@@ -278,7 +250,19 @@ function Signup() {
                                     value={passwordConfirm}/>
                 </Form.Item>
                 <Form.Item {...tailLayout} >
-                    <Button type="primary" htmlType="submit" onClick={() => validInfos()}
+                    <Button type="primary" htmlType="submit" onClick={() => access(
+                        '/access/signup',
+                        {'Content-Type': 'application/json'},
+                        JSON.stringify({
+                            firstname: firstName,
+                            lastname: lastName,
+                            userpseudo: userPseudo,
+                            profilePicture: imageUrl,
+                            email: email,
+                            password: password,
+                            passwordConfirm: passwordConfirm
+                        })
+                    )}
                             disabled={!isPasswordsMatch}>
                         Submit
                     </Button>

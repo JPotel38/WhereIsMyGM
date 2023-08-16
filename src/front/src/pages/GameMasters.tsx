@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Card, Col, Layout, Row, Select, Typography} from 'antd';
+import {Avatar, Button, Card, Col, Layout, Row, Select, Typography} from 'antd';
 import '../App.scss';
 import useLocalisationHook from '../hooks/useLocalisationHook.js';
-import useGamesList from "../hooks/useGamesListHook";
+import useGamesListHook from "../hooks/useGamesListHook";
 import {IUser} from "../interfaces/UserInterface";
 import {IGame} from "../interfaces/GameInterface";
+import useGameMastersListHook from "../hooks/useGameMastersListHook.";
+import useListUsersByGameHook from "../hooks/useListUsersByGameHook";
 
 const {Content} = Layout;
 const {Title} = Typography;
@@ -13,10 +15,13 @@ const {Option} = Select;
 
 function GameMasters() {
     const [gamemastersList, setGamemastersList] = useState([]);
+    const [isGameSelected, setIsGameSelected] = useState(false);
     const [localisation, setLocalisation] = useState('');
     const [gameId, setGameId] = useState('');
     const localisationList = useLocalisationHook();
-    const listGames = useGamesList('/games/listgames');
+    const gmList = useGameMastersListHook('/users/listusers');
+    const listGames = useGamesListHook('/games/listgames');
+    const listUsersByGame = useListUsersByGameHook(gameId);
     const listGamesTitles: IGame[] = [];
 
     listGames.map(game => {
@@ -27,9 +32,7 @@ function GameMasters() {
 
     useEffect(() => {
         const fetchGameMasters = async () => {
-            const response = await fetch('/users/listusers');
-            const bodyUsers = await response.json();
-            setGamemastersList(bodyUsers.filter((user: IUser) => user.isGameMaster));
+            setGamemastersList(await gmList);
         };
         fetchGameMasters();
     }, []);
@@ -37,21 +40,16 @@ function GameMasters() {
     useEffect(() => {
         const fetchUserByGame = async () => {
             if (gameId) {
-                const response = await fetch('/users/listusersbygame/' + gameId);
-                const bodyUsers = await response.json();
-                setGamemastersList(bodyUsers.filter((user: IUser) => user.isGameMaster));
+                setGamemastersList(await listUsersByGame);
             }
         };
-
         fetchUserByGame();
     }, [gameId]);
 
     useEffect(() => {
         const fetchGameMasters = async () => {
-            const response = await fetch('/users/listusers');
-            const bodyGameMasters = await response.json();
-
-            const filteredGamemasters = bodyGameMasters.filter((user: IUser) => {
+            setGamemastersList(await listUsersByGame);
+            const filteredGamemasters = gamemastersList.filter((user: IUser) => {
                 if (localisation && user.address) {
                     const {region, departement} = user.address;
                     return (user.isGameMaster && (region === localisation || departement === localisation));
@@ -59,7 +57,6 @@ function GameMasters() {
                     return user.isGameMaster;
                 }
             });
-
             setGamemastersList(filteredGamemasters);
         };
 
@@ -67,11 +64,20 @@ function GameMasters() {
     }, [localisation]);
 
     const onChangeJeu = (gameId: string) => {
-        setGameId(gameId)
+        setGameId(gameId);
+        if (gameId) {
+            setIsGameSelected(true)
+        }
     }
 
     function onChangeCity(localisation: string) {
         setLocalisation(localisation);
+    }
+
+    async function clearButton() {
+        setIsGameSelected(false);
+        setGamemastersList(await gmList);
+        setGameId('');
     }
 
     return (
@@ -80,18 +86,17 @@ function GameMasters() {
 
             <Select
                 showSearch
-                style={{width: 200}}
-                placeholder="Select a game"
+                style={{width: 600}}
+                placeholder="Sélectionnez un jeu"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
-                filterOption={(input: string, option: any) =>
-                    option?.children?.filter((op: any) => op.toLowerCase() === input.toLowerCase())
-                }
-
+                filterOption={true}
             >
-                {listGamesTitles.map((items: IGame, k: number) => <Option key={k}
-                                                                          value={items._id}><b>{items.title}</b> {items.edition}
-                </Option>)}
+                {listGamesTitles.map((item: IGame, index: number) => (
+                    <Option key={index} value={item._id}>
+                        <b>{item.title}</b> {item.edition}
+                    </Option>
+                ))}
             </Select>
 
             <Select
@@ -121,6 +126,7 @@ function GameMasters() {
                     }
                 })}
             </Select>
+            {isGameSelected ? <Button onClick={clearButton}>Clear</Button> : null}
 
             <div className="site-card-wrapper">
                 <Row gutter={16}>
