@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
-const AddressSchema = mongoose.Schema({
-    address: String,
-    postalCode: String,
+const addressSchema = new mongoose.Schema({
     city: String,
+    departement: String,
+    postalCode: String,
+    region: String,
     country: String
 });
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     lastName: String,
     firstName: String,
     userPseudo: String,
@@ -16,13 +17,13 @@ const userSchema = mongoose.Schema({
     bannerPicture: String,
     email: String,
     emailStatus: String,
-    adress: AddressSchema,
+    address: addressSchema,
     isGameMaster: Boolean,
+    smallDescription: String,
     listGames: [{type: mongoose.Schema.Types.ObjectId, ref: 'games'}],
     dateInscription: Date,
     dateLastCo: Date,
-    salt: String,
-    token: String
+    salt: String
 });
 
 

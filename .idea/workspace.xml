@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="refactor: reorganize folders, turns js files into ts files">
+      <change afterPath="$PROJECT_DIR$/src/front/src/interfaces/CityInterface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/front/src/pages/Account.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/AuthContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/layout/Nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/components/Nav/Nav.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/layout/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/components/Nav/Nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/AddGames.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/AddGames.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/Details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/Details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/GameMasterAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/GameMasterAccount.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/GameMasters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/GameMasters.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/Games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/Games.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/Signup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/components/pages/UpdateGameMasterAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/pages/UpdateGameMasterAccount.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/interfaces/GameInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/interfaces/GameInterface.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="refacto" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="refacto" />
+        <entry key="$PROJECT_DIR$/src" value="refacto" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="1nOLLGJMnhSN6cMqi0av1DmCF79" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="16.13.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="16.18.36" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Users\Jerem\IdeaProjects\WhereIsMyGM\src\front\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jerem\IdeaProjects\RPG\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jerem\IdeaProjects\WhereIsMyGM\src\front\src\layout\Nav" />
+      <recent name="C:\Users\Jerem\IdeaProjects\WhereIsMyGM\src\front\src" />
+      <recent name="C:\Users\Jerem\IdeaProjects\WhereIsMyGM\src\front\src\hooks" />
+      <recent name="C:\Users\Jerem\IdeaProjects\WhereIsMyGM\src\front\src\components\pages" />
+      <recent name="C:\Users\Jerem\IdeaProjects\WhereIsMyGM\src\front\src\components\layout" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28248b4a-3821-47b3-b059-a055eac01d7b" name="Default Changelist" comment="" />
+      <created>1611256134131</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611256134131</updated>
+      <workItem from="1611256135800" duration="465000" />
+      <workItem from="1611256618910" duration="258000" />
+      <workItem from="1611256890317" duration="633000" />
+      <workItem from="1614362444728" duration="105000" />
+      <workItem from="1614362565321" duration="318000" />
+      <workItem from="1614369851984" duration="10000" />
+      <workItem from="1614514280796" duration="594000" />
+      <workItem from="1614533811867" duration="9000" />
+      <workItem from="1617642130125" duration="456000" />
+      <workItem from="1617643077872" duration="1074000" />
+      <workItem from="1617646418447" duration="94000" />
+      <workItem from="1617646842370" duration="391000" />
+      <workItem from="1619889217189" duration="83000" />
+      <workItem from="1619889351642" duration="38000" />
+      <workItem from="1619889498426" duration="351000" />
+      <workItem from="1620325642241" duration="4426000" />
+      <workItem from="1620412704348" duration="7726000" />
+      <workItem from="1620508359052" duration="4663000" />
+      <workItem from="1620664538240" duration="6400000" />
+      <workItem from="1620675246008" duration="982000" />
+      <workItem from="1620676259514" duration="3168000" />
+      <workItem from="1620922619828" duration="361000" />
+      <workItem from="1620927635780" duration="5207000" />
+      <workItem from="1620932955304" duration="2647000" />
+      <workItem from="1620993747787" duration="8657000" />
+      <workItem from="1621082170976" duration="5120000" />
+      <workItem from="1621102319218" duration="3809000" />
+      <workItem from="1621121565961" duration="205000" />
+      <workItem from="1621170639158" duration="3680000" />
+      <workItem from="1621333423629" duration="662000" />
+      <workItem from="1621340843117" duration="1151000" />
+      <workItem from="1621360381436" duration="1278000" />
+      <workItem from="1621365033358" duration="1695000" />
+      <workItem from="1621367090356" duration="1999000" />
+      <workItem from="1621415451447" duration="11949000" />
+      <workItem from="1621520319002" duration="2229000" />
+      <workItem from="1621617391402" duration="5663000" />
+      <workItem from="1621634148601" duration="79000" />
+      <workItem from="1621685243181" duration="3913000" />
+      <workItem from="1621708173815" duration="6220000" />
+      <workItem from="1621773247277" duration="5180000" />
+      <workItem from="1621862873557" duration="2148000" />
+      <workItem from="1621867431903" duration="7229000" />
+      <workItem from="1622302004987" duration="187000" />
+      <workItem from="1622313619325" duration="604000" />
+      <workItem from="1622457853422" duration="8000" />
+      <workItem from="1622457887182" duration="28000" />
+      <workItem from="1622484613473" duration="595000" />
+      <workItem from="1623180905274" duration="191000" />
+      <workItem from="1623181229745" duration="567000" />
+      <workItem from="1624043639146" duration="6000" />
+      <workItem from="1624216723946" duration="1047000" />
+      <workItem from="1624298421487" duration="2506000" />
+      <workItem from="1625306426332" duration="43000" />
+      <workItem from="1625306593228" duration="1163000" />
+      <workItem from="1625388175910" duration="9422000" />
+      <workItem from="1625420885143" duration="8729000" />
+      <workItem from="1625503490104" duration="742000" />
+      <workItem from="1625506093465" duration="920000" />
+      <workItem from="1625507393816" duration="16000" />
+      <workItem from="1626030389697" duration="1040000" />
+      <workItem from="1626031525329" duration="258000" />
+      <workItem from="1627040899528" duration="253000" />
+      <workItem from="1629543730448" duration="423000" />
+      <workItem from="1629646647181" duration="21000" />
+      <workItem from="1634652926332" duration="110000" />
+      <workItem from="1635172563102" duration="21000" />
+      <workItem from="1645809150334" duration="57000" />
+      <workItem from="1645811344734" duration="146000" />
+      <workItem from="1645813178431" duration="41000" />
+      <workItem from="1645813949880" duration="721000" />
+      <workItem from="1645895168139" duration="347000" />
+      <workItem from="1645895533184" duration="177000" />
+      <workItem from="1645895971084" duration="569000" />
+      <workItem from="1645982213944" duration="46000" />
+      <workItem from="1666455897552" duration="1136000" />
+      <workItem from="1666525219096" duration="290000" />
+      <workItem from="1666545638222" duration="85000" />
+      <workItem from="1685441124681" duration="1456000" />
+      <workItem from="1685447493251" duration="2666000" />
+      <workItem from="1685454775549" duration="917000" />
+      <workItem from="1685517468478" duration="2945000" />
+      <workItem from="1685604785533" duration="17282000" />
+      <workItem from="1685693095479" duration="4709000" />
+      <workItem from="1686036735784" duration="6653000" />
+      <workItem from="1686055866618" duration="15000" />
+      <workItem from="1686123204233" duration="70000" />
+      <workItem from="1686123494226" duration="9255000" />
+      <workItem from="1686142284197" duration="12000" />
+      <workItem from="1686211084060" duration="5112000" />
+      <workItem from="1686231813005" duration="1276000" />
+      <workItem from="1686244648058" duration="578000" />
+      <workItem from="1686297446119" duration="13917000" />
+      <workItem from="1686560346551" duration="2435000" />
+      <workItem from="1686578313024" duration="2133000" />
+      <workItem from="1686644806675" duration="4229000" />
+      <workItem from="1686655787328" duration="10869000" />
+      <workItem from="1686727869494" duration="10828000" />
+      <workItem from="1686815802540" duration="20173000" />
+      <workItem from="1686905104804" duration="4195000" />
+      <workItem from="1687176280698" duration="10438000" />
+      <workItem from="1687249523681" duration="3298000" />
+      <workItem from="1687253652258" duration="14184000" />
+      <workItem from="1687335028606" duration="11563000" />
+      <workItem from="1687356908434" duration="39000" />
+      <workItem from="1687438461878" duration="4933000" />
+      <workItem from="1687507498257" duration="5450000" />
+      <workItem from="1687775640988" duration="2835000" />
+      <workItem from="1687778511963" duration="4968000" />
+      <workItem from="1687787262635" duration="4777000" />
+      <workItem from="1687852630463" duration="2458000" />
+      <workItem from="1687857849407" duration="1249000" />
+      <workItem from="1687859128704" duration="1835000" />
+      <workItem from="1687861063887" duration="3416000" />
+      <workItem from="1687864588287" duration="4695000" />
+      <workItem from="1687870468062" duration="711000" />
+    </task>
+    <task id="LOCAL-00041" summary="refactor: useContext to handle log in log out">
+      <created>1686044588561</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1686044588561</updated>
+    </task>
+    <task id="LOCAL-00042" summary="refactor: use profile picture as dropdown in Nav">
+      <created>1686128505666</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1686128505667</updated>
+    </task>
+    <task id="LOCAL-00043" summary="refactor: reorganize folder structures">
+      <created>1686129013811</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1686129013811</updated>
+    </task>
+    <task id="LOCAL-00044" summary="refactor: install sass">
+      <created>1686131897466</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1686131897466</updated>
+    </task>
+    <task id="LOCAL-00045" summary="style: rework Nav">
+      <created>1686131913260</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1686131913260</updated>
+    </task>
+    <task id="LOCAL-00046" summary="refactor: App.css to App.scss&#10;&#10;style: remove bg color">
+      <created>1686132230426</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1686132230426</updated>
+    </task>
+    <task id="LOCAL-00047" summary="feat: WIP geoloc, get regions list and use name in dropdown">
+      <created>1686219185450</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1686219185450</updated>
+    </task>
+    <task id="LOCAL-00048" summary="feat: add become a GM logic">
+      <created>1686648093942</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1686648093942</updated>
+    </task>
+    <task id="LOCAL-00049" summary="feat: add fetch departements API">
+      <created>1686648111652</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1686648111652</updated>
+    </task>
+    <task id="LOCAL-00050" summary="feat: WIP GM account">
+      <created>1686648179898</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1686648179900</updated>
+    </task>
+    <task id="LOCAL-00051" summary="feat: add GM account route, add GM account space">
+      <created>1686648210593</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1686648210593</updated>
+    </task>
+    <task id="LOCAL-00052" summary="feat: create region and departement dropdown">
+      <created>1686648241073</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1686648241073</updated>
+    </task>
+    <task id="LOCAL-00053" summary="refactor : rework fetchLocalisation">
+      <created>1686660970917</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1686660970940</updated>
+    </task>
+    <task id="LOCAL-00054" summary="refactor: update adressSchema in UserSchema">
+      <created>1686734004904</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1686734004905</updated>
+    </task>
+    <task id="LOCAL-00055" summary="feat: add communes search">
+      <created>1686734029712</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1686734029712</updated>
+    </task>
+    <task id="LOCAL-00056" summary="feat: départements and régions are displayed in GameMasterAccount input when a commune is selected &#10;&#10;TODO live changes">
+      <created>1686734076194</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1686734076194</updated>
+    </task>
+    <task id="LOCAL-00057" summary="feat: dynamic list ville in GM Account&#10;&#10;TODO live changes">
+      <created>1686815936808</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1686815936809</updated>
+    </task>
+    <task id="LOCAL-00058" summary="feat: dynamic filling of departement and region">
+      <created>1686817926883</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1686817926883</updated>
+    </task>
+    <task id="LOCAL-00059" summary="refactor: create games router">
+      <created>1686818758920</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1686818758920</updated>
+    </task>
+    <task id="LOCAL-00060" summary="refactor: install typescript">
+      <created>1686826786442</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1686826786442</updated>
+    </task>
+    <task id="LOCAL-00061" summary="refactor: install typescript">
+      <created>1686827112043</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1686827112043</updated>
+    </task>
+    <task id="LOCAL-00062" summary="style: fix height layout">
+      <created>1686839973400</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1686839973400</updated>
+    </task>
+    <task id="LOCAL-00063" summary="refactor: use createRoot">
+      <created>1686840106647</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1686840106647</updated>
+    </task>
+    <task id="LOCAL-00064" summary="refactor: use menu in overlay in Nav">
+      <created>1686840133893</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1686840133893</updated>
+    </task>
+    <task id="LOCAL-00065" summary="refactor: add Details button and Add button in cards games">
+      <created>1686840192587</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1686840192588</updated>
+    </task>
+    <task id="LOCAL-00066" summary="feat: create GameMasterAccount and display games list">
+      <created>1686840230043</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1686840230043</updated>
+    </task>
+    <task id="LOCAL-00067" summary="feat: game management in UpdateGameMasterAccount">
+      <created>1686840272323</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1686840272323</updated>
+    </task>
+    <task id="LOCAL-00068" summary="feat: use /gamebyuser route to retrieve games list">
+      <created>1686840312660</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1686840312660</updated>
+    </task>
+    <task id="LOCAL-00069" summary="fix: lose context when refresh">
+      <created>1687179942052</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1687179942054</updated>
+    </task>
+    <task id="LOCAL-00070" summary="feat: delete game from gm list">
+      <created>1687186569271</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1687186569271</updated>
+    </task>
+    <task id="LOCAL-00071" summary="feat: delete game from gm list fixed, add game in listGames">
+      <created>1687251003908</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1687251003908</updated>
+    </task>
+    <task id="LOCAL-00072" summary="feat: update GM address">
+      <created>1687255849785</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1687255849786</updated>
+    </task>
+    <task id="LOCAL-00073" summary="feat: search a GM by localisation">
+      <created>1687261823897</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1687261823897</updated>
+    </task>
+    <task id="LOCAL-00074" summary="feat: create useLocalisation custom Hook">
+      <created>1687269619807</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1687269619807</updated>
+    </task>
+    <task id="LOCAL-00075" summary="feat: create useLocalisation custom Hook">
+      <created>1687270313905</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1687270313905</updated>
+    </task>
+    <task id="LOCAL-00076" summary="feat: useGamesHook for handling game search in Games component">
+      <created>1687339311209</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1687339311210</updated>
+    </task>
+    <task id="LOCAL-00077" summary="feat: search GM by game">
+      <created>1687351704812</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1687351704812</updated>
+    </task>
+    <task id="LOCAL-00078" summary="fix: redirect after log out">
+      <created>1687439174231</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1687439174231</updated>
+    </task>
+    <task id="LOCAL-00079" summary="refactor: rename incription route into signup, redirect after after sign up">
+      <created>1687439232430</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1687439232430</updated>
+    </task>
+    <task id="LOCAL-00080" summary="refactor: rename connexion route to login">
+      <created>1687442999769</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1687442999769</updated>
+    </task>
+    <task id="LOCAL-00081" summary="fix: if gm's address is missing">
+      <created>1687443019885</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1687443019885</updated>
+    </task>
+    <task id="LOCAL-00082" summary="feat: redirect when sign up OK, profile pic in DB">
+      <created>1687443069195</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1687443069195</updated>
+    </task>
+    <task id="LOCAL-00083" summary="fix: ts deps">
+      <created>1687514958641</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1687514958641</updated>
+    </task>
+    <task id="LOCAL-00084" summary="refactor: WIP ts install">
+      <created>1687515028391</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1687515028391</updated>
+    </task>
+    <task id="LOCAL-00085" summary="fix: get game's detail">
+      <created>1687777571220</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1687777571222</updated>
+    </task>
+    <task id="LOCAL-00086" summary="refactor: update package back-end">
+      <created>1687863219747</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1687863219747</updated>
+    </task>
+    <task id="LOCAL-00087" summary="refactor: update tsconfig front">
+      <created>1687863231392</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1687863231392</updated>
+    </task>
+    <task id="LOCAL-00088" summary="refactor: create User interface and Game interface">
+      <created>1687866082817</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1687866082817</updated>
+    </task>
+    <task id="LOCAL-00089" summary="refactor: rename useGamesHook into useGamesListHook">
+      <created>1687866116145</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1687866116145</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src" />
+    </ignored-roots>
+    <MESSAGE value="refactor: add Details button and Add button in cards games" />
+    <MESSAGE value="feat: create GameMasterAccount and display games list" />
+    <MESSAGE value="feat: game management in UpdateGameMasterAccount" />
+    <MESSAGE value="feat: use /gamebyuser route to retrieve games list" />
+    <MESSAGE value="fix: lose context when refresh" />
+    <MESSAGE value="feat: delete game from gm list" />
+    <MESSAGE value="feat: delete game from gm list fixed, add game in listGames" />
+    <MESSAGE value="feat: update GM address" />
+    <MESSAGE value="feat: search a GM by localisation" />
+    <MESSAGE value="feat: create useLocalisation custom Hook" />
+    <MESSAGE value="feat: useGamesHook for handling game search in Games component" />
+    <MESSAGE value="feat: search GM by game" />
+    <MESSAGE value="fix: redirect after log out" />
+    <MESSAGE value="refactor: rename incription route into signup, redirect after after sign up" />
+    <MESSAGE value="refactor: rename connexion route to login" />
+    <MESSAGE value="fix: if gm's address is missing" />
+    <MESSAGE value="feat: redirect when sign up OK, profile pic in DB" />
+    <MESSAGE value="fix: ts deps" />
+    <MESSAGE value="refactor: WIP ts install" />
+    <MESSAGE value="fix: get game's detail" />
+    <MESSAGE value="refactor: update package back-end" />
+    <MESSAGE value="refactor: update tsconfig front" />
+    <MESSAGE value="refactor: create User interface and Game interface" />
+    <MESSAGE value="refactor: rename useGamesHook into useGamesListHook" />
+    <MESSAGE value="refactor: reorganize folders, turns js files into ts files" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: reorganize folders, turns js files into ts files" />
+  </component>
+</project>

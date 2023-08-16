@@ -3,7 +3,7 @@ import {Button, Form, Typography} from 'antd';
 
 const {Title} = Typography;
 
-function addGames() {
+function AddGames() {
 
     const layout = {
         labelCol: {span: 8},
@@ -13,14 +13,13 @@ function addGames() {
         wrapperCol: {offset: 8, span: 16},
     };
 
-    const onFinish = values => {
-        console.log('Success:', values);
-    };
+    function onFinishFailed() {
 
-    const onFinishFailed = errorInfo => {
-        console.log('Failed:', errorInfo);
-    };
+    }
 
+    function onFinish() {
+
+    }
 
     return (
         <Form
@@ -42,4 +41,4 @@ function addGames() {
     )
 }
 
-export default addGames
+export default AddGames

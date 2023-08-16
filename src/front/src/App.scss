@@ -1,0 +1,49 @@
+#root, .ant-layout {
+    height: 100%;
+}
+
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.App {
+    text-align: center;
+}
+
+.site-layout-content {
+    padding: 24px;
+    min-height: 280px;
+}
+
+.ant-pagination-options {
+    display: none;
+}
+
+.ant-layout {
+    height: 100vh;
+}
+
+.ant-layout, .ant-layout-header, .ant-layout-footer {
+    background: #ffffff;
+}
+
+.ant-layout-header {
+    padding: 0;
+}
+
+.ant-menu {
+    background: none;
+}
+
+#components-layout-demo-top .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+}
+
