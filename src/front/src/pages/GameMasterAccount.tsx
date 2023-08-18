@@ -19,9 +19,9 @@ function GameMasterAccount() {
     }, []);
 
     return (<Content style={{padding: '0 50px'}}>
-        <Title>Game Master Account</Title>
+        <Title>Vos annonces</Title>
         <List
-            header={<div>Your Games</div>}
+            header={<Title level={3}>Jeux</Title>}
             bordered
             dataSource={listGames}
             renderItem={(item: IGame) => (

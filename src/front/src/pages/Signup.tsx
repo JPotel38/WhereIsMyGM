@@ -264,7 +264,7 @@ function Signup() {
                         })
                     )}
                             disabled={!isPasswordsMatch}>
-                        Submit
+                        Valider
                     </Button>
                 </Form.Item>
             </Form>

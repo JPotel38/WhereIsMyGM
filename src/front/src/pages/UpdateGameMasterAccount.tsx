@@ -89,7 +89,7 @@ function UpdateGameMasterAccount() {
 
     return (
         <Content style={{padding: '0 50px'}}>
-            <Title>Game Master account</Title>
+            <Title>Vos annonces</Title>
             <Form
                 form={form}
                 name="basic"
@@ -103,7 +103,7 @@ function UpdateGameMasterAccount() {
                 >
                     <Select
                         showSearch
-                        placeholder="Select a city"
+                        placeholder="Sélectionner une ville"
                         optionFilterProp="children"
                         onSearch={(e) => handleSearchCity(e)}
                         onChange={(e) => handleSelectCity(e)}
@@ -130,7 +130,7 @@ function UpdateGameMasterAccount() {
 
                 <Form.Item>
                     <Button type="primary" htmlType="submit" onClick={() => validInfos()}>
-                        Submit
+                        Valider
                     </Button>
                 </Form.Item>
             </Form>

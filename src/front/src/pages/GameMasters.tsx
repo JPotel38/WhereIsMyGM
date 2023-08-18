@@ -82,12 +82,12 @@ function GameMasters() {
 
     return (
         <Content style={{padding: '0 50px'}}>
-            <Title>Game Masters</Title>
+            <Title>Maîtres du jeu</Title>
 
             <Select
                 showSearch
                 style={{width: 600}}
-                placeholder="Sélectionnez un jeu"
+                placeholder="Sélectionner un jeu"
                 optionFilterProp="children"
                 onChange={onChangeJeu}
                 filterOption={true}
@@ -102,7 +102,7 @@ function GameMasters() {
             <Select
                 showSearch
                 style={{width: 250}}
-                placeholder="Select a localisation"
+                placeholder="Sélectionner une localisation"
                 onChange={onChangeCity}
             >
                 {localisationList.map((item, index) => {
@@ -126,7 +126,7 @@ function GameMasters() {
                     }
                 })}
             </Select>
-            {isGameSelected ? <Button onClick={clearButton}>Clear</Button> : null}
+            {isGameSelected ? <Button onClick={clearButton}>Effacer</Button> : null}
 
             <div className="site-card-wrapper">
                 <Row gutter={16}>
@@ -135,7 +135,7 @@ function GameMasters() {
                             <Card>
                                 <Meta
                                     avatar={<Avatar src={item.profilePicture}/>}
-                                    title={item.userPseudo + " de " + item.address.city + " en " + item.address.departement + " (" + item.address.region + ")"}
+                                    title={item.userPseudo + " de " + item.address.city + " - " + item.address.departement }
                                     description={item.smallDescription}
                                 />
                             </Card>

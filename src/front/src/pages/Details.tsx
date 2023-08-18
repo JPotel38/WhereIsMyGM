@@ -35,7 +35,6 @@ function Details() {
                 <Text strong>Edition:</Text><Text> {gameGenre}</Text>
                 <Text strong>Author:</Text><Text> {gameAuthor}</Text>
             </Space>
-            <Title level={3}>Why is it fun ?</Title>
         </Content>
     )
 }

@@ -30,11 +30,11 @@ function AddGames() {
             onFinishFailed={onFinishFailed}
         >
 
-            <Title level={2}>Here you will be able to add a game to the database !</Title>
+            <Title level={2}>Ici vous pouvez ajouter un jeu à notre base de données.</Title>
 
             <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit">
-                    Submit
+                    Valider
                 </Button>
             </Form.Item>
         </Form>

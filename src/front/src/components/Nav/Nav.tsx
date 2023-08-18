@@ -18,8 +18,8 @@ function NavComponent() {
     };
 
     const menu = (<Menu>
-        <Menu.Item key="1"><Link to="/account">Account</Link></Menu.Item>
-        <Menu.Item key="2"> <Button onClick={logout}>Logout</Button></Menu.Item>
+        <Menu.Item key="1"><Link to="/account">Compte</Link></Menu.Item>
+        <Menu.Item key="2"> <Button onClick={logout}>Déconnexion</Button></Menu.Item>
     </Menu>);
 
     return (<Header>
@@ -30,18 +30,18 @@ function NavComponent() {
                 </Title>
             </Menu.Item>
             <Menu.Item key="1">
-                <Link to="/gm">Game Masters</Link>
+                <Link to="/gm">Maîtres du jeu</Link>
             </Menu.Item>
             <Menu.Item key="2">
-                <Link to="/games">Games</Link>
+                <Link to="/games">Jeux</Link>
             </Menu.Item>
             {auth.data?.user?.isGameMaster ? <>
                 <Menu.Item key="4" className="nav-link">
-                    <Button><Link to="/gmaccount">GM account</Link></Button>
+                    <Button><Link to="/gmaccount">Compte maître du jeu</Link></Button>
                 </Menu.Item>
             </> : (<>
                 <Menu.Item key="4" className="nav-link">
-                    <Button><Link to="/signupGM">Becoming a GM</Link></Button>
+                    <Button><Link to="/signupGM">Devenir un maître du jeu</Link></Button>
                 </Menu.Item>
             </>)}
             {auth.data?.user? (<Menu.Item key="3" className="account-dropdown" style={{float: 'right'}}>
@@ -52,10 +52,10 @@ function NavComponent() {
                 </Dropdown>
             </Menu.Item>) : (<>
                 <Menu.Item key="5" className="nav-link" style={{float: 'right'}}>
-                    <Link to="/login">Log in</Link>
+                    <Link to="/login">Connexion</Link>
                 </Menu.Item>
                 <Menu.Item key="6" className="nav-link" style={{float: 'right'}}>
-                    <Link to="/signup">Sign up</Link>
+                    <Link to="/signup">Inscription</Link>
                 </Menu.Item>
             </>)}
         </Menu>

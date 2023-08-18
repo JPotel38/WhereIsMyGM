@@ -81,7 +81,7 @@ function Games() {
         <Select
             showSearch
             style={{width: 400}}
-            placeholder="Select a game"
+            placeholder="Sélectionner un jeu"
             onChange={onChangeJeu}
             filterOption={(input: string, option: any) =>
                 option?.children?.includes(input.toLowerCase())
@@ -91,21 +91,21 @@ function Games() {
         <Select
             showSearch
             style={{width: 200}}
-            placeholder="Select a genre"
+            placeholder="Sélectionner un genre"
             optionFilterProp="children"
             onChange={onChangeGenre}
             filterOption={(input: string, option: any) =>
                 option?.children?.filter((op: any) => op.toLowerCase() === input.toLowerCase())
             }>
             <Option value="Fantasy">Fantasy</Option>
-            <Option value="Fantastique">Fantastic</Option>
-            <Option value="Historique">Historical</Option>
-            <Option value="Horreur">Horror</Option>
+            <Option value="Fantastique">Fantastique</Option>
+            <Option value="Historique">Historique</Option>
+            <Option value="Horreur">Horreur</Option>
             <Option value="Science-Fiction">Science-Fiction</Option>
             <Option value="Space-Opera">Space-Opera</Option>
         </Select>
-        <Button onClick={randomGame}><FaDiceD20/> Random game</Button>
-        {random.length === 1 || gameIsSelected ? <Button onClick={clearButton}>Clear</Button> : null}
+        <Button onClick={randomGame}><FaDiceD20/>Jeu au hasard</Button>
+        {random.length === 1 || gameIsSelected ? <Button onClick={clearButton}>Effacer</Button> : null}
         <div className="site-card-wrapper">
             <List
                 grid={{

@@ -76,7 +76,7 @@ function Login() {
                         {'Content-Type': 'application/x-www-form-urlencoded'},
                         `email=${email}&password=${password}`
                     )}>
-                        Submit
+                        Valider
                     </Button>
                 </Form.Item>
             </Form>
