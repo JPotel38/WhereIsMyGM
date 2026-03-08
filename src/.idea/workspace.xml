@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="90f10f7d-4e70-4f46-9624-72497186c4e5" name="Default Changelist" comment="EJS for now" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="refacto" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nOOBQtzdUuqB3rY9Ewi7nRxUUy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90f10f7d-4e70-4f46-9624-72497186c4e5" name="Default Changelist" comment="" />
+      <created>1611257534859</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611257534859</updated>
+      <workItem from="1611257536173" duration="87000" />
+      <workItem from="1611257639090" duration="4060000" />
+      <workItem from="1611339748629" duration="5702000" />
+      <workItem from="1611406715687" duration="274000" />
+      <workItem from="1611419750746" duration="5839000" />
+      <workItem from="1611493622735" duration="8524000" />
+      <workItem from="1611602291752" duration="1673000" />
+      <workItem from="1611682812281" duration="6690000" />
+      <workItem from="1612116655635" duration="34000" />
+      <workItem from="1612117472556" duration="684000" />
+      <workItem from="1612204203579" duration="244000" />
+      <workItem from="1625507411635" duration="5372000" />
+      <workItem from="1626011868941" duration="14000" />
+      <workItem from="1626030377618" duration="11000" />
+    </task>
+    <task id="LOCAL-00001" summary="First commit on api branch">
+      <created>1611259371406</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611259371406</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Clear and random buttons works !">
+      <created>1611503297524</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611503297524</updated>
+    </task>
+    <task id="LOCAL-00003" summary="pagination">
+      <created>1612117674175</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1612117674175</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Initial Commit after cleaning">
+      <created>1625509111100</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509111100</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Screens">
+      <created>1625509136197</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509136197</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Screens - 2">
+      <created>1625509168016</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509168016</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Routes">
+      <created>1625509178675</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509178675</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Utils">
+      <created>1625509185684</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509185684</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Models">
+      <created>1625509193359</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509193359</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Initial Commit after cleaning">
+      <created>1625509666324</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509666324</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Screens">
+      <created>1625509699863</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509699863</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Utils">
+      <created>1625509708382</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509708382</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Routes">
+      <created>1625509740623</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509740623</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Models">
+      <created>1625509748636</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509748636</updated>
+    </task>
+    <task id="LOCAL-00015" summary="The Holy Frontdoor">
+      <created>1625509777919</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1625509777919</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update index.html">
+      <created>1625510113437</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1625510113437</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Minor refact on metadata/icon">
+      <created>1625511121943</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1625511121943</updated>
+    </task>
+    <task id="LOCAL-00018" summary="EJS for now">
+      <created>1625511368460</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1625511368460</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First commit on api branch" />
+    <MESSAGE value="Clear and random buttons works !" />
+    <MESSAGE value="pagination" />
+    <MESSAGE value="Screens - 2" />
+    <MESSAGE value="Initial Commit after cleaning" />
+    <MESSAGE value="Screens" />
+    <MESSAGE value="Utils" />
+    <MESSAGE value="Routes" />
+    <MESSAGE value="Models" />
+    <MESSAGE value="The Holy Frontdoor" />
+    <MESSAGE value="Update index.html" />
+    <MESSAGE value="Minor refact on metadata/icon" />
+    <MESSAGE value="EJS for now" />
+    <option name="LAST_COMMIT_MESSAGE" value="EJS for now" />
+  </component>
+</project>

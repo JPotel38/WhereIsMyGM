@@ -2,7 +2,7 @@ export interface ICity {
     "nom": string;
     "code": string;
     "_score": number;
-    "departement": {
+    "department": {
         "code": string;
         "nom": string;
     },

@@ -3,14 +3,13 @@ const router = express.Router();
 const UserModel = require('../models/users');
 
 router.get('/listusers', async function (req, res) {
-
-    const users = await UserModel.find().populate('listGames');
-    res.send(users)
+    const users = await UserModel.find_populate();
+    res.send(users);
 });
 
 router.get('/gamesbyuser/:userId', async function (req, res) {
     try {
-        const userGames = await UserModel.findById(req.params.userId).populate('listGames');
+        const userGames = await UserModel.findById_populate(req.params.userId);
         res.json(userGames);
     } catch (err) {
         console.error(err);
@@ -20,7 +19,7 @@ router.get('/gamesbyuser/:userId', async function (req, res) {
 
 router.get('/listusersbygame/:gameId', async function (req, res) {
     try {
-        const userGames = await UserModel.find({listGames: {$in: req.params.gameId}}).exec()
+        const userGames = await UserModel.find({ listGames: { $in: req.params.gameId } });
         res.json(userGames);
     } catch (err) {
         console.error(err);
@@ -28,15 +27,13 @@ router.get('/listusersbygame/:gameId', async function (req, res) {
     }
 });
 
-
 router.delete('/deletegame/:userId/:gameId', async function (req, res) {
     try {
         const user = await UserModel.findByIdAndUpdate(
             req.params.userId,
-            {$pull: {listGames: req.params.gameId}},
-            {new: true}
-        ).exec();
-
+            { $pull: { listGames: req.params.gameId } },
+            { new: true }
+        );
         res.json(user.listGames);
     } catch (err) {
         console.error(err);
@@ -46,15 +43,11 @@ router.delete('/deletegame/:userId/:gameId', async function (req, res) {
 
 router.post('/addgame/:userId/:gameId', async function (req, res) {
     try {
-        const userId = req.params.userId;
-        const gameId = req.params.gameId;
-
         const user = await UserModel.findByIdAndUpdate(
-            userId,
-            {$addToSet: {listGames: gameId}},
-            {new: true}
-        ).exec();
-
+            req.params.userId,
+            { $addToSet: { listGames: req.params.gameId } },
+            { new: true }
+        );
         res.json(user.listGames);
     } catch (err) {
         console.error(err);
@@ -64,22 +57,20 @@ router.post('/addgame/:userId/:gameId', async function (req, res) {
 
 router.post('/adress/:userId', async function (req, res) {
     try {
-        const userId = req.params.userId;
-        const {city, departement, postalCode, region, country} = req.body
+        const { city, department, postalCode, region, country } = req.body;
         const user = await UserModel.findByIdAndUpdate(
-            userId,
+            req.params.userId,
             {
                 $set: {
                     'address.city': city,
-                    'address.departement': departement,
+                    'address.department': department,
                     'address.postalCode': postalCode,
                     'address.region': region,
                     'address.country': country
                 }
             },
-            {new: true}
-        ).exec();
-
+            { new: true }
+        );
         res.json(user);
     } catch (err) {
         console.error(err);

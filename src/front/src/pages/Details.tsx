@@ -1,11 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Layout, Space, Typography} from 'antd';
 import '../App.scss';
 import {useParams} from "react-router-dom";
 import useGameDetailsHook from "../hooks/useGameDetailsHook";
-
-const {Content} = Layout;
-const {Title, Text} = Typography;
 
 function Details() {
 
@@ -27,16 +23,16 @@ function Details() {
         findGame();
     }, [id]);
 
-    return (
-        <Content style={{padding: '0 50px'}}>
-            <Title>{gameTitle}</Title>
-            <Space direction="vertical">
-                <Text strong>Genre:</Text><Text>{gameEdition}</Text>
-                <Text strong>Edition:</Text><Text> {gameGenre}</Text>
-                <Text strong>Author:</Text><Text> {gameAuthor}</Text>
-            </Space>
-        </Content>
-    )
+    // return (
+    //     <Content style={{padding: '0 50px'}}>
+    //         <Title>{gameTitle}</Title>
+    //         <Space direction="vertical">
+    //             <Text strong>Genre:</Text><Text>{gameEdition}</Text>
+    //             <Text strong>Edition:</Text><Text> {gameGenre}</Text>
+    //             <Text strong>Author:</Text><Text> {gameAuthor}</Text>
+    //         </Space>
+    //     </Content>
+    // )
 }
 
 export default Details;

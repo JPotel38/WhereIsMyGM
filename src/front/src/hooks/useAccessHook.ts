@@ -1,10 +1,10 @@
 import {useContext} from "react";
 import {authContext} from "../AuthContext";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function useAccess() {
     const {setAuthData} = useContext(authContext);
-    const history = useHistory();
+    const history = useNavigate();
 
     const access = async (url: string, headers: {}, body: string) => {
         const response = await fetch(url, {

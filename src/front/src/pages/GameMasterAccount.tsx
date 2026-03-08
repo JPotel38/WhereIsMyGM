@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import '../App.scss';
-import {Button, List} from "antd";
-import {Content} from "antd/es/layout/layout";
-import Title from "antd/es/typography/Title";
 import {Link} from "react-router-dom";
 import {IGame} from "../interfaces/GameInterface";
 import useGamesByUserHook from "../hooks/useGamesByUserHook";
@@ -18,20 +15,20 @@ function GameMasterAccount() {
         fetchGames();
     }, []);
 
-    return (<Content style={{padding: '0 50px'}}>
-        <Title>Vos annonces</Title>
-        <List
-            header={<Title level={3}>Jeux</Title>}
-            bordered
-            dataSource={listGames}
-            renderItem={(item: IGame) => (
-                <List.Item>
-                    {item.title} {item.edition}
-                </List.Item>
-            )}
-        />
-        <Button><Link to="/updategmaccount">Modifier</Link></Button>
-    </Content>)
+    // return (<Content style={{padding: '0 50px'}}>
+    //     <Title>Vos annonces</Title>
+    //     <List
+    //         header={<Title level={3}>Jeux</Title>}
+    //         bordered
+    //         dataSource={listGames}
+    //         renderItem={(item: IGame) => (
+    //             <List.Item>
+    //                 {item.title} {item.edition}
+    //             </List.Item>
+    //         )}
+    //     />
+    //     <Button><Link to="/updategmaccount">Modifier</Link></Button>
+    // </Content>)
 }
 
 export default GameMasterAccount

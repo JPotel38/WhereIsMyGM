@@ -19,7 +19,7 @@ export interface IUser {
 
 export interface IAddress {
     city: string;
-    departement: string;
+    department: string;
     postalCode: string;
     region: string;
     country: string;

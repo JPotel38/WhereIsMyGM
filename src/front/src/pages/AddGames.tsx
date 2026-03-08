@@ -1,7 +1,4 @@
 import React from 'react';
-import {Button, Form, Typography} from 'antd';
-
-const {Title} = Typography;
 
 function AddGames() {
 
@@ -21,24 +18,24 @@ function AddGames() {
 
     }
 
-    return (
-        <Form
-            {...layout}
-            name="basic"
-            initialValues={{remember: true}}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-        >
-
-            <Title level={2}>Ici vous pouvez ajouter un jeu à notre base de données.</Title>
-
-            <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
-                    Valider
-                </Button>
-            </Form.Item>
-        </Form>
-    )
+    // return (
+    //     <Form
+    //         {...layout}
+    //         name="basic"
+    //         initialValues={{remember: true}}
+    //         onFinish={onFinish}
+    //         onFinishFailed={onFinishFailed}
+    //     >
+    //
+    //         <Title level={2}>Ici vous pouvez ajouter un jeu à notre base de données.</Title>
+    //
+    //         <Form.Item {...tailLayout}>
+    //             <Button type="primary" htmlType="submit">
+    //                 Valider
+    //             </Button>
+    //         </Form.Item>
+    //     </Form>
+    // )
 }
 
 export default AddGames

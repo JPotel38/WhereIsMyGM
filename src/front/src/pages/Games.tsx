@@ -1,18 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Button, Card, Layout, List, Select, Typography} from 'antd';
 import {FaDiceD20} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import '../App.scss';
-import {PlusOutlined, SearchOutlined} from "@ant-design/icons";
 import {authContext} from "../AuthContext";
 import useGamesList from "../hooks/useGamesListHook";
 import {IGame} from "../interfaces/GameInterface";
 import {IUser} from "../interfaces/UserInterface";
 import useAddGameByIdByUser from "../hooks/useAddGameByIdByUserHook";
-
-const {Content} = Layout;
-const {Title} = Typography;
-const {Option} = Select;
 
 function Games() {
     const [random, setRandom] = useState([]);
@@ -76,61 +70,61 @@ function Games() {
         setGameId(gameId)
     }
 
-    return (<Content style={{padding: '0 50px'}}>
-        <Title>Games</Title>
-        <Select
-            showSearch
-            style={{width: 400}}
-            placeholder="Sélectionner un jeu"
-            onChange={onChangeJeu}
-            filterOption={(input: string, option: any) =>
-                option?.children?.includes(input.toLowerCase())
-            }>
-            {listGamesTitles.map((items, k) => <Option key={k} value={items}>{items}</Option>)}
-        </Select>
-        <Select
-            showSearch
-            style={{width: 200}}
-            placeholder="Sélectionner un genre"
-            optionFilterProp="children"
-            onChange={onChangeGenre}
-            filterOption={(input: string, option: any) =>
-                option?.children?.filter((op: any) => op.toLowerCase() === input.toLowerCase())
-            }>
-            <Option value="Fantasy">Fantasy</Option>
-            <Option value="Fantastique">Fantastique</Option>
-            <Option value="Historique">Historique</Option>
-            <Option value="Horreur">Horreur</Option>
-            <Option value="Science-Fiction">Science-Fiction</Option>
-            <Option value="Space-Opera">Space-Opera</Option>
-        </Select>
-        <Button onClick={randomGame}><FaDiceD20/>Jeu au hasard</Button>
-        {random.length === 1 || gameIsSelected ? <Button onClick={clearButton}>Effacer</Button> : null}
-        <div className="site-card-wrapper">
-            <List
-                grid={{
-                    gutter: 16, xs: 1, sm: 1, md: 3, lg: 3, xl: 3, xxl: 4
-                }}
-                itemLayout="vertical"
-                size="large"
-                loading={filteredListGames.length === 0}
-                pagination={{
-                    pageSize: 12
-                }}
-                dataSource={isRandom ? random : filteredListGames}
-                renderItem={(item: IGame) => (<List.Item key={item.title}>
-                    <Card title={item.title}>
-                        <p>Edition : {item.edition}</p>
-                        <p>Genre : {item.genre}</p>
-                        <Button> <Link to={`/details/${item._id}`}>
-                            <SearchOutlined/>Details</Link></Button>
-                        {auth?.data?.user?.isGameMaster ? <Button
-                            onClick={() => addGame(item._id)}><PlusOutlined/></Button> : null}
-                    </Card>
-                </List.Item>)}
-            />
-        </div>
-    </Content>)
+    // return (<Content style={{padding: '0 50px'}}>
+    //     <Title>Games</Title>
+    //     <Select
+    //         showSearch
+    //         style={{width: 400}}
+    //         placeholder="Sélectionner un jeu"
+    //         onChange={onChangeJeu}
+    //         filterOption={(input: string, option: any) =>
+    //             option?.children?.includes(input.toLowerCase())
+    //         }>
+    //         {listGamesTitles.map((items, k) => <Option key={k} value={items}>{items}</Option>)}
+    //     </Select>
+    //     <Select
+    //         showSearch
+    //         style={{width: 200}}
+    //         placeholder="Sélectionner un genre"
+    //         optionFilterProp="children"
+    //         onChange={onChangeGenre}
+    //         filterOption={(input: string, option: any) =>
+    //             option?.children?.filter((op: any) => op.toLowerCase() === input.toLowerCase())
+    //         }>
+    //         <Option value="Fantasy">Fantasy</Option>
+    //         <Option value="Fantastique">Fantastique</Option>
+    //         <Option value="Historique">Historique</Option>
+    //         <Option value="Horreur">Horreur</Option>
+    //         <Option value="Science-Fiction">Science-Fiction</Option>
+    //         <Option value="Space-Opera">Space-Opera</Option>
+    //     </Select>
+    //     <Button onClick={randomGame}><FaDiceD20/>Jeu au hasard</Button>
+    //     {random.length === 1 || gameIsSelected ? <Button onClick={clearButton}>Effacer</Button> : null}
+    //     <div className="site-card-wrapper">
+    //         <List
+    //             grid={{
+    //                 gutter: 16, xs: 1, sm: 1, md: 3, lg: 3, xl: 3, xxl: 4
+    //             }}
+    //             itemLayout="vertical"
+    //             size="large"
+    //             loading={filteredListGames.length === 0}
+    //             pagination={{
+    //                 pageSize: 12
+    //             }}
+    //             dataSource={isRandom ? random : filteredListGames}
+    //             renderItem={(item: IGame) => (<List.Item key={item.title}>
+    //                 <Card title={item.title}>
+    //                     <p>Edition : {item.edition}</p>
+    //                     <p>Genre : {item.genre}</p>
+    //                     <Button> <Link to={`/details/${item._id}`}>
+    //                         <SearchOutlined/>Details</Link></Button>
+    //                     {auth?.data?.user?.isGameMaster ? <Button
+    //                         onClick={() => addGame(item._id)}><PlusOutlined/></Button> : null}
+    //                 </Card>
+    //             </List.Item>)}
+    //         />
+    //     </div>
+    // </Content>)
 }
 
 export default Games;
